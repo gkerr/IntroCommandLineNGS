@@ -1,0 +1,81 @@
+Overall Structure
+
+•	File Navigation
+•	File types for NGS
+•	Getting help – reading manuals
+•	Each section will include commands that do not work. These could be of the form: “The next command will not work. Why?” to “This will not work for one of 3 reasons, which are a) b) c) – which one is it” Make the command work.	
+
+========
+
+1.	File Navigation/Unix environment 
+
+Example 1: Absolute Path (use samtools/samstat/fastqc as tool)
+Example 2: relative Path (use samtools/samstat/fastqc as tool)
+Example 3: Auto complete with tab (use samtools/samstat/fastqc as tool)
+Example 3: File permissions (e.g. ls /bin ?? ls ~)
+Example 4: Everything is a file
+Example 5: which
+Example 5: Environment variables and paths (getting and setting)
+Example 6: echo
+
+a.	Summary of section method? Quiz round?
+b.	Extra info boxes
+i.	Performing command on multiple files: find or for with e.g. ls  
+ii.	In line execution statements (`) ?
+
+2.	File Types
+
+Fasta/fa/fai
+Fastq
+GFF
+Rod
+Sam/bam/bai
+Ebwt
+refSeq
+
+Online databases – where to get this data e.gs:
+Ensembl
+UCSC
+NCBI
+Flybase
+
+
+•	Example 1 – head
+•	Example 2 – tail
+•	Example 3 – less (?)
+•	Example 4 – wc -l
+•	Example 5 – grep -H
+•	Example 6 – pipe ( e.g grep “chr1” myReferenceFile | wc –l )
+
+a.	Participants will split into groups to research file types (google it). Will present a file type at random (pull from hat?). Could chance to ask questions and get discussion among participants
+b.	Extra info boxes:
+i.	ftp to get a lot of data at once
+ii.	wget
+iii.	tar
+iv.	file corrupted end – anyway to fix it?
+v.	sed (to get e.g. sample name/version number, from file name )
+
+3.	Getting help – reading manuals
+
+•	Example 1 – fastqc 
+•	Example 2 – bowtie
+•	Example 3  - samtools to sort files, view sections of files, 
+•	Example 4  – GATK to get GC content, cut adapters, get coverage (? Bit advanced)
+
+a.	Large emphasis on how to read manual/help pages
+b.	What the command expects as input – required parameters and optional
+c.	What will the output of the command be.
+
+
+
+Round up:
+•	Quiz style summary of day, where participants could create the questions/create an exercise.
+
+===========
+
+Notes:
+1.	Commands should be given as images, so participants cannot copy and paste.
+2.	Make sure they know that they should get support to install and set up computer. Emphasise they should get in contact with relevant people at their institutions.
+3.	Point out that very useful tools are galaxy and taverna, which have a lot of unix commnds in graphical form and that you can build pipelines to share with others/importance of reproducible research (merging, concatenating, extracting columns from text files, search and replace)
+4.	Can ask people to bring cake/luncheon material.Getting people involved HUB style ☺
+5.	If weather permits could have bbq afterwards.

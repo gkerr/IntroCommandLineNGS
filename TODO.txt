@@ -1,0 +1,6 @@
+To do:
+
+Samtutorial:
+	Change commands into images
+	TODO list in file
+	All examples can be run with the other files also - indicate this somewhere and mix it up a little bit.

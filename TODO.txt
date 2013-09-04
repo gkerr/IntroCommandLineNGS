@@ -4,3 +4,9 @@ Samtutorial:
 	Change commands into images
 	TODO list in file
 	All examples can be run with the other files also - indicate this somewhere and mix it up a little bit.
+
+Linux commands Section 1:
+	Send out to participants beforehand?
+
+
+Format the files.

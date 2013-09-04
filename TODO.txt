@@ -1,5 +1,7 @@
 To do:
 
+Prepare handout and exercises
+
 Samtutorial:
 	Change commands into images
 	TODO list in file

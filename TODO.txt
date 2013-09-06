@@ -6,9 +6,16 @@ Samtutorial:
 	Change commands into images
 	TODO list in file
 	All examples can be run with the other files also - indicate this somewhere and mix it up a little bit.
+	
+Cuffdiff:
+	Make sure dros_BD5.25.gff is formatting correctly :-/
+	
+
 
 Linux commands Section 1:
 	Send out to participants beforehand?
 
 
-Format the files.
+Format the files!!! (Sphinx - as holger suggested .rst)
+Upload data to ftp server so as others can download and get access.
+

@@ -1,0 +1,1 @@
+Some parts of the beginner exercise refer to login to a machine (sub-master.embl.de) that we don't have access. Need to edit the text where relevant.

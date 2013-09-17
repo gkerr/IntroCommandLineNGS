@@ -61,6 +61,7 @@ SAM/BAM/BAI:
 * http://genome.sph.umich.edu/wiki/SAM
 * http://samtools.sourceforge.net/SAMv1.pdf
 * http://blog.nextgenetics.net/?e=18 = bitwise flags
+* http://picard.sourceforge.net/explain-flags.html
 
 FASTA/FASTQ:
 ''''''''''''

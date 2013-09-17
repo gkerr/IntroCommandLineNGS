@@ -65,6 +65,7 @@ To get the statistics of the arm.bam file using samstat. This will create a html
    > samstat arm.bam
 
 Task
---------
+'''''''
+
 Use samstat to create html report for ``arm.fastq`` and ``FL1-1.sam``
 

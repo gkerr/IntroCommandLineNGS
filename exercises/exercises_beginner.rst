@@ -36,7 +36,7 @@ Permissions
 #. Try running it as ``./date`` or ``adir/date`` (depending on your current working directory)
 #. Change the permissions back so that the file is executable.
 #. Try running it as ``./date`` or ``adir/date`` (depending on your current working directory)
-#. Copy a textfile from a previos exercise into adir, then change the permissions, so you are not allowed to write to it.
+#. Copy a textfile from a previous exercise into adir, then change the permissions, so you are not allowed to write to it.
 #. Then change the permissions so you can't read/cat it either.
 #. Change your working directory to testpermissions, and then try changing the permissions on adir.
 #. What are the minimum permissions (on the directory) necessary for you to be able to execute ``adir/date``?

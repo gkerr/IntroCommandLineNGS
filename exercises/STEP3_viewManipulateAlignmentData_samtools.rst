@@ -2,43 +2,30 @@ Samtools
 #####################################
 
 
-You will need to know:
-- What a sam/bam file is
-- Less/head/tail/grep
-- File paths
-
-Data files (found in the data folder):
-- smo.bam
-- arm.bam
-- fl1-1.bam
-- f11-2.bam
-- header.sam
-- dnaSeq1.bam
-- dnaSeq2.bam
-- intervalFile.bed
 
 Website:
-http://samtools.sourceforge.net/
-http://samtools.sourceforge.net/samtools-c.shtml
-http://samtools.sourceforge.net/samtools.shtml
+
+- http://samtools.sourceforge.net/
+- http://samtools.sourceforge.net/samtools-c.shtml
+- http://samtools.sourceforge.net/samtools.shtml
 
 
 samtools is a set of scripts (a toolbox so to say) that can be used to manipulate and view sam/bam files. In particular you can: sort, index, merge, view these files.
 
 
-Getting help
+**Getting help**
 
 To print a list of all the tools available in the samtools suite, simply type samtools on the command line
 
  ::
  
-  samtools
+  > samtools
 
 To print a list of the parameters required and options available with each tool in the suite, simply type samtools followed by the name of the tool on the command line. For example, to get a list of the options available for the “view” tool in the samtools suite, simply type:
 
  ::
  
-  samtools view
+  > samtools view
 
 View bam files:
 
@@ -64,9 +51,10 @@ Now try:
  
   samtools view –H smo.bam > smo.header.sam
 
-- What does the “> smo.header.sam” of the above statement do?
-- What information is stored in the header of the sam file?
-- From the header of the file, can you tell which alignment program was used to generate the bam file
+.. topic:: Review Questions
+  - What does the “> smo.header.sam” of the above statement do?
+  - What information is stored in the header of the sam file?
+  - From the header of the file, can you tell which alignment program was used to generate the bam file
 
 TO DO: Ask more specific question about header in file  e.g. what alignment program was used to generate alignment
 TO DO: View a specific region of a file
@@ -78,9 +66,11 @@ Count the number of alignments in a bam file
   
   samtools view –c smo.bam
 
-- Can you use samtools to count the number of alignments above a quality score of 20 in your file?
-- What does the quality score of an alignment indicate?
-- How many alignments are in the arm.bam above a quality score of 50
+
+.. topic:: Review Questions
+  - Can you use samtools to count the number of alignments above a quality score of 20 in your file?
+  - What does the quality score of an alignment indicate?
+  - How many alignments are in the arm.bam above a quality score of 50
 
 TODO: other flags/filtering options
 

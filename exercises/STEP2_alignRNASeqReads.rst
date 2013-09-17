@@ -12,7 +12,7 @@ To get information on tophat, open a terminal window and type
 
  ::
   
-  tophat -h 
+  > tophat -h 
 
 The raw data is called arm.Xsubset.fastq in your home directory, in folder called course_data ``arm.Xsubset.fastq``
 
@@ -25,23 +25,22 @@ Note: remember to specify the output directory in the tophat command
 
  :: 
 
-  mkdir -p ~/course_data_output/arm
+  > mkdir -p ~/course_data_output/arm
 
 .. note::  Specify option --no-coverage-search in the tophat command. This will speed things up.
 
-Review questions
-------------------------------
+.. topic:: Review questions
 
-- What does tophat do?
-- What kind of aligner is tophat?
-- What is the "bowtie-index"?
-- How can specifying more mismatches with the -n option change the output?
-- Why supply a gtf file to tophat?
-- What are the output files from the tophat aligner?
-- Why assemble transcripts with cufflinks?
-- What is the gtf file and why do I need it?
-- what data does the gtf file contain?
-- what does the last column in the gtf file contain?
+ - What does tophat do?
+ - What kind of aligner is tophat?
+ - What is the "bowtie-index"?
+ - How can specifying more mismatches with the -n option change the output?
+ - Why supply a gtf file to tophat?
+ - What are the output files from the tophat aligner?
+ - Why assemble transcripts with cufflinks?
+ - What is the gtf file and why do I need it?
+ - what data does the gtf file contain?
+ - what does the last column in the gtf file contain?
 
 
 
@@ -52,13 +51,13 @@ This dataset contains reads from a mRNA sample after RNAi knockdown of the smo g
 The arm gene is found on chromosome 2L of the drosophila Melanogaster genome.
 Here, to save time, we will restrict our analysis to this chromosome, 2L. You should for your own projects, you use all the genome information.
 
-Task: Align the reads to the 2L chromosome
+Your task is to align the reads to the 2L chromosome
 
 To get information on tophat, terminal window and type:
 
  ::
   
-  tophat -h 	
+  > tophat -h 	
 
 The raw data is called smo.2Lsubset.fastq  ``data/smo.2Lsubset.fastq``
 
@@ -70,12 +69,11 @@ The bowtie index is ``bowtieIndex/drosophilaMelanogaster.2L``
 .. note::  Specify option --no-coverage-search in the tophat command. This will speed things up.
 
 
-Review questions
-------------------------------
+.. topic:: Review questions
 
-- What does the -p option in tophat do?
-- How does --no-coverage search save time?
-- What does the -g option do?
+ - What does the -p option in tophat do?
+ - How does --no-coverage search save time?
+ - What does the -g option do?
 
 
 

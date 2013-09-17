@@ -59,7 +59,7 @@ Now try:
 - Use the samtools view (and read the help) to view a specific region e.g. all reads mapping to chromosome X
 
 
-** Count the number of alignments in a bam file**
+**Count the number of alignments in a bam file**
 
  ::
   
@@ -72,7 +72,7 @@ Now try:
 - What other flags/filtering options are there?
 
 
-** Create a bam index **
+**Create a bam index **
 
 Use samtools index to create an index of smo.bam
 
@@ -103,7 +103,7 @@ Note the usage of the index command in the samtools toolbox suite.
 - Change the above command so that the sorted reads are outputted to smo.sorted.bam
 
 
-** Merging sam files **
+**Merging sam files **
 
 Fl1-1.bam and FL1-2.bam are two technical replicates of the one control sample FL1. We would like to merge these two sam files.
 
@@ -123,12 +123,12 @@ Note the usage and run the command
 - Does this command work? Why not? (TODO: The files are sorted wrongly). Change the command so that the files can be merged.
 
 
-** Get summary statistics** 
+**Get summary statistics** 
 
 Use *samtools idxstats* to get summary statistics for the aligned file. Use the help.
 
 
-** Create a fasta file index: **
+**Create a fasta file index: **
 
  ::
   
@@ -137,7 +137,7 @@ Use *samtools idxstats* to get summary statistics for the aligned file. Use the 
 - What is the benefit of creating an index of a fasta file?
 
 
-** Create a pileup **
+**Create a pileup **
 
 samtools mpileup is a very useful utility for calling variants in alignment files. Read the help documentation carefully.
 

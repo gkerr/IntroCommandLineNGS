@@ -6,8 +6,10 @@ General:
 Data is from illumina sequencing in drosophila melanogaste.
 
 •	smo.bam:  alignemnt generated from sample after knockdown of smo gene
+	smo.2Lsubset.fastq
 •	arm.bam: alignment of reads generated from sample after knockdown of arm gene
 •	arm.fastq
+	arm.Xsubset.fastq
 •	fl1-1.bam: alignment generated from FLUC control, technical replicate 1
 •	f11-2.bam: alignment generated from FLUC control, technical replicate 2
 •	fl1-1.sam

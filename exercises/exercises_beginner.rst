@@ -36,7 +36,7 @@ Permissions
 #. Try running it as ``./date`` or ``adir/date`` (depending on your current working directory)
 #. Change the permissions back so that the file is executable.
 #. Try running it as ``./date`` or ``adir/date`` (depending on your current working directory)
-#. Copy a textfile from a previos exercise into adir, then change the permissions, so you are not allowed to write to it.
+#. Copy a textfile from a previous exercise into adir, then change the permissions, so you are not allowed to write to it.
 #. Then change the permissions so you can't read/cat it either.
 #. Change your working directory to testpermissions, and then try changing the permissions on adir.
 #. What are the minimum permissions (on the directory) necessary for you to be able to execute ``adir/date``?
@@ -55,7 +55,7 @@ Remote access
 
 #. Copy the file ``/etc/motd`` from machine sub-master.embl.de into your local home directory
 #. Determine the filetype and the permissions of the file that you just copied
-#. Login to your neighbor's machine (ask him for the hostname) using the username ``teach01`` (password will be given by teacher)
+#. Login to your neighbor's machine (ask them for the hostname) using the username ``teach01`` (password will be given by teacher)
 
 IO and Redirections
 -------------------

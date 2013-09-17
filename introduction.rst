@@ -14,7 +14,7 @@ Why Use the Commandline
 **************************************************
 General Remarks Regarding Using UNIX/Linux Systems
 **************************************************
--   **Test before run**. Anything written here has to be taken with a grain of salt. On another system – be it a different Linux distribution or another UNIXoid operating system – you might find the same command but without the support of some of the options tought here. It is even possible, that the same option has a different meaning on another system. With this in mind always make sure to test your commands (specially the “dangerous” ones which remove or modify files) when switching from one system to the other.
+-   **Test before run**. Anything written here has to be taken with a grain of salt. On another system – be it a different Linux distribution or another UNIXoid operating system – you might find the same command but without the support of some of the options tought here. It is even possible, that the same option has a different meaning on another system. With this in mind always make sure to test your commands (especially the “dangerous” ones which remove or modify files) when switching from one system to the other.
 -   **The Linux/UNIX environment**. The behaviour of many commands is influenced or controlled by the so-called “environment”. This environment is the sum of all your environment variables. Some of these environment variables will be shown towards the end of this course.
 -   **UPPERCASE, lowercase**. Don’t forget that everything is case-sensitive.
 -   **The Filesystem**. Linux filesystems start on top at the root directory (sic!) “/” which hierarchically broadens towards the ground.  The separator between directories or directories and files in Linux is the slash (“/”).
@@ -84,7 +84,7 @@ Getting Help
 ``-h/--help`` option, no parameters
 
 Many commands support a “help” option, either through ``-h`` or through ``--help``. 
-Other commands will show a help page or at least a short usage overview if you provide wrong commandline options
+Other commands will show a help page or at least a short usage overview if you provide incorrect commandline options
 
 man - show the manual page of a command
 ---------------------------------------
@@ -197,7 +197,7 @@ Special directories:
 - “``~``”:  Your homedirectory
 
 .. note:: Using :index:`cd` without a directory is equivalent to “``cd ~``” and changes into the users’s homedirectory
-.. note:: Please note the difference between absolute pathes (starting with "``/``") and relative pathes (starting with a directory name)
+.. note:: Please note the difference between absolute paths (starting with "``/``") and relative paths (starting with a directory name)
 
 ::
 

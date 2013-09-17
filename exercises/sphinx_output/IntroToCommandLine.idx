@@ -1,0 +1,35 @@
+\indexentry{man|hyperpage}{5}
+\indexentry{apropos|hyperpage}{5}
+\indexentry{date|hyperpage}{5}
+\indexentry{cd|hyperpage}{6}
+\indexentry{cp|hyperpage}{8}
+\indexentry{cat|hyperpage}{8}
+\indexentry{grep|hyperpage}{8}
+\indexentry{head|hyperpage}{9}
+\indexentry{file|hyperpage}{10}
+\indexentry{find|hyperpage}{10}
+\indexentry{clear|hyperpage}{10}
+\indexentry{chmod|hyperpage}{11}
+\indexentry{hostname|hyperpage}{11}
+\indexentry{whoami|hyperpage}{11}
+\indexentry{exit|hyperpage}{11}
+\indexentry{disconnect|hyperpage}{11}
+\indexentry{redirect|hyperpage}{12}
+\indexentry{grep|hyperpage}{12}
+\indexentry{append|hyperpage}{12}
+\indexentry{\textbar{}|hyperpage}{12}
+\indexentry{pipe|hyperpage}{12}
+\indexentry{grep|hyperpage}{12}
+\indexentry{environment variables|hyperpage}{12}
+\indexentry{\$HOME|hyperpage}{12}
+\indexentry{\$PATH|hyperpage}{12}
+\indexentry{\$PAGER|hyperpage}{12}
+\indexentry{less|hyperpage}{12}
+\indexentry{more|hyperpage}{12}
+\indexentry{\$PWD|hyperpage}{12}
+\indexentry{environment variables!display|hyperpage}{12}
+\indexentry{echo|hyperpage}{12}
+\indexentry{env|hyperpage}{12}
+\indexentry{environment variables!set|hyperpage}{13}
+\indexentry{set|hyperpage}{13}
+\indexentry{export|hyperpage}{13}

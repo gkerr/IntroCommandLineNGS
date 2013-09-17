@@ -6,17 +6,16 @@
 Introduction to the Linux Commandline for NGS analyses
 ======================================================
 
-Contents:
-
 .. toctree::
-  :maxdepth: 4
+
 
   introduction
   exercises/exercises_beginner.rst
 
-
   exercises/known_file_formats.rst
   ReadingList.rst
+
+  acknowledgments.rst
 
 .. Indices and tables
 .. ==================

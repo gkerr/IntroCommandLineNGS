@@ -74,7 +74,7 @@ Getting Help
 ``-h/--help`` option, no parameters
 
 Many commands support a “help” option, either through ``-h`` or through ``--help``. 
-Other commands will show a help page or at least a short usage overview if you provide wrong commandline options
+Other commands will show a help page or at least a short usage overview if you provide incorrect commandline options
 
 man - show the manual page of a command
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

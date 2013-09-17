@@ -13,7 +13,7 @@ One of the most important steps before spending lots of time on an analysis, is 
 
 Make a directory in your home directory called ``fastqcTest``.
 
-Recall, that when we don't know what a tool does, we can always get help (see section :ref:`help`:
+Recall, that when we don't know what a tool does, we can always get help (see section :ref:`help`):
 
 =======
 FastQC
@@ -80,5 +80,3 @@ Task
 
 Use samstat to create html report for ``arm.fastq`` and ``FL1-1.sam``
 
-adgadfgv
-=======

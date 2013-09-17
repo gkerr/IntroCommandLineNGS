@@ -14,6 +14,7 @@ One of the most important steps before spending lots of time on an analysis, is 
 Make a directory in your home directory called ``fastqcTest``.
 
 Recall, that when we don't know what a tool does, we can always get help (see section :ref:`help`:
+
 =======
 FastQC
 ---------
@@ -30,6 +31,7 @@ Get help on how to use fastqc
   > fastqc -h
 
 Report graphs allow us to gain a visual overview of the sequence data. To generate report graphs type the following:
+
 =======
 To generate an html report use the following:
 

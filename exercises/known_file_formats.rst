@@ -11,7 +11,12 @@ File Types to research and present:
 * Wig/bigWig
 
 
-Questions you could answer in your presentation (5 – 7 min)
+
+Presentation Task
+-------------------
+
+Give a white-board/flip-chart presentation on one of the above file types. Your presentation should be 5 - 7 mins.
+Questions you could answer in your presentation:
 
 * **What does each line in the file represent?**
 * **What does each column represent?**

@@ -5,17 +5,23 @@ Estimating Expression
 Example - Expression in the arm gene knockdown sample
 ----------------------------------------------------------
 
-We have used reads sequences obtained from a knockdown of the arm and smo gene in the drosophila S2 cell line to estimate gene expression. We used tophat to align the reads.  We will now use the output from this step, to look at gene expression in these samples. We will use a program called Cufflinks to do this.
+We have used reads sequences obtained from a knockdown of the *arm* and *smo* gene in the drosophila S2 cell line to estimate gene expression. We used tophat to align the reads.  We will now use the output from the tophat step, to look at gene expression in these samples. We will use a program called **Cufflinks** to do this.
 
-First, take the arm gene knockdown sample:
-
-Task: Assemble expressed genes and transcripts in the ARM knockdown with CUFFLINKS
+Let's first, take the arm gene knockdown sample and assemble expressed genes and transcripts in the ARM knockdown with CUFFLINKS
 	
 To get help
 
  ::
 
   cufflinks -h
+
+Note the output of them help command
+
+ ::
+ 
+  Usage: cufflinks [options]* <aligned_reads.(sam/bam)> 
+  
+The type abd position of *required* arguments to the cufflinks programs and in angular brackets "< >", while *optional* arguments are in square "[]" brackets.
 
 The output of tophat in step 1 can be found in your home directory at ``ARM-1_tophatOutput/accepted_hits.bam``
 	 
@@ -47,7 +53,7 @@ Task
 
 Assemble expressed genes and transcripts in the SMO knockdown with CUFFLINKS (similar to above)
 
-
+The output of tophat in step 1 can be found in your home directory at ``SMO-1_tophatOutput/accepted_hits.bam``
 
 
 
@@ -81,13 +87,12 @@ And for ARM these are:``ARM-1_tophatOuput/accepted_hits.bam``
   cuffdiff -o ARM_vs_CTRL_diffOut -b genomeRef/dros_BD5.25.fa -p 8 –L FL1_ctrl,arm -u geneRef/dros_BD5.25.gff  FL1-1_tophatOutput/accepted_hits.bam, FL2-1_tophatOutput/accepted_hits.bam ARM-1_tophatOuput/accepted_hits.bam
 
  
-Review Questions:
-----------------------
+.. topic:: Review Questions:
 
-- What normalization strategies are available with cuffdiff?
-- What is the -L option for?
-- Why are replicates important here?
-- What are the output files from cuff_diff?
+  - What normalization strategies are available with cuffdiff?
+  - What is the -L option for?
+  - Why are replicates important here?
+  - What are the output files from cuff_diff?
 
 Use your linux know how
 -------------------------------

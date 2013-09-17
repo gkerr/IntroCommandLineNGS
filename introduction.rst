@@ -187,7 +187,7 @@ Special directories:
 - “``~``”:  Your homedirectory
 
 .. note:: Using :index:`cd` without a directory is equivalent to “``cd ~``” and changes into the users’s homedirectory
-.. note:: Please note the difference between absolute pathes (starting with "``/``") and relative pathes (starting with a directory name)
+.. note:: Please note the difference between absolute paths (starting with "``/``") and relative paths (starting with a directory name)
 
 ::
 

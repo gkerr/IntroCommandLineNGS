@@ -15,6 +15,8 @@ Introduction to the Linux Commandline for NGS analyses
   exercises/known_file_formats.rst
   ReadingList.rst
 
+  acknowledgments.rst
+
 .. Indices and tables
 .. ==================
 .. 

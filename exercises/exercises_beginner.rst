@@ -55,7 +55,7 @@ Remote access
 
 #. Copy the file ``/etc/motd`` from machine sub-master.embl.de into your local home directory
 #. Determine the filetype and the permissions of the file that you just copied
-#. Login to your neighbor's machine (ask him for the hostname) using the username ``teach01`` (password will be given by teacher)
+#. Login to your neighbor's machine (ask them for the hostname) using the username ``teach01`` (password will be given by teacher)
 
 IO and Redirections
 -------------------

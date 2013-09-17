@@ -13,6 +13,7 @@ Contents:
 
    introduction
    exercises_beginner
+   known_file_formats.rst
    STEP1_QualityControl
    STEP2_alignRNASeqReads
    STEP3_viewManipulateAlignmentData_samtools

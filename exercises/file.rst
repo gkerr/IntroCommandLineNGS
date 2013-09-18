@@ -1,6 +1,8 @@
 Files 
 #############
 
+The following is a list of files that you will use during the afternoon section of the course.
+
 Raw data:
 
 - data/smo.bam

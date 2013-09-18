@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -492,6 +490,10 @@ mkdir: cannot create directory `adir/bdir': No such file or directory
 </pre></div>
 </div>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><span class="target" id="index-4"></span>cat only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later</p>
+</div>
 </div>
 <div class="section" id="less-view-and-navigate-files">
 <h4>less – View and navigate files<a class="headerlink" href="#less-view-and-navigate-files" title="Permalink to this headline">¶</a></h4>
@@ -547,7 +549,7 @@ mkdir: cannot create directory `adir/bdir': No such file or directory
 <h3>Extracting Informations from Files<a class="headerlink" href="#extracting-informations-from-files" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="grep-find-lines-matching-a-pattern-in-textfiles">
 <h4>grep – Find lines matching a pattern in textfiles<a class="headerlink" href="#grep-find-lines-matching-a-pattern-in-textfiles" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-4"></span>Grep is a command-line utility for searching plain-text data sets for lines matching a regular expression.</p>
+<p><span class="target" id="index-5"></span>Grep is a command-line utility for searching plain-text data sets for lines matching a regular expression.</p>
 <p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">grep</span> <span class="pre">[options]</span> <span class="pre">pattern</span> <span class="pre">file(s)</span></tt></p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; grep -i ensembl P04637.txt
@@ -585,7 +587,7 @@ DR   Ensembl; ENST00000455263; ENSP00000398846; ENSG00000141510.
 </div>
 <div class="section" id="head-print-first-lines-of-a-textfile">
 <h4>head – Print first lines of a textfile<a class="headerlink" href="#head-print-first-lines-of-a-textfile" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-5"></span>Head is a program on Unix and Unix-like systems used to display the beginning of a text file or piped data.</p>
+<p><span class="target" id="index-6"></span>Head is a program on Unix and Unix-like systems used to display the beginning of a text file or piped data.</p>
 <p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">head</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; head /etc/passwd
@@ -656,7 +658,7 @@ SRC_HUMAN.fasta: ASCII text
 </div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The command <span class="target" id="index-6"></span>file uses certain tests and some magic to determine the type of a file</p>
+<p class="last">The command <span class="target" id="index-7"></span>file uses certain tests and some magic to determine the type of a file</p>
 </div>
 </div>
 <div class="section" id="which-find-a-executable-command">
@@ -687,7 +689,7 @@ SRC_HUMAN.fasta: ASCII text
 </pre></div>
 </div>
 </div></blockquote>
-<p><tt class="docutils literal"><span class="pre">find</span></tt> <span class="target" id="index-7"></span>is a powerful command with lots of possible search filters.  Refer to the manpage for a complete list.</p>
+<p><tt class="docutils literal"><span class="pre">find</span></tt> <span class="target" id="index-8"></span>is a powerful command with lots of possible search filters.  Refer to the manpage for a complete list.</p>
 <p><strong>Examples</strong>:</p>
 <ul class="simple">
 <li>Find by name:</li>
@@ -732,7 +734,7 @@ SRC_HUMAN.fasta: ASCII text
 </pre></div>
 </div>
 </div></blockquote>
-<p>In case the output of the terminal/screen gets cluttered, you can use <tt class="docutils literal"><span class="pre">clear</span></tt> to <span class="target" id="index-8"></span>clear the screen...</p>
+<p>In case the output of the terminal/screen gets cluttered, you can use <tt class="docutils literal"><span class="pre">clear</span></tt> to <span class="target" id="index-9"></span>clear the screen...</p>
 <p>If this doesn&#8217;t work, you can use <tt class="docutils literal"><span class="pre">reset</span></tt> to perform a re-initialization of the terminal:</p>
 </div>
 <div class="section" id="reset-reset-your-terminal">
@@ -761,7 +763,7 @@ lrwxrwxrwx 1 dinkel gibson   15 Sep 17 10:45 H1.fasta -&gt; H2.fasta
 </div>
 <div class="section" id="changing-permissions">
 <h4>Changing Permissions<a class="headerlink" href="#changing-permissions" title="Permalink to this headline">¶</a></h4>
-<p>Permissions are set using the <tt class="docutils literal"><span class="pre">chmod</span></tt> (<span class="target" id="index-9"></span>change mode ) command.</p>
+<p>Permissions are set using the <tt class="docutils literal"><span class="pre">chmod</span></tt> (<span class="target" id="index-10"></span>change mode ) command.</p>
 <p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[options]</span> <span class="pre">mode(s)</span> <span class="pre">files(s)</span></tt></p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; ls –l adir
@@ -851,7 +853,7 @@ parameter (assuming the username on the local machine and remote machine are ide
 </div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Once logged in, <span class="target" id="index-10"></span>use <tt class="docutils literal"><span class="pre">hostname,</span></tt> <tt class="docutils literal"><span class="pre">whoami,</span></tt> etc. to
+<p class="last">Once logged in, <span class="target" id="index-11"></span>use <tt class="docutils literal"><span class="pre">hostname,</span></tt> <tt class="docutils literal"><span class="pre">whoami,</span></tt> etc. to
 determine on which machine you are currently working and to get a feeling for your
 environment!</p>
 </div>
@@ -878,7 +880,7 @@ Are you sure you want to continue connecting (yes/no)?</pre>
 <p>Type <em>yes</em> here.
 If this message appears a second time, you should contact your IT specialist...</p>
 <dl class="docutils">
-<dt>To <span class="target" id="index-11"></span>disconnect from the remote machine, type:</dt>
+<dt>To <span class="target" id="index-12"></span>disconnect from the remote machine, type:</dt>
 <dd><div class="first last highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">exit</span>
 </pre></div>
 </div>
@@ -911,14 +913,14 @@ The order of parameters is the same as in <tt class="docutils literal"><span cla
 <h3>IO and Redirections<a class="headerlink" href="#io-and-redirections" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="redirect">
 <h4>Redirect<a class="headerlink" href="#redirect" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-12"></span>Redirect the output of one program into e.g. a file: (Caution: you can easily overwrite files by this!)
+<p><span class="target" id="index-13"></span>Redirect the output of one program into e.g. a file: (Caution: you can easily overwrite files by this!)
 Inserting the current date into a new file:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; date &gt; file_containing_date
 </pre></div>
 </div>
 </div></blockquote>
-<p><span class="target" id="index-13"></span>Filtering lines containing the term “src” from FASTA files and inserting them into the file lines_with_src.txt:</p>
+<p><span class="target" id="index-14"></span>Filtering lines containing the term “src” from FASTA files and inserting them into the file lines_with_src.txt:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">cd</span> ~/exercises/
 &gt; grep -i <span class="s2">&quot;src&quot;</span> *.fasta &gt; lines_with_src.txt
@@ -928,7 +930,7 @@ Inserting the current date into a new file:</p>
 </div>
 <div class="section" id="append">
 <h4>Append<a class="headerlink" href="#append" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-14"></span>Append something to a file (rather than overwriting it):</p>
+<p><span class="target" id="index-15"></span>Append something to a file (rather than overwriting it):</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; date &gt;&gt; file_containing_date
 </pre></div>
@@ -937,8 +939,8 @@ Inserting the current date into a new file:</p>
 </div>
 <div class="section" id="pipe">
 <h4>Pipe<a class="headerlink" href="#pipe" title="Permalink to this headline">¶</a></h4>
-<p>Use the <span class="target" id="index-15"></span>| pipe symbol (<tt class="docutils literal"><span class="pre">|</span></tt>) to feed the output of one program into the next program.
-Here: use <tt class="docutils literal"><span class="pre">ls</span></tt> to show the directory contents and then <span class="target" id="index-16"></span>use <tt class="docutils literal"><span class="pre">grep</span></tt> to only show those that contain fasta in their name:</p>
+<p>Use the <span class="target" id="index-16"></span>| pipe symbol (<tt class="docutils literal"><span class="pre">|</span></tt>) to feed the output of one program into the next program.
+Here: use <tt class="docutils literal"><span class="pre">ls</span></tt> to show the directory contents and then <span class="target" id="index-17"></span>use <tt class="docutils literal"><span class="pre">grep</span></tt> to only show those that contain fasta in their name:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">cd</span> ~/exercises
 &gt; ls | grep fasta
@@ -953,32 +955,32 @@ SRC_HUMAN.fasta
 </div>
 <div class="section" id="environment-variables">
 <h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
-<p><span class="target" id="index-17"></span>Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.</p>
+<p><span class="target" id="index-18"></span>Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.</p>
 <div class="section" id="home">
 <h4>$HOME<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h4>
 <p>Contains the location of the user&#8217;s home directory. Although the current user&#8217;s home directory can also be found out through the
-C functions <tt class="docutils literal"><span class="pre">getpwuid</span></tt> and <tt class="docutils literal"><span class="pre">getuid,</span></tt> <span class="target" id="index-18"></span>$HOME is often used for convenience in various shell scripts (and other contexts).</p>
+C functions <tt class="docutils literal"><span class="pre">getpwuid</span></tt> and <tt class="docutils literal"><span class="pre">getuid,</span></tt> <span class="target" id="index-19"></span>$HOME is often used for convenience in various shell scripts (and other contexts).</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Do not change this variable unless you have a good reason and you know what you are doing!</p>
 </div>
 </div>
 <div class="section" id="path">
-<h4>$PATH<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-19"></span>$PATH contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name
+<span id="id1"></span><h4>$PATH<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h4>
+<p><span class="target" id="index-20"></span>$PATH contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name
 (commands with slashes are interpreted as file names to execute, and the shell attempts to execute the files directly).</p>
 </div>
 <div class="section" id="pager">
 <h4>$PAGER<a class="headerlink" href="#pager" title="Permalink to this headline">¶</a></h4>
-<p>The <span class="target" id="index-20"></span>$PAGER variable contains the path to the program used to list the contents of files through (such <span class="target" id="index-21"></span>as <tt class="docutils literal"><span class="pre">less</span></tt> <span class="target" id="index-22"></span>or <tt class="docutils literal"><span class="pre">more</span></tt>).</p>
+<p>The <span class="target" id="index-21"></span>$PAGER variable contains the path to the program used to list the contents of files through (such <span class="target" id="index-22"></span>as <tt class="docutils literal"><span class="pre">less</span></tt> <span class="target" id="index-23"></span>or <tt class="docutils literal"><span class="pre">more</span></tt>).</p>
 </div>
 <div class="section" id="pwd">
 <h4>$PWD<a class="headerlink" href="#pwd" title="Permalink to this headline">¶</a></h4>
-<p>The <span class="target" id="index-23"></span>$PWD variable points to the current directory. Equivalent to the output of the command <tt class="docutils literal"><span class="pre">pwd</span></tt> when called without arguments.</p>
+<p>The <span class="target" id="index-24"></span>$PWD variable points to the current directory. Equivalent to the output of the command <tt class="docutils literal"><span class="pre">pwd</span></tt> when called without arguments.</p>
 </div>
 <div class="section" id="displaying-environment-variables">
 <h4>Displaying environment variables<a class="headerlink" href="#displaying-environment-variables" title="Permalink to this headline">¶</a></h4>
-<p><span class="target" id="index-24"></span>Use <tt class="docutils literal"><span class="pre">echo</span></tt> to <span class="target" id="index-25"></span>display individual variables <cite>set`</cite> <span class="target" id="index-26"></span>or <tt class="docutils literal"><span class="pre">env</span></tt> to view all at once:</p>
+<p><span class="target" id="index-25"></span>Use <tt class="docutils literal"><span class="pre">echo</span></tt> to <span class="target" id="index-26"></span>display individual variables <cite>set`</cite> <span class="target" id="index-27"></span>or <tt class="docutils literal"><span class="pre">env</span></tt> to view all at once:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">echo</span> <span class="nv">$HOME</span>
 /localhome/teach01
@@ -992,7 +994,7 @@ C functions <tt class="docutils literal"><span class="pre">getpwuid</span></tt> 
 </div>
 <div class="section" id="setting-an-environment-variable">
 <h4>Setting an environment variable<a class="headerlink" href="#setting-an-environment-variable" title="Permalink to this headline">¶</a></h4>
-<p>Use <tt class="docutils literal"><span class="pre">export</span></tt> followed by the variable name and the value of the variable (separated by the equal sign) to <span class="target" id="index-27"></span>set an environment variable:</p>
+<p>Use <tt class="docutils literal"><span class="pre">export</span></tt> followed by the variable name and the value of the variable (separated by the equal sign) to <span class="target" id="index-28"></span>set an environment variable:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">export </span><span class="nv">PAGER</span><span class="o">=</span>/usr/bin/less
 </pre></div>
@@ -1149,7 +1151,7 @@ C functions <tt class="docutils literal"><span class="pre">getpwuid</span></tt> 
     </div>
     <div class="footer">
         &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Jon Fuller, Matt Betts.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

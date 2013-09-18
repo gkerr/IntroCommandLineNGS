@@ -34,6 +34,8 @@ Questions you could answer in your presentation:
 
 Unsure about jargon? Ask for help!
 
+.. _fileformats:
+
 Useful links about file formats
 """""""""""""""""""""""""""""""
 

@@ -792,6 +792,8 @@ C functions ``getpwuid`` and ``getuid,`` :index:`$HOME` is often used for conven
 
 .. note:: Do not change this variable unless you have a good reason and you know what you are doing!
 
+.. _path:
+
 $PATH
 -----
 

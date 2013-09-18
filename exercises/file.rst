@@ -11,8 +11,6 @@ Raw data:
 - data/f11-2.bam
 - data/smo.2Lsubset.fastq
 - data/arm.Xsubset.fastq
-- data/dnaSeq1.bam
-- data/dnaSeq2.bam
 
 Gene Reference:
 

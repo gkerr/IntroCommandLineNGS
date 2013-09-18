@@ -142,12 +142,12 @@ Use *samtools idxstats* to get summary statistics for the aligned file. Use the 
 
 **Create a pileup **
 
-samtools mpileup is a very useful utility for calling variants in alignment files. Read the help documentation carefully.
+samtools mpileup is a very useful utility for calling variants in alignment files. Read the help documentation carefully. This command is slow.
 
 
  ::
  
-  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 -f genome/dros_BDGP5.25.fa rawData/dnaSeq1.bam rawData/dnaSeq2.bam
+  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 -f genome/dros_BDGP5.25.fa rawData/arm.bam
 
 Note: dros_BDGP5.25.fa needs to be indexed otherwise the above command will not work
 
@@ -161,7 +161,7 @@ You can take the output of one command from the “standard stream” and pipe i
 
  ::
 
-   > samtools view -u dnaSeq1.bam chr1 | samtools pileup -cf dros_BD5.25.fa -
+   > samtools view -u arm.bam chrX | samtools pileup -cf dros_BD5.25.fa -
 
 
 

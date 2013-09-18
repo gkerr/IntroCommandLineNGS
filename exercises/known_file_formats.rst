@@ -76,12 +76,11 @@ All files!
 http://www.broadinstitute.org/igv/FileFormats
 http://genome.ucsc.edu/FAQ/FAQformat
 
-NEXT STEPS
-''''''''''
-
-Look at the databases mentioned in the presentations and go through them in a live demo. Typical
-will be Ensembl, UCSC, NCBI, GATK, 1000 genomes
-
-SAM very important – re-enforce QUAL score, CIGAR string, FLAG
-Quality scores – make reference to illumina vs sanger (Sanger pretty standard now)
-
+.. NEXT STEPS
+.. ''''''''''
+.. 
+.. Look at the databases mentioned in the presentations and go through them in a live demo. Typical
+.. will be Ensembl, UCSC, NCBI, GATK, 1000 genomes
+.. 
+.. SAM very important – re-enforce QUAL score, CIGAR string, FLAG
+.. Quality scores – make reference to illumina vs sanger (Sanger pretty standard now)

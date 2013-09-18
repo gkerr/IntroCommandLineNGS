@@ -1,5 +1,14 @@
 To do:
 
+
+change path to /net/netfile1/ds-russell/linuxForNGS/data
+send exercise files to matt
+
+explain how to get these files (cp -r)
+
+
+
+
 Prepare handout and exercises
 
 Samtutorial:

@@ -121,7 +121,8 @@ Note the usage and run the command
 
  ::
 
-  > samtools merge -h header.sam ~/FL1-merged.bam rawData/FL1-1.bam rawData/FL1-2.bam
+  > samtools merge -h header.sam ~/FL1-merged.bam \
+  rawData/FL1-1.bam rawData/FL1-2.bam
 
 - What does ``-h`` in the above command do?
 - Does this command work? If not, why not? What command can allow the files to be merged.
@@ -154,7 +155,8 @@ Create a pileup
 
  ::
  
-  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 -f genome/dros_BDGP5.25.fa rawData/arm.bam
+  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 \
+  -f genome/dros_BDGP5.25.fa rawData/arm.bam
 
 .. note:: ``dros_BDGP5.25.fa`` needs to be indexed otherwise the above command will not work
 

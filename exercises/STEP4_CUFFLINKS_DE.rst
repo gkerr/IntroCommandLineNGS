@@ -29,8 +29,9 @@ Run the command:
 
  ::
  
-  cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm \
-  -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
+  cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm \
+  --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput \
+  ARM-1_tophatOutput/accepted_hits.q20.sam
 	
 .. topic:: Review Questions:
 
@@ -51,7 +52,7 @@ Task
 
 Assemble expressed genes and transcripts in the *smo* knockdown with **Cufflinks** (similar to above)
 
-Pre-prepared output from **Tophat** for the *smo* knockdown experiments can be found in the course data folder at ``SMO-1_tophatOutput/accepted_hits.bam``
+Pre-prepared output from **Tophat** for the *smo* knockdown experiments can be found in the course data folder at ``SMO-1_tophatOutput/accepted_hits.q20.sam``
 
 
 
@@ -76,8 +77,10 @@ For the control sample these are ``FL1-1_tophatOutput/accepted_hits.q20.sam``, a
 
  ::
  
-  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 -L FL1_ctrl,arm \
-  -u geneRef/dros_BDGP5.25.gtf FL1-1_tophatOutput/accepted_hits.q20.sam,FL2-1_tophatOutput/accepted_hits.q20.sam \
+  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 \ 
+  -L FL1_ctrl,arm  -u geneRef/dros_BDGP5.25.gtf \
+  FL1-1_tophatOutput/accepted_hits.q20.sam,\
+  FL2-1_tophatOutput/accepted_hits.q20.sam \
   ARM-1_tophatOutput/accepted_hits.q20.sam
 
  
@@ -98,7 +101,7 @@ Task
 -------
 Use your know-how to estimate estimate differential expression in the *smo* knockdown compared to the control.
 
-The output can be found at: ``SMO-1_tophatOuput/accepted_hits.bam``
+The output can be found at: ``SMO-1_tophatOuput/accepted_hits.q20.sam``
 
 The controls and other input files are the same as before.
 

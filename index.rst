@@ -18,9 +18,9 @@ Introduction to the Linux Commandline for NGS analyses
   exercises/STEP2_alignRNASeqReads.rst
   exercises/STEP3_viewManipulateAlignmentData_samtools.rst
   exercises/STEP4_CUFFLINKS_DE.rst
+
   ReadingList.rst
 
-  linux_links.rst
   acknowledgments.rst
 
 .. Indices and tables

@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Aligning RNASeq Reads</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="None" href="../index.html" />
+    <link rel="next" title="Samtools" href="STEP3_viewManipulateAlignmentData_samtools.html" />
+    <link rel="prev" title="Before you start" href="STEP1_QualityControl.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="STEP1_QualityControl.html" title="Before you start"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">None</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="aligning-rnaseq-reads">
+<h1>Aligning RNASeq Reads<a class="headerlink" href="#aligning-rnaseq-reads" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-1-arm-xsubset-fastq">
+<h2>Example 1 - arm.Xsubset.fastq<a class="headerlink" href="#example-1-arm-xsubset-fastq" title="Permalink to this headline">¶</a></h2>
+<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the arm gene, in the drosophila Melanogaster cell line, S2. The arm gene is found on chromosome X of the drosophila Melanogaster genome. Here, to save time, we will restrict our analysis to this chromosome. You should for your own projects, you use all the genome information.</p>
+<p>Your task is to align the reads to the X chromosome</p>
+<p>To get information on tophat, open a terminal window and type</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat -h
+</pre></div>
+</div>
+</div></blockquote>
+<p>The raw data is called arm.Xsubset.fastq in your home directory, in course folder called rawData <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt></p>
+<p>The annotation Data is for chromosome X is <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.X.gtf</span></tt></p>
+<p>The bowtie index is <tt class="docutils literal"><span class="pre">bowtieIndexes/drosophilaMelanogaster.X</span></tt></p>
+<p>Note: remember to specify the output directory in the tophat command. Create this output directory first with the following command.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; mkdir -p ~/arm_tohatOutput
+</pre></div>
+</div>
+</div></blockquote>
+<p>Run the following commandÖ</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
+</pre></div>
+</div>
+</div></blockquote>
+<div class="topic">
+<p class="topic-title first">Review questions</p>
+<ul class="simple">
+<li>What does tophat do?</li>
+<li>What kind of aligner is tophat?</li>
+<li>What is the &#8220;bowtie-index&#8221;?</li>
+<li>How can specifying more mismatches with the -n option change the output?</li>
+<li>Why supply a gtf file to tophat?</li>
+<li>option &#8211;no-coverage-search in the tophat command will speed things up. Why?</li>
+<li>What are the output files from the tophat aligner?</li>
+<li>Why assemble transcripts with cufflinks?</li>
+<li>What is the gtf file and why do I need it?</li>
+<li>what data does the gtf file contain?</li>
+<li>what does the last column in the gtf file contain?</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-2-smo-2lsubset-fastq">
+<h2>Example 2 - smo.2Lsubset.fastq<a class="headerlink" href="#example-2-smo-2lsubset-fastq" title="Permalink to this headline">¶</a></h2>
+<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the drosophila Melanogaster cell line, S2.
+The arm gene is found on chromosome 2L of the drosophila Melanogaster genome.
+Here, to save time, we will restrict our analysis to this chromosome, 2L. You should for your own projects, you use all the genome information.</p>
+<p>Your task is to align the reads to the 2L chromosome</p>
+<p>To get information on tophat, terminal window and type:</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat -h
+</pre></div>
+</div>
+</div></blockquote>
+<p>The raw data is called smo.2Lsubset.fastq  <tt class="docutils literal"><span class="pre">rawData/smo.2Lsubset.fastq</span></tt></p>
+<p>The annotation Data is for chromosome 2L is: <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.2L.gtf</span></tt></p>
+<p>The bowtie index is <tt class="docutils literal"><span class="pre">bowtieIndex/drosophilaMelanogaster.2L</span></tt></p>
+<div class="topic">
+<p class="topic-title first">Review questions</p>
+<ul class="simple">
+<li>What does the -p option in tophat do?</li>
+<li>How does &#8211;no-coverage search save time?</li>
+<li>What does the -g option do?</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/HUBLogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Aligning RNASeq Reads</a><ul>
+<li><a class="reference internal" href="#example-1-arm-xsubset-fastq">Example 1 - arm.Xsubset.fastq</a></li>
+<li><a class="reference internal" href="#example-2-smo-2lsubset-fastq">Example 2 - smo.2Lsubset.fastq</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="STEP1_QualityControl.html"
+                        title="previous chapter">Before you start</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="STEP3_viewManipulateAlignmentData_samtools.html"
+                        title="next chapter">Samtools</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/exercises/STEP2_alignRNASeqReads.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="STEP1_QualityControl.html" title="Before you start"
+             >previous</a> |</li>
+        <li><a href="../index.html">None</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Jon Fuller, Matt Betts.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

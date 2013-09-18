@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction to the Linux Commandline for NGS analyses</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="None" href="#" />
+    <link rel="next" title="Introduction to the Linux Commandline" href="introduction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction to the Linux Commandline"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">None</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction-to-the-linux-commandline-for-ngs-analyses">
+<h1>Introduction to the Linux Commandline for NGS analyses<a class="headerlink" href="#introduction-to-the-linux-commandline-for-ngs-analyses" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to the Linux Commandline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#why-use-the-commandline">Why Use the Commandline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#general-remarks-regarding-using-unix-linux-systems">General Remarks Regarding Using UNIX/Linux Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#general-structure-of-linux-commands">General Structure of Linux Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#a-journey-through-the-commands">A Journey Through the Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#getting-help">Getting Help</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#man-show-the-manual-page-of-a-command">man - show the manual page of a command</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="introduction.html#apropos-list-manpages-containing-a-keyword-in-their-description">apropos – list manpages containing a keyword in their description</a></li>
+<li class="toctree-l5"><a class="reference internal" href="introduction.html#usr-share-doc">/usr/share/doc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#who-am-i-where-am-i">Who am I, where am I</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#whoami-print-your-username">whoami – Print your username</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#hostname-print-the-name-of-the-computer">hostname – Print the name of the computer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#pwd-print-the-current-working-directory">pwd – Print the current working directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#date-print-current-date-and-time">date – Print current date and time</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#moving-around">Moving Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#cd-change-the-working-directory">cd – Change the working directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#see-whats-around">See What’s Around</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#ls-list-directory-contents">ls - List directory contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#digression-shell-globs">Digression: Shell globs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#organize-files-and-folders">Organize Files and Folders</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#touch-create-a-file-or-change-last-modification-date-of-an-existing-file">touch – Create a file or change last modification date of an existing file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#rm-remove-files-and-directories">rm – Remove files and directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#mv-move-and-rename-files-and-folders">mv – Move and rename files and folders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#mkdir-create-a-new-directory">mkdir – Create a new directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#rmdir-remove-an-empty-directory">rmdir – Remove an empty directory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#cp-copy-files-and-folders">cp – Copy files and folders</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#view-files">View Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#cat-print-files-on-terminal-concatenate">cat – Print files on terminal (concatenate)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#less-view-and-navigate-files">less – View and navigate files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#extracting-informations-from-files">Extracting Informations from Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#grep-find-lines-matching-a-pattern-in-textfiles">grep – Find lines matching a pattern in textfiles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#head-print-first-lines-of-a-textfile">head – Print first lines of a textfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#tail-print-last-lines-of-a-textfile">tail – Print last lines of a textfile</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#useful-filetools">Useful Filetools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#file-determine-the-filetype">file – determine the filetype</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#which-find-a-executable-command">which – find a (executable) command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#find-search-find-files-in-any-given-directory">find – search/find files in any given directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#useful-terminal-tools">Useful Terminal Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#clear-clear-the-screen">clear – Clear the “screen”</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#reset-reset-your-terminal">reset – Reset your terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#permissions">Permissions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#changing-permissions">Changing Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#remote-access">Remote access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#io-and-redirections">IO and Redirections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#redirect">Redirect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#append">Append</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#pipe">Pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#environment-variables">Environment Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#home">$HOME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#path">$PATH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#pager">$PAGER</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#pwd">$PWD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#displaying-environment-variables">Displaying environment variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#setting-an-environment-variable">Setting an environment variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/exercises_beginner.html">Exercises</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/exercises_beginner.html#misc-file-tools">Misc. file tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/exercises_beginner.html#searching">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/exercises_beginner.html#misc-terminal">Misc. terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/exercises_beginner.html#permissions">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/exercises_beginner.html#io-and-redirections">IO and Redirections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/known_file_formats.html">File Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/known_file_formats.html#presentation-task">Presentation Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercises/known_file_formats.html#useful-links-about-file-formats">Useful links about file formats</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#vcf">VCF:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#gff">GFF:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#bed-bigbed-wig-bigwig">BED/BIGBED/WIG/BIGWIG:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#sam-bam-bai">SAM/BAM/BAI:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#fasta-fastq">FASTA/FASTQ:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exercises/known_file_formats.html#all-files">All files!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/file.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP1_QualityControl.html">Before you start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP1_QualityControl.html#quality-control">Quality Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP1_QualityControl.html#in-this-section-you-will-need-to-use-the-following-three-files">In this section you will need to use the following three files:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercises/STEP1_QualityControl.html#task">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP1_QualityControl.html#samstat">SAMstat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exercises/STEP1_QualityControl.html#id1">Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP2_alignRNASeqReads.html">Aligning RNASeq Reads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP2_alignRNASeqReads.html#example-1-arm-xsubset-fastq">Example 1 - arm.Xsubset.fastq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP2_alignRNASeqReads.html#example-2-smo-2lsubset-fastq">Example 2 - smo.2Lsubset.fastq</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP3_viewManipulateAlignmentData_samtools.html">Samtools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP3_viewManipulateAlignmentData_samtools.html#getting-bored-good-to-know">Getting bored? Good to know:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html">Estimating Expression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#example-expression-in-the-arm-gene-knockdown-sample">Example - Expression in the arm gene knockdown sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#review-questions">Review Questions:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#task">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#estimating-differential-expression">Estimating differential Expression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control">Example - Estimating significance of differential expression in the ARM gene knockdown compared to control.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#use-your-linux-know-how">Use your linux know how</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises/STEP4_CUFFLINKS_DE.html#id1">Task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ReadingList.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ReadingList.html#literature">Literature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#algorithms">Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#file-manipulation-tools">File Manipulation tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#data-standards">Data Standards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#normalization">Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#differential-expression">Differential Expression</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ReadingList.html#linux-resources">Linux Resources</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#websites">Websites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#real-printed-paper-books">Real printed paper books:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReadingList.html#live-cds">Live - CDs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ReadingList.html#fedora-live-cd">Fedora Live CD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReadingList.html#knoppix">Knoppix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReadingList.html#bioknoppix">BioKnoppix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReadingList.html#vigyaan">Vigyaan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ReadingList.html#bioslax">BioSlax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgements</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/HUBLogo.png" alt="Logo"/>
+            </a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">Introduction to the Linux Commandline</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction to the Linux Commandline"
+             >next</a> |</li>
+        <li><a href="#">None</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Jon Fuller, Matt Betts.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

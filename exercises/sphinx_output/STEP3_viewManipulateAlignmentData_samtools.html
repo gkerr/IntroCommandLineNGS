@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Samtools &mdash; IntroToCommandLine 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IntroToCommandLine 1 documentation" href="index.html" />
+    <link rel="next" title="Estimating Expression" href="STEP4_CUFFLINKS_DE.html" />
+    <link rel="prev" title="Aligning RNASeq Reads" href="STEP2_alignRNASeqReads.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="STEP4_CUFFLINKS_DE.html" title="Estimating Expression"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="STEP2_alignRNASeqReads.html" title="Aligning RNASeq Reads"
+             accesskey="P">previous</a> |</li>
+        <li><a href="IntroToCommandLine.html">IntroToCommandLine 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="samtools">
+<h1>Samtools<a class="headerlink" href="#samtools" title="Permalink to this headline">¶</a></h1>
+<p>Website:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://samtools.sourceforge.net/">http://samtools.sourceforge.net/</a></li>
+<li><a class="reference external" href="http://samtools.sourceforge.net/samtools-c.shtml">http://samtools.sourceforge.net/samtools-c.shtml</a></li>
+<li><a class="reference external" href="http://samtools.sourceforge.net/samtools.shtml">http://samtools.sourceforge.net/samtools.shtml</a></li>
+</ul>
+<p><em>samtools</em> is a set of scripts (a toolbox so to say) that can be used to manipulate and view sam/bam files. In particular you can: sort, index, merge, view these files.</p>
+<p><strong>Getting help</strong></p>
+<p>To print a list of all the tools available in the samtools suite, simply type samtools on the command line</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools</pre>
+</div>
+</div></blockquote>
+<p>To print a list of the parameters required and options available with each tool in the suite, simply type samtools followed by the name of the tool on the command line. For example, to get a list of the options available for the “view” tool in the samtools suite, simply type:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view</pre>
+</div>
+</div></blockquote>
+<p><strong>View bam files:</strong></p>
+<p>smo.bam is a bam file and is not human readable. To make it human readable you can convert it to a sam file.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view –h –o smo.sam data/smo.bam</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What does –h and –o do in the above example?</li>
+<li>Convert arm.bam into a sam file.</li>
+</ul>
+<p><strong>Viewing the header of a bam file</strong></p>
+<p>In some cases you might only want to see or generate the header of a bam file.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view –H smo.bam</pre>
+</div>
+</div></blockquote>
+<p>Now try:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view –H smo.bam &gt; smo.header.sam</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What does the “&gt; smo.header.sam” of the above statement do?</li>
+<li>What information is stored in the header of the sam file?</li>
+<li>From the header of the file, can you tell which alignment program was used to generate the bam file</li>
+<li>Use the samtools view (and read the help) to view a specific region e.g. all reads mapping to chromosome X</li>
+</ul>
+<p><strong>Count the number of alignments in a bam file</strong></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view –c smo.bam</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Can you use samtools to count the number of alignments above a quality score of 20 in your file?</li>
+<li>What does the quality score of an alignment indicate?</li>
+<li>How many alignments are in the arm.bam above a quality score of 50</li>
+<li>What other flags/filtering options are there?</li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Create a bam index **</p>
+<p>Use samtools index to create an index of smo.bam</p>
+<p>Get help</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools index</pre>
+</div>
+</div></blockquote>
+<p>Note the usage of the index command in the samtools toolbox suite.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools index smo.bam sm0.bai</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What does creating an bam index mean?</li>
+<li>Why would one want to create a bam index?</li>
+</ul>
+<p><strong>Sorting the sam file</strong></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools sort smo.sam</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What does –o in the above command do?</li>
+<li>Change the command to sort by read names rather than chromosomal locations.</li>
+<li>Change the above command so that the sorted reads are outputted to smo.sorted.bam</li>
+</ul>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>Merging sam files **</p>
+<p>Fl1-1.bam and FL1-2.bam are two technical replicates of the one control sample FL1. We would like to merge these two sam files.</p>
+<p>Getting help</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools merge</pre>
+</div>
+</div></blockquote>
+<p>Note the usage and run the command</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools merge –h header.sam FL1-merged.bam FL1-1.bam FL1-2.bam</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What does –h in the above command do?</li>
+<li>Does this command work? Why not? (TODO: The files are sorted wrongly). Change the command so that the files can be merged.</li>
+</ul>
+<p><strong>Get summary statistics</strong></p>
+<p>Use <em>samtools idxstats</em> to get summary statistics for the aligned file. Use the help.</p>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a>Create a fasta file index: **</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools faidx dros_BD5.25.fa</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>What is the benefit of creating an index of a fasta file?</li>
+</ul>
+<p><a href="#id7"><span class="problematic" id="id8">**</span></a>Create a pileup **</p>
+<p>samtools mpileup is a very useful utility for calling variants in alignment files. Read the help documentation carefully.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools mpileup –g –l intervalFile.bed –I –D –q 20 -f dros_BD5.25.fa dnaSeq1.bam dnaSeq2.bam</pre>
+</div>
+</div></blockquote>
+<p>Note: dros_BD5.25.fa needs to be indexed otherwise the above command will not work</p>
+<div class="section" id="getting-bored-good-to-know">
+<h2>Getting bored? Good to know:<a class="headerlink" href="#getting-bored-good-to-know" title="Permalink to this headline">¶</a></h2>
+<p>Working with the stream
+You can take the output of one command from the “standard stream” and pipe it as input to an(other) samtools command.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; samtools view –u dnaSeq1.bam chr1 | samtools pileup –cf dros_BD5.25.fa -</pre>
+</div>
+</div></blockquote>
+<p>Use samtools and awk to count the number of mapped reads in your file.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt;  samtools idxstats smo.bam | awk '{s+=$3} END {print s}'</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Is this the same number as with samtools view –c smo.bam</li>
+<li>What is the awk command doing in the above?</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="IntroToCommandLine.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Samtools</a><ul>
+<li><a class="reference internal" href="#getting-bored-good-to-know">Getting bored? Good to know:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="STEP2_alignRNASeqReads.html"
+                        title="previous chapter">Aligning RNASeq Reads</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="STEP4_CUFFLINKS_DE.html"
+                        title="next chapter">Estimating Expression</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/STEP3_viewManipulateAlignmentData_samtools.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="STEP4_CUFFLINKS_DE.html" title="Estimating Expression"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="STEP2_alignRNASeqReads.html" title="Aligning RNASeq Reads"
+             >previous</a> |</li>
+        <li><a href="IntroToCommandLine.html">IntroToCommandLine 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Matt Betts, Jon Fuller.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b2.
+    </div>
+  </body>
+</html>

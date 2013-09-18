@@ -1,0 +1,875 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction to the Linux Commandline &mdash; IntroToCommandLine 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="IntroToCommandLine 1 documentation" href="index.html" />
+    <link rel="next" title="Exercises" href="exercises_beginner.html" />
+    <link rel="prev" title="Welcome to Introduction To the Command Line for NGS documentation!" href="IntroToCommandLine.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="exercises_beginner.html" title="Exercises"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="IntroToCommandLine.html" title="Welcome to Introduction To the Command Line for NGS documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="IntroToCommandLine.html">IntroToCommandLine 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction-to-the-linux-commandline">
+<h1>Introduction to the Linux Commandline<a class="headerlink" href="#introduction-to-the-linux-commandline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-use-the-commandline">
+<h2>Why Use the Commandline<a class="headerlink" href="#why-use-the-commandline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>It&#8217;s <strong>fast</strong>. Productivity is a word that gets tossed around a lot by so-called power users, but the command line can really streamline your computer use, assuming you learn to use it right.</li>
+<li>It&#8217;s <strong>easier to get help</strong>. The command line may not be the easiest thing to use, but it makes life a whole lot easier for people trying to help you and for yourself when looking for help, especially over the internet. Many times it&#8217;s as simple as the helper posting a few commands and some instructions and the recipient copying and pasting those commands. Anyone who has spent hours listening to someone from tech support say something like, “OK, now click this, then this, then select this menu command” knows how frustrating the GUI alternative can be.</li>
+<li>It&#8217;s nearly <strong>universal</strong>. There are hundreds of Linux distros out there, each with a slightly different graphical environment. Thankfully, the various distros do have one common element: the command line. There are distro-specific commands, but the bulk of commands will work on any Linux system.</li>
+<li>It&#8217;s <strong>powerful</strong>. The companies behind those other operating systems try their best to stop a user from accidentally screwing up their computer. Doing this involves hiding a lot of the components and tools that could harm a computer away from novices. Linux is more of an open book, which is due in part to its prominent use of the command line.</li>
+</ul>
+</div>
+<div class="section" id="general-remarks-regarding-using-unix-linux-systems">
+<h2>General Remarks Regarding Using UNIX/Linux Systems<a class="headerlink" href="#general-remarks-regarding-using-unix-linux-systems" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Test before run</strong>. Anything written here has to be taken with a grain of salt. On another system – be it a different Linux distribution or another UNIXoid operating system – you might find the same command but without the support of some of the options taught here. It is even possible, that the same option has a different meaning on another system. With this in mind always make sure to test your commands (specially the “dangerous” ones which remove or modify files) when switching from one system to the other.</li>
+<li><strong>The Linux/UNIX environment</strong>. The behaviour of many commands is influenced or controlled by the so-called “environment”. This environment is the sum of all your environment variables. Some of these environment variables will be shown towards the end of this course.</li>
+<li><strong>UPPERCASE, lowercase</strong>. Don’t forget that everything is case-sensitive.</li>
+<li><strong>The Filesystem</strong>. Linux filesystems start on top at the root directory (sic!) “/” which hierarchically broadens towards the ground.  The separator between directories or directories and files in Linux is the slash (“/”).</li>
+</ul>
+<div class="figure">
+<img alt="_static/filesystem.png" src="_static/filesystem.png" />
+<p class="caption">Depending on the Linux distribution you might or might not find all of above
+directories. Most important directories for you are <tt class="docutils literal"><span class="pre">/bin</span></tt> and <tt class="docutils literal"><span class="pre">/usr/bin</span></tt>
+(sometimes also <tt class="docutils literal"><span class="pre">/usr/local/bin</span></tt>) which contain the user software, <tt class="docutils literal"><span class="pre">/home</span></tt> which
+usually contains the users’ homedirectories and <tt class="docutils literal"><span class="pre">/tmp</span></tt> which can be used to store
+temporary data (beware: Its content is regularly removed!).</p>
+</div>
+<p>..note:: The terms “directory” and “folder” are used interchangeably in this document.</p>
+</div>
+<div class="section" id="general-structure-of-linux-commands">
+<h2>General Structure of Linux Commands<a class="headerlink" href="#general-structure-of-linux-commands" title="Permalink to this headline">¶</a></h2>
+<p>Linux commands have the following general structure:</p>
+<div class="figure">
+<img alt="_static/LinuxCommandStructure.png" src="_static/LinuxCommandStructure.png" />
+</div>
+<p>commandline options (sometimes called comandline switches) commonly have one of the two following forms: The short form <tt class="docutils literal"><span class="pre">-character</span></tt> or the long form <tt class="docutils literal"><span class="pre">--string.</span></tt> E.g.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; man -h
+&gt; man --help</pre>
+</div>
+</div></blockquote>
+<p>Short options are usually – though not always – concatenable:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls -l -A -h
+&gt; ls -lAh</pre>
+</div>
+</div></blockquote>
+<p>Some options require an additional argument, which is added with a blank to the short form and with an equal sign to the long form:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls -I “*.pdf”
+&gt; ls --ignore=”*.pdf”</pre>
+</div>
+</div></blockquote>
+<p>Since Linux incorporates commands from different sources, options can be available in one or both forms and you’ll also encounter options with no dash at all and all kinds of mixtures:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; tar cf file.tar -C .. file/
+&gt; ps auxgww</pre>
+</div>
+</div></blockquote>
+<div class="section" id="a-journey-through-the-commands">
+<h3>A Journey Through the Commands<a class="headerlink" href="#a-journey-through-the-commands" title="Permalink to this headline">¶</a></h3>
+<p>Please note that all examples and usage instructions below are just a glimpse of what you can do and reflect our opinion on what’s important and what’s not. Most of these commands support many more options and different usages. Consult the manpages to find them.
+Typographical conventions: Commands and examples are written in Courier.  User Input is written in Courier bold and placeholders are generally written in italic.</p>
+</div>
+</div>
+<div class="section" id="getting-help">
+<span id="help"></span><h2>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">-h/--help</span></tt> option, no parameters</p>
+<p>Many commands support a “help” option, either through <tt class="docutils literal"><span class="pre">-h</span></tt> or through <tt class="docutils literal"><span class="pre">--help</span></tt>.
+Other commands will show a help page or at least a short usage overview if you provide wrong commandline options</p>
+<p><strong>Usage</strong>:
+<tt class="docutils literal"><span class="pre">man</span> <span class="pre">command</span> <span class="pre">or</span> <span class="pre">file</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; man man
+man(1)
+
+NAME
+ man - format and display the on-line manual pages
+
+SYNOPSIS
+ man [-acdfFhkKtwW] [--path] [-m system] [-p string] [-C config_file]
+[...]</pre>
+</div>
+</div></blockquote>
+<p>For the navigation within a <span class="target" id="index-0"></span>man-page see the chapter regarding less below.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The behaviour of man is dependent of the $PAGER environment variable</p>
+</div>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">apropos</span> <span class="pre">keyword</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; apropos who
+[...]
+&gt; who                  (1)  - show who is logged on
+&gt; who                  (1p)  - display who is on the system
+&gt; whoami               (1)  - print effective userid</pre>
+</div>
+</div></blockquote>
+<p>Use <span class="target" id="index-1"></span>apropos to find candidates for specific tasks</p>
+<p>The <tt class="docutils literal"><span class="pre">/usr/share/doc</span></tt> directory in some Linux distributions contains additional documentation of installed software packages</p>
+</div>
+<div class="section" id="who-am-i-where-am-i">
+<h2>Who am I, where am I<a class="headerlink" href="#who-am-i-where-am-i" title="Permalink to this headline">¶</a></h2>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">whoami</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; whoami
+fthommen</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">hostname</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; hostname
+pc-teach01</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">pwd</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; pwd
+/home/fthommen</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">date</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; date
+Tue Sep 25 19:57:50 CEST 2012</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The command time does something completely different than <span class="target" id="index-2"></span>date and is not used to show the current time.</p>
+</div>
+<p><strong>Usage</strong>: <tt class="docutils literal"><span class="pre">cd</span> <span class="pre">[new_directory]</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre># pwd
+/home/fthommen
+# cd /usr/bin
+# pwd
+/usr/bin</pre>
+</div>
+</div></blockquote>
+<p>Special directories:</p>
+<ul class="simple">
+<li>“<tt class="docutils literal"><span class="pre">.</span></tt>”:  The current working directory</li>
+<li>“<tt class="docutils literal"><span class="pre">..</span></tt>”: The parent directory of the current working directory</li>
+<li>“<tt class="docutils literal"><span class="pre">~</span></tt>”:  Your homedirectory</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using <span class="target" id="index-3"></span>cd without a directory is equivalent to “<tt class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></tt>” and changes into the users’s homedirectory</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please note the difference between absolute pathes (starting with &#8220;<tt class="docutils literal"><span class="pre">/</span></tt>&#8221;) and relative pathes (starting with a directory name)</p>
+</div>
+<div class="highlight-python"><pre>$ pwd
+/usr
+$ cd /bin
+$ pwd
+/bin</pre>
+</div>
+<div class="highlight-python"><pre>&gt; pwd
+/usr
+&gt; cd bin
+&gt; pwd
+/usr/bin</pre>
+</div>
+<dl class="docutils">
+<dt><strong>Usage</strong>:</dt>
+<dd><tt class="docutils literal"><span class="pre">ls</span> <span class="pre">[options]</span> <span class="pre">[file(s)</span> <span class="pre">or</span> <span class="pre">directory/ies]</span></tt></dd>
+</dl>
+<div class="highlight-python"><pre>&gt; ls
+/home/fthommen
+&gt; ls –l aa.pdf
+-rw-r--r-- 1 fthommen cmueller 0 Sep 24 10:59 aa.pdf</pre>
+</div>
+<p>Useful options:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>Long listing with permissions, user, group and last modification date</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-1</span></kbd></td>
+<td>Print listing in one column only</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-a</span></kbd></td>
+<td>Show all files (hidden, “.” and “..”)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-A</span></kbd></td>
+<td>Show almost all files (hidden, but not “.” and “..”)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-F</span></kbd></td>
+<td>Show filetypes (nothing = regular file, “/” = directory, “*” = executable file, “&#64;” = symbolic link)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-d</span></kbd></td>
+<td>Show directory information instead of  directory content</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-t</span></kbd></td>
+<td>Sort listing by modification time (most recent on top)</td></tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<div class="figure">
+<img alt="_static/LongListingDeconstructed.png" src="_static/LongListingDeconstructed.png" />
+</div>
+<hr class="docutils" />
+<p>Files and folders can’t only be referred to with their full name, but also with so-called “Shell Globs”, which are a kind of simple pattern to address groups of files and folders.  Instead of explicit names you can use the following placeholders:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">?:</span></tt>  Any single character</li>
+<li><tt class="docutils literal"><span class="pre">*:</span></tt>  Any number of any character (including no character at all)</li>
+<li><tt class="docutils literal"><span class="pre">[...]:</span></tt>    One of the characters included in the brackets.  Use “-“ to define ranges  of characters</li>
+</ul>
+<p>Examples:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">*.pdf:</span></tt>  All files having the extension “.pdf”</li>
+<li><tt class="docutils literal"><span class="pre">?.jpg:</span></tt>  Jpeg file consisting of only one character</li>
+<li><tt class="docutils literal"><span class="pre">[0-9]*.txt:</span></tt> All files starting with a number and having the extension “.txt”</li>
+<li><tt class="docutils literal"><span class="pre">*.???:</span></tt>  All files having a three-character extension</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The special directory “<tt class="docutils literal"><span class="pre">~</span></tt>” mentioned above is a shell glob, too.</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">touch</span> <span class="pre">file(s)</span> <span class="pre">or</span> <span class="pre">directory/ies</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls afile
+ls: afile: No such file or directory
+&gt; touch afile
+&gt; ls afile
+afile</pre>
+</div>
+<div class="highlight-python"><pre>&gt; ls –l aa.pdf
+-rw-r--r-- 1 fthommen cmueller 0 Sep 24 10:59 aa.pdf
+&gt; touch aa.pdf
+&gt; ls –l aa.pdf
+-rw-r--r-- 1 fthommen cmueller 0 Sep 25 22:01 aa.pdf</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">rm</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>rm –r [options] directory/ies
+&gt; ls afile
+afile
+&gt; rm afile
+&gt; ls afile
+ls: afile: No such file or directory</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>Ask for confirmation of each removal</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>Remove recursively</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span></kbd></td>
+<td>Force the removal (no questions, no errors if a file doesn&#8217;t exist)</td></tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">rm without the –i option will usually not ask you if you really want to remove the file or directory</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">mv</span> <span class="pre">[options]</span> <span class="pre">sourcefile</span> <span class="pre">destinationfile</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>mv [options] sourcefile(s) destinationdirectory
+&gt; ls *.txt
+a.txt
+&gt; mv a.txt b.txt
+&gt; ls *.txt
+b.txt</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>Ask for confirmation of each removal</td></tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You cannot overwrite an existing directory by another one with mv</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">mkdir</span> <span class="pre">[options]</span> <span class="pre">directory</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls adir/
+ls: adir/: No such file or directory
+&gt; mkdir adir
+&gt; ls adir</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td><p class="first">Create parent directories (when creating nested directories)</p>
+<div class="last highlight-python"><pre>&gt; mkdir adir/bdir
+mkdir: cannot create directory `adir/bdir': No such file or directory
+&gt; mkdir –p adir/bdir</pre>
+</div>
+</td></tr>
+</tbody>
+</table>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">rmdir</span> <span class="pre">directory</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; rmdir adir/</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the directory is not empty, rmdir will complain and not remove it</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">cp</span> <span class="pre">[options]</span> <span class="pre">sourcefile</span> <span class="pre">destinationfile</span></tt>
+.. note:: <span class="target" id="index-4"></span>cp [options] sourcefile(s) destinationdirectory</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; cp P12931.fasta backup_of_P12931.fasta</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>Copy recursively</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>Interactive operation, ask before overwriting an existing file</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-p</span></kbd></td>
+<td>Preserve owner, permissions and timestamp</td></tr>
+</tbody>
+</table>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">cat</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; cat  P12931.fasta backup_of_P12931.fasta
+[...]</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><span class="target" id="index-5"></span>cat only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">less</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; less  P12931.fasta backup_of_P12931.fasta
+[...]</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is the default “pager” for manpages under Linux unless you redefine your $PAGER environment variable</p>
+</div>
+<p><strong>Navigation within less</strong>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="66%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Key(s):</th>
+<th class="head">Effect:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>up, down, right, left:</td>
+<td>use cursor keys</td>
+</tr>
+<tr class="row-odd"><td>top of document:</td>
+<td>g</td>
+</tr>
+<tr class="row-even"><td>bottom of document:</td>
+<td>G</td>
+</tr>
+<tr class="row-odd"><td>search:</td>
+<td>“/” + search-term</td>
+</tr>
+<tr class="row-even"><td>find next match:</td>
+<td>n</td>
+</tr>
+<tr class="row-odd"><td>find previous match:</td>
+<td>N</td>
+</tr>
+<tr class="row-even"><td>quit:</td>
+<td>q</td>
+</tr>
+</tbody>
+</table>
+<p><span class="target" id="index-6"></span>Grep is a command-line utility for searching plain-text data sets for lines matching a regular expression.</p>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">grep</span> <span class="pre">[options]</span> <span class="pre">pattern</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; grep -i ensembl P04637.txt
+DR   Ensembl; ENST00000269305; ENSP00000269305; ENSG00000141510.
+DR   Ensembl; ENST00000359597; ENSP00000352610; ENSG00000141510.
+DR   Ensembl; ENST00000419024; ENSP00000402130; ENSG00000141510.
+DR   Ensembl; ENST00000420246; ENSP00000391127; ENSG00000141510.
+DR   Ensembl; ENST00000445888; ENSP00000391478; ENSG00000141510.
+DR   Ensembl; ENST00000455263; ENSP00000398846; ENSG00000141510.</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-v</span></kbd></td>
+<td>Print lines that do not match</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-i</span></kbd></td>
+<td>Search case-insensitive</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>List files with matching lines, not the lines itself</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-L</span></kbd></td>
+<td>List files without matches</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span></kbd></td>
+<td>Print count of matching lines for each file</td></tr>
+</tbody>
+</table>
+<p><span class="target" id="index-7"></span>Head is a program on Unix and Unix-like systems used to display the beginning of a text file or piped data.</p>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">head</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/etc/news:</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-n <var>num</var></span></kbd></td>
+<td>Print num lines (default is 10)</td></tr>
+</tbody>
+</table>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">tail</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; tail –n 3 /etc/passwd
+xfs:x:43:43:X Font Server:/etc/X11/fs:/sbin/nologin
+gdm:x:42:42::/var/gdm:/sbin/nologin
+sabayon:x:86:86:Sabayon user:/home/sabayon:/sbin/nologin</pre>
+</div>
+</div></blockquote>
+<p><strong>Useful options</strong>:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-n <var>num</var></span></kbd></td>
+<td>Print num lines (default is 10)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-f</span></kbd></td>
+<td>&#8220;Follow&#8221; a file (print new lines as they are written to the file)</td></tr>
+</tbody>
+</table>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">file</span> <span class="pre">[options]</span> <span class="pre">file(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; file /bin/date
+/bin/date: ELF 32-bit LSB executable
+&gt; file /bin
+/bin: directory
+&gt; file SRC_HUMAN.fasta
+SRC_HUMAN.fasta: ASCII text</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The command <span class="target" id="index-8"></span>file uses certain tests and some magic to determine the type of a file</p>
+</div>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">which</span> <span class="pre">[options]</span> <span class="pre">command(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; which date
+/bin/date
+&gt; which eclipse
+/usr/bin/eclipse
+&gt;</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">find</span> <span class="pre">[starting</span> <span class="pre">path(es)]</span> <span class="pre">[search</span> <span class="pre">filter]</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; find /etc
+/etc
+/etc/printcap
+/etc/protocols
+/etc/xinetd.d
+/etc/xinetd.d/ktalk
+[...]
+&gt;</pre>
+</div>
+</div></blockquote>
+<p><tt class="docutils literal"><span class="pre">find</span></tt> <span class="target" id="index-9"></span>is a powerful command with lots of possible search filters.  Refer to the manpage for a complete list.</p>
+<p><strong>Examples</strong>:</p>
+<ul class="simple">
+<li>Find by name:</li>
+</ul>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; find . -name SRC_HUMAN.fasta
+./SRC_HUMAN.fasta</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Find by size: (List those entries in the directory /usr/bin that are bigger than 500kBytes)</li>
+</ul>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; find /usr/bin -size +500k
+/usr/bin/oparchive
+/usr/bin/kiconedit
+/usr/bin/opjitconv
+[...]</pre>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li>Find by type (d=directory, f=file, l=link)</li>
+</ul>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; find . -type d
+.
+./adir</pre>
+</div>
+</div></blockquote>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">clear</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; clear</pre>
+</div>
+</div></blockquote>
+<p>In case the output of the terminal/screen gets cluttered, you can use <tt class="docutils literal"><span class="pre">clear</span></tt> to <span class="target" id="index-10"></span>clear the screen...</p>
+<p>If this doesn&#8217;t work, you can use <tt class="docutils literal"><span class="pre">reset</span></tt> to perform a re-initialization of the terminal:</p>
+<p><strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">reset</span> <span class="pre">[options]</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; reset</pre>
+</div>
+</div></blockquote>
+<p>using ls -l to view entries of current directory:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls –l
+drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
+lrwxrwxrwx 1 dinkel gibson   15 Sep 17 10:45 H1.fasta -&gt; H2.fasta
+-rw-r--r-- 1 dinkel gibson  643 Sep 17 10:45 H2.fasta</pre>
+</div>
+</div></blockquote>
+<div class="figure">
+<img alt="_static/LinuxPermissions.png" src="_static/LinuxPermissions.png" />
+</div>
+<p>Permissions are set using the <tt class="docutils literal"><span class="pre">chmod</span></tt> (<span class="target" id="index-11"></span>change mode ) command.
+<strong>Usage</strong>:  <tt class="docutils literal"><span class="pre">chmod</span> <span class="pre">[options]</span> <span class="pre">mode(s)</span> <span class="pre">files(s)</span></tt></p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ls –l adir
+drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
+&gt; chmod u-w,o=w adir
+&gt; ls –l adir
+dr-xr-x-w- 2 dinkel gibson 4096 Sep 17 10:46 adir</pre>
+</div>
+</div></blockquote>
+<p>The mode is composed of</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="20%" />
+<col width="0%" />
+<col width="7%" />
+<col width="41%" />
+<col width="7%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" colspan="2">Who</th>
+<th class="head" colspan="3">What</th>
+<th class="head" colspan="2">Which permission</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>u:</td>
+<td>user/owner</td>
+<td colspan="2">+:</td>
+<td>add this permission</td>
+<td>r:</td>
+<td>read</td>
+</tr>
+<tr class="row-odd"><td>g:</td>
+<td>group</td>
+<td colspan="2">-:</td>
+<td>remove this permission</td>
+<td>w:</td>
+<td>write</td>
+</tr>
+<tr class="row-even"><td>o:</td>
+<td>other</td>
+<td colspan="2">=:</td>
+<td>set exactly this permission</td>
+<td>x:</td>
+<td>execute</td>
+</tr>
+<tr class="row-odd"><td>a:</td>
+<td colspan="3">all          |  xx</td>
+<td>xx</td>
+<td>xx</td>
+<td>xx</td>
+</tr>
+</tbody>
+</table>
+<p>Add executable permission to the group:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; chmod g+x file</pre>
+</div>
+</div></blockquote>
+<p>Revoke this permission:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; chmod g-x file</pre>
+</div>
+</div></blockquote>
+<p>Allow all to read a directory:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; chmod a+rx adir/</pre>
+</div>
+</div></blockquote>
+<p>To execute commands at a remote machine/server, you need to log in to this machine. This is done using the <tt class="docutils literal"><span class="pre">ssh</span></tt> command (secure shell).
+In its simplest form, it takes just the machinename as parameter (assuming the username on the local machine and remote machine are identical):</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ssh remote_server</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Once logged in, <span class="target" id="index-12"></span>use <tt class="docutils literal"><span class="pre">hostname,</span></tt> <tt class="docutils literal"><span class="pre">whoami,</span></tt> etc. to determine on which machine you are currently working!</p>
+</div>
+<p>To use a different username, you can use either:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ssh username@remote_server</pre>
+</div>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ssh -l username remote_server</pre>
+</div>
+</div></blockquote>
+<p>When connecting to a machine for the first time, it might display a warning:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; ssh sub-master
+The authenticity of host 'sub-master (10.11.4.84)' can't be established.
+RSA key fingerprint is 47:a4:0f:7b:c2:0f:ef:91:8e:65:fc:3c:f7:0c:53:8d.
+Are you sure you want to continue connecting (yes/no)?</pre>
+</div>
+</div></blockquote>
+<p>Type <em>yes</em> here.
+If this message appears a second time, you should contact your IT specialist...</p>
+<dl class="docutils">
+<dt>To <span class="target" id="index-13"></span>disconnect from the remote machine, type:</dt>
+<dd><div class="first last highlight-python"><pre>&gt; exit</pre>
+</div>
+</dd>
+</dl>
+<p>Copying files to and from remote computers can be done using <tt class="docutils literal"><span class="pre">scp</span></tt>  (secure copy).
+The order of parameters is the same as in <tt class="docutils literal"><span class="pre">cp</span></tt>: first the name of the source, then the name of the destination. Either one can be the remote part.</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; scp localfile server:/remotefile
+
+&gt; scp server:/remotefile localfile</pre>
+</div>
+</div></blockquote>
+<p>An alternative username can be provided just as in ssh:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; scp username@server:/remotefile localfile</pre>
+</div>
+</div></blockquote>
+<p><span class="target" id="index-14"></span>Redirect the output of one program into e.g. a file: (Caution: you can easily overwrite files by this!)
+Inserting the current date into a new file:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; date &gt; file_containing_date</pre>
+</div>
+</div></blockquote>
+<p><span class="target" id="index-15"></span>Filtering lines containing the term “src” from FASTA files and inserting them into the file lines_with_src.txt:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; cd /exercises/
+&gt; grep -i "src" *.fasta &gt; lines_with_src.txt</pre>
+</div>
+</div></blockquote>
+<p><span class="target" id="index-16"></span>Append something to a file (rather than overwriting it):</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; date &gt;&gt; file_containing_date</pre>
+</div>
+</div></blockquote>
+<p>Use the <span class="target" id="index-17"></span>| pipe symbol (<tt class="docutils literal"><span class="pre">|</span></tt>) to feed the output of one program into the next program.
+Here: use <tt class="docutils literal"><span class="pre">ls</span></tt> to show the directory contents and then <span class="target" id="index-18"></span>use <tt class="docutils literal"><span class="pre">grep</span></tt> to only show those that contain fasta in their name:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; cd /exercises
+&gt; ls | grep fasta
+EPSINS.fasta
+FYN_HUMAN.fasta
+P12931.fasta
+SRC_HUMAN.fasta</pre>
+</div>
+</div></blockquote>
+<p><span class="target" id="index-19"></span>Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.</p>
+<p>Contains the location of the user&#8217;s home directory. Although the current user&#8217;s home directory can also be found out through the
+C functions <tt class="docutils literal"><span class="pre">getpwuid</span></tt> and <tt class="docutils literal"><span class="pre">getuid,</span></tt> <span class="target" id="index-20"></span>$HOME is often used for convenience in various shell scripts (and other contexts).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Do not change this variable unless you have a good reason and you know what you are doing!</p>
+</div>
+<p><span class="target" id="index-21"></span>$PATH contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name
+(commands with slashes are interpreted as file names to execute, and the shell attempts to execute the files directly).</p>
+<p>The <span class="target" id="index-22"></span>$PAGER variable contains the path to the program used to list the contents of files through (such <span class="target" id="index-23"></span>as <tt class="docutils literal"><span class="pre">less</span></tt> <span class="target" id="index-24"></span>or <tt class="docutils literal"><span class="pre">more</span></tt>).</p>
+<p>The <span class="target" id="index-25"></span>$PWD variable points to the current directory. Equivalent to the output of the command <tt class="docutils literal"><span class="pre">pwd</span></tt> when called without arguments.</p>
+<p><span class="target" id="index-26"></span>Use <tt class="docutils literal"><span class="pre">echo</span></tt> to <span class="target" id="index-27"></span>display individual variables <cite>set`</cite> <span class="target" id="index-28"></span>or <tt class="docutils literal"><span class="pre">env</span></tt> to view all at once:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; echo $HOME
+/localhome/teach01
+&gt; set
+...
+&gt; env
+...</pre>
+</div>
+</div></blockquote>
+<p>Use <tt class="docutils literal"><span class="pre">export</span></tt> followed by the variable name and the value of the variable (separated by the equal sign) to <span class="target" id="index-29"></span>set an environment variable:</p>
+<blockquote>
+<div><div class="highlight-python"><pre>&gt; export PAGER=/usr/bin/less</pre>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An environment variable is only valid for your current session. Once you logout of your current session, it is lost or reset.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="IntroToCommandLine.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction to the Linux Commandline</a><ul>
+<li><a class="reference internal" href="#why-use-the-commandline">Why Use the Commandline</a></li>
+<li><a class="reference internal" href="#general-remarks-regarding-using-unix-linux-systems">General Remarks Regarding Using UNIX/Linux Systems</a></li>
+<li><a class="reference internal" href="#general-structure-of-linux-commands">General Structure of Linux Commands</a><ul>
+<li><a class="reference internal" href="#a-journey-through-the-commands">A Journey Through the Commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li><a class="reference internal" href="#who-am-i-where-am-i">Who am I, where am I</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="IntroToCommandLine.html"
+                        title="previous chapter">Welcome to Introduction To the Command Line for NGS documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="exercises_beginner.html"
+                        title="next chapter">Exercises</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/introduction.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="exercises_beginner.html" title="Exercises"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="IntroToCommandLine.html" title="Welcome to Introduction To the Command Line for NGS documentation!"
+             >previous</a> |</li>
+        <li><a href="IntroToCommandLine.html">IntroToCommandLine 1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Matt Betts, Jon Fuller.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b2.
+    </div>
+  </body>
+</html>

@@ -63,7 +63,7 @@ SAM/BAM/BAI:
 * http://genome.sph.umich.edu/wiki/SAM
 * http://samtools.sourceforge.net/SAMv1.pdf
 * http://blog.nextgenetics.net/?e=18 = bitwise flags
-* http://picard.sourceforge.net/explain-flags.html
+* http://picard.sourceforge.net/explain-flags.html - this web tool converts bitwise flags from SAM files into human readable values.
 
 FASTA/FASTQ:
 ''''''''''''

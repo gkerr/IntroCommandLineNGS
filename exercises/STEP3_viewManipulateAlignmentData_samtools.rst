@@ -1,5 +1,5 @@
 SAMtools
-#####################################
+########
 
 
 **SAMtools** is a set of scripts (a toolbox so to say) that can be used to manipulate and view sam/bam files. In particular you can: ``sort``, ``index``, ``merge``, and ``view`` these files.
@@ -129,13 +129,13 @@ Note the usage and run the command
 
 
 Get summary statistics
-'''''''''''''''''''''''''''''''''
+''''''''''''''''''''''
 
 Use ``samtools idxstats`` to get summary statistics for the aligned file. Use the help.
 
 
 Create a fasta file index
-'''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''
 
  ::
   
@@ -146,7 +146,7 @@ Create a fasta file index
 
 
 Create a pileup
-'''''''''''''''''''''''''''''''''
+'''''''''''''''
 
 ``samtools mpileup`` is a very useful utility for calling variants in alignment files. Read the help documentation carefully. 
 
@@ -154,8 +154,9 @@ Create a pileup
 
 
  ::
- 
-  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 -f genome/dros_BDGP5.25.fa rawData/arm.bam
+
+  > samtools mpileup -g -l intervalFile.bed -I -D -q 20 \
+    -f genome/dros_BDGP5.25.fa rawData/arm.bam
 
 .. note:: ``dros_BDGP5.25.fa`` needs to be indexed otherwise the above command will not work
 

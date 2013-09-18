@@ -1,9 +1,9 @@
 Estimating Expression  
-========================
+=======================
 
 
 Example - Expression in the arm gene knockdown sample
-----------------------------------------------------------
+-----------------------------------------------------
 
 We have used reads sequences obtained from a knockdown of the *arm* and *smo* gene in the drosophila S2 cell line to estimate gene expression. We used tophat to align the reads.  We will now use the output from the tophat step, to look at gene expression in these samples. We will use a program called **Cufflinks** to do this.
 
@@ -29,10 +29,12 @@ Run the command:
 
  ::
  
-  cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
+  cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm \
+  --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput 
+  ARM-1_tophatOutput/accepted_hits.q20.sam
 	
 Review Questions:
----------------------
+-----------------
 
 - Why assemble transcripts with cufflinks?
 - What do the options in the cufflinks command do?
@@ -47,7 +49,7 @@ Review Questions:
 Next, we must estimate the expression in the smo gene knockdown:
 
 Task 
-----------
+-----
 
 Assemble expressed genes and transcripts in the SMO knockdown with CUFFLINKS (similar to above)
 
@@ -56,10 +58,10 @@ The output of tophat in step 1 can be found in the course data folder at ``SMO-1
 
 
 Estimating differential Expression
-=============================================
+==================================
 
 Example - Estimating significance of differential expression in the ARM gene knockdown compared to control.
-----------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
 We have estimated gene expression in SMO and ARM gene knockdowns. We would now like to see if this is expressed differently as one would find in a control. We will now use the output from the cufflinks step, to look at differential gene expression by comparing it to a control. We will use a program called Cuffdiff to do this.
 
@@ -82,7 +84,10 @@ And for ARM these are:``ARM-1_tophatOuput/accepted_hits.bam``
 
  ::
  
-  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 -L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf FL1-1_tophatOutput/accepted_hits.q20.sam,FL2-1_tophatOutput/accepted_hits.q20.sam ARM-1_tophatOutput/accepted_hits.q20.sam
+  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 \
+  -L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf \
+  FL1-1_tophatOutput/accepted_hits.q20.sam,\
+  FL2-1_tophatOutput/accepted_hits.q20.sam ARM-1_tophatOutput/accepted_hits.q20.sam
 
  
 .. topic:: Review Questions:
@@ -93,12 +98,12 @@ And for ARM these are:``ARM-1_tophatOuput/accepted_hits.bam``
   - What are the output files from cuff_diff?
 
 Use your linux know how
--------------------------------
+-----------------------
 - How many significantly differentially expressed genes are there?
 - Can you find the expression of gene "CG7224"?
 
 Task 
--------
+-----
 Use your know-how to estimate estimate differential expression in the smo knockdown compared to control.
 
 The output can be found at: ``SMO-1_tophatOuput/accepted_hits.bam``

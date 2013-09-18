@@ -30,8 +30,9 @@ We can use the following command to run **Tophat**, to perform an alignment of t
 
  ::
 
-  > tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ \
-    bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
+  > tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf \
+    -o ~/arm_tohatOutput/ bowtieIndexes/drosophilaMelanogaster.X \
+    rawData/arm.Xsubset.fastq
 
 .. note:: Remember to specify the output directory in the tophat command. 
 

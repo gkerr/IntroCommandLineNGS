@@ -16,10 +16,9 @@ To get information on tophat, open a terminal window and type
 
 The raw data is called arm.Xsubset.fastq in your home directory, in course folder called rawData ``arm.Xsubset.fastq``
 
-The annotation Data is for chromosome X is ``drosophilaMelanogaster.X.gtf``
+The annotation Data is for chromosome X is ``geneRef/drosophilaMelanogaster.X.gtf``
 
-The bowtie index is ``bowtieIndex/drosophilaMelanogaster.X``
-
+The bowtie index is ``bowtieIndexes/drosophilaMelanogaster.X``
 
 Note: remember to specify the output directory in the tophat command. Create this output directory first with the following command.
 
@@ -27,7 +26,12 @@ Note: remember to specify the output directory in the tophat command. Create thi
 
   > mkdir -p ~/arm_tohatOutput
 
-.. note::  Specify option --no-coverage-search in the tophat command. This will speed things up.
+Run the following commandÖ
+
+ ::
+
+  > tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
+
 
 .. topic:: Review questions
 
@@ -36,6 +40,7 @@ Note: remember to specify the output directory in the tophat command. Create thi
  - What is the "bowtie-index"?
  - How can specifying more mismatches with the -n option change the output?
  - Why supply a gtf file to tophat?
+ - option --no-coverage-search in the tophat command will speed things up. Why?
  - What are the output files from the tophat aligner?
  - Why assemble transcripts with cufflinks?
  - What is the gtf file and why do I need it?
@@ -64,10 +69,6 @@ The raw data is called smo.2Lsubset.fastq  ``rawData/smo.2Lsubset.fastq``
 The annotation Data is for chromosome 2L is: ``geneRef/drosophilaMelanogaster.2L.gtf``
 
 The bowtie index is ``bowtieIndex/drosophilaMelanogaster.2L``
-
-
-.. note::  Specify option --no-coverage-search in the tophat command. This will speed things up.
-
 
 .. topic:: Review questions
 

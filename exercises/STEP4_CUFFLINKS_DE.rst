@@ -15,23 +15,21 @@ To get help
 
   cufflinks -h
 
-Note the output of them help command
+Note the output of the help command
 
  ::
  
   Usage: cufflinks [options]* <aligned_reads.(sam/bam)> 
   
-The type abd position of *required* arguments to the cufflinks programs and in angular brackets "< >", while *optional* arguments are in square "[]" brackets.
-
-The output of tophat in step 1 can be found in the course dat folder at ``ARM-1_tophatOutput/accepted_hits.bam``
+The output of tophat in step 1 can be found in the course dat folder at ``ARM-1_tophatOutput/accepted_hits.q20.sam``
 	 
-The annotation Data is ``geneRef/dros_BD5.25.gff``
+The annotation Data is ``geneRef/dros_BDGP5.25.gtf``
 
 Run the command:
 
  ::
  
-  cufflinks -G geneRef/dros.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.bam
+  cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
 	
 Review Questions:
 ---------------------
@@ -84,7 +82,7 @@ And for ARM these are:``ARM-1_tophatOuput/accepted_hits.bam``
 
  ::
  
-  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 –L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf  FL1-1_tophatOutput/accepted_hits.bam, FL2-1_tophatOutput/accepted_hits.bam ARM-1_tophatOuput/accepted_hits.bam
+  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 -L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf FL1-1_tophatOutput/accepted_hits.q20.sam,FL2-1_tophatOutput/accepted_hits.q20.sam ARM-1_tophatOutput/accepted_hits.q20.sam
 
  
 .. topic:: Review Questions:

@@ -1,11 +1,28 @@
+Before you start
+################
+
+You need to tell your computer where to find the programs we will use:
+
+ ::
+
+  > export PATH=/net/netfile1/ds-russell/linuxForNGS/bin:$PATH
+
+All the course data can be found in the following directory:
+
+ ::
+
+  /net/netfile1/ds-russell/linuxForNGS/data
+
+Note that you do not have permission to write to this directory.
+
 Quality Control
 #####################################
 
 In this section you will need to use the following three files:
 -------
-- data/arm.fastq
-- data/arm.bam
-- data/FL1-1.sam
+- rawData/arm.fastq
+- rawData/arm.bam
+- rawData/FL1-1.sam
 
 As a reminder, you can find out what each of these files is used for here.
 
@@ -37,7 +54,7 @@ To generate an html report use the following:
 
  :: 
 
-  > fastqc -verbose –o ~/fastqcTest –noextract –f fastq rawData/arm.fastq -
+  > fastqc -o ~/fastqcTest -noextract -f fastq rawData/arm.fastq
 
 .. topic:: Review Questions
   
@@ -69,12 +86,13 @@ Note the usage line you are given after typing this
    Usage:   samstat <file.sam> <file.bam> <file.fa> <file.fq> .... 
 
 
-To get the statistics of the arm.bam file using samstat. This will create a html report in the current working directory
+To get the statistics of the arm.bam file using samstat. This will try to create a html report file in the same directory as the input file.
 
  ::
    
    > samstat rawData/arm.bam
 
+The above command will not work as written. Can you figure out why and fix it?
 
 Task
 '''''''

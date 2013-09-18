@@ -78,6 +78,8 @@ A Journey Through the Commands
 Please note that all examples and usage instructions below are just a glimpse of what you can do and reflect our opinion on what’s important and what’s not. Most of these commands support many more options and different usages. Consult the manpages to find them.
 Typographical conventions: Commands and examples are written in Courier.  User Input is written in Courier bold and placeholders are generally written in italic.
 
+.. _help:
+
 Getting Help
 ============
 

@@ -37,7 +37,7 @@ To generate an html report use the following:
 
  :: 
 
-  > fastqc -verbose –o fastqcTest –noextract –f fastq arm.fastq -
+  > fastqc -verbose –o ~/fastqcTest –noextract –f fastq rawData/arm.fastq -
 
 .. topic:: Review Questions
   
@@ -47,7 +47,7 @@ To generate an html report use the following:
   
 Task
 '''''
-Use fastqc to generate a report of smo.fastq
+Use fastqc to generate a report of rawData/smo.fastq. Save the report in an output directory called fastqcSMO
 
 SAMstat
 ---------
@@ -73,10 +73,11 @@ To get the statistics of the arm.bam file using samstat. This will create a html
 
  ::
    
-   > samstat arm.bam
+   > samstat rawData/arm.bam
+
 
 Task
 '''''''
 
-Use samstat to create html report for ``arm.fastq`` and ``FL1-1.sam``
+Use samstat to create html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
 

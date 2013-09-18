@@ -14,18 +14,18 @@ To get information on tophat, open a terminal window and type
   
   > tophat -h 
 
-The raw data is called arm.Xsubset.fastq in your home directory, in folder called course_data ``arm.Xsubset.fastq``
+The raw data is called arm.Xsubset.fastq in your home directory, in course folder called rawData ``arm.Xsubset.fastq``
 
 The annotation Data is for chromosome X is ``drosophilaMelanogaster.X.gtf``
 
 The bowtie index is ``bowtieIndex/drosophilaMelanogaster.X``
 
 
-Note: remember to specify the output directory in the tophat command 
+Note: remember to specify the output directory in the tophat command. Create this output directory first with the following command.
 
  :: 
 
-  > mkdir -p ~/course_data_output/arm
+  > mkdir -p ~/arm_tohatOutput
 
 .. note::  Specify option --no-coverage-search in the tophat command. This will speed things up.
 
@@ -59,7 +59,7 @@ To get information on tophat, terminal window and type:
   
   > tophat -h 	
 
-The raw data is called smo.2Lsubset.fastq  ``data/smo.2Lsubset.fastq``
+The raw data is called smo.2Lsubset.fastq  ``rawData/smo.2Lsubset.fastq``
 
 The annotation Data is for chromosome 2L is: ``geneRef/drosophilaMelanogaster.2L.gtf``
 

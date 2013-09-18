@@ -33,7 +33,7 @@ smo.bam is a bam file and is not human readable. To make it human readable you c
 
  ::
 
-   > samtools view –h –o smo.sam data/smo.bam
+   > samtools view –h –o ~/smo.sam rawData/smo.bam
 
 - What does –h and –o do in the above example?
 - Convert arm.bam into a sam file.
@@ -45,13 +45,13 @@ In some cases you might only want to see or generate the header of a bam file.
 
  ::
  
-  > samtools view –H smo.bam
+  > samtools view –H rawData/smo.bam
 
 Now try:
 
  ::
  
-  > samtools view –H smo.bam > smo.header.sam
+  > samtools view –H rawData/smo.bam > ~/smo.header.sam
 
 - What does the “> smo.header.sam” of the above statement do?
 - What information is stored in the header of the sam file?
@@ -63,7 +63,7 @@ Now try:
 
  ::
   
-  > samtools view –c smo.bam
+  > samtools view –c rawData/smo.bam
 
 
 - Can you use samtools to count the number of alignments above a quality score of 20 in your file?
@@ -86,7 +86,7 @@ Note the usage of the index command in the samtools toolbox suite.
 
  ::
  
-   > samtools index smo.bam sm0.bai
+   > samtools index rawData/smo.bam smo.bai
 
 - What does creating an bam index mean? 
 - Why would one want to create a bam index?
@@ -96,7 +96,7 @@ Note the usage of the index command in the samtools toolbox suite.
 
  ::
   
-  > samtools sort smo.sam 
+  > samtools sort rawData/smo.sam 
 
 - What does –o in the above command do?
 - Change the command to sort by read names rather than chromosomal locations.
@@ -117,10 +117,11 @@ Note the usage and run the command
 
  ::
 
-  > samtools merge –h header.sam FL1-merged.bam FL1-1.bam FL1-2.bam
+  > samtools merge –h header.sam FL1-merged.bam rawData/FL1-1.bam rawData/FL1-2.bam
 
 - What does –h in the above command do?
-- Does this command work? Why not? (TODO: The files are sorted wrongly). Change the command so that the files can be merged.
+- Does this command work? Why not? Change the command so that the files can be merged.
+.. (TODO: The files are sorted wrongly). 
 
 
 **Get summary statistics** 
@@ -132,9 +133,10 @@ Use *samtools idxstats* to get summary statistics for the aligned file. Use the 
 
  ::
   
-  > samtools faidx dros_BD5.25.fa
+  > samtools faidx genome/dros_BDGP5.25.fa
 
 - What is the benefit of creating an index of a fasta file?
+- Does this command work? Why not?
 
 
 **Create a pileup **
@@ -144,9 +146,9 @@ samtools mpileup is a very useful utility for calling variants in alignment file
 
  ::
  
-  > samtools mpileup –g –l intervalFile.bed –I –D –q 20 -f dros_BD5.25.fa dnaSeq1.bam dnaSeq2.bam
+  > samtools mpileup –g –l intervalFile.bed –I –D –q 20 -f genome/dros_BDGP5.25.fa dnaSeq1.bam dnaSeq2.bam
 
-Note: dros_BD5.25.fa needs to be indexed otherwise the above command will not work
+Note: dros_BDGP5.25.fa needs to be indexed otherwise the above command will not work
 
 
 
@@ -166,7 +168,7 @@ Use samtools and awk to count the number of mapped reads in your file.
 
  ::
  
-   >  samtools idxstats smo.bam | awk '{s+=$3} END {print s}' 
+   >  samtools idxstats rawData/smo.bam | awk '{s+=$3} END {print s}' 
 
 - Is this the same number as with samtools view –c smo.bam
 - What is the awk command doing in the above?

@@ -766,6 +766,8 @@ Append
 
   > date >> file_containing_date
 
+.. _pipe:
+
 Pipe
 ----
 

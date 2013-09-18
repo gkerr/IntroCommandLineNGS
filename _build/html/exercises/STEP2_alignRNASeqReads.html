@@ -53,7 +53,7 @@
 <h1>Aligning RNASeq Reads<a class="headerlink" href="#aligning-rnaseq-reads" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-1-arm-xsubset-fastq">
 <h2>Example 1 - arm.Xsubset.fastq<a class="headerlink" href="#example-1-arm-xsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>This dataset <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> contains reads from an mRNA sample after RNAi knockdown of the arm gene, in the <em>Drosophila melanogaster</em> cell line, S2. The arm gene is found on chromosome X of the <em>Drosophila melanogaster</em> genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.</p>
+<p>The dataset <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> contains reads from an mRNA sample after RNAi knockdown of the arm gene, in the <em>Drosophila melanogaster</em> cell line, S2. The arm gene is found on chromosome X of the <em>Drosophila melanogaster</em> genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.</p>
 <p>Your task is to align the reads to the X chromosome. To align reads to the X chromosome, we can use a command line tool called <strong>Tophat</strong>.</p>
 <p>To get information on <strong>Tophat</strong>, open a terminal window and type:</p>
 <blockquote>
@@ -72,7 +72,8 @@
 </div></blockquote>
 <p>We can use the following command to run <strong>Tophat</strong>, to perform an alignment of the NGS reads to the annotation data for chromosome X:</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ <span class="se">\</span>
+  bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
 </pre></div>
 </div>
 </div></blockquote>
@@ -99,7 +100,7 @@
 </div>
 <div class="section" id="example-2-smo-2lsubset-fastq">
 <h2>Example 2 - smo.2Lsubset.fastq<a class="headerlink" href="#example-2-smo-2lsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the <em>Drosophila melanogaster</em> cell line, S2. The smo gene is found on chromosome 2L of the <em>Drosophila melanogaster</em> genome. Once again we will restrict our analysis to a single chromosome.</p>
+<p>The dataset <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the <em>Drosophila melanogaster</em> cell line, S2. The smo gene is found on chromosome 2L of the <em>Drosophila melanogaster</em> genome. Once again we will restrict our analysis to a single chromosome.</p>
 <p>Your task is to align the reads from the to the 2L chromosome</p>
 <p>The raw data is called <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> and can be found in the <tt class="docutils literal"><span class="pre">rawData</span></tt> directory.</p>
 <p>The annotation data for chromosome 2L is: <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.2L.gtf</span></tt></p>

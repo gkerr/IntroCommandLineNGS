@@ -335,6 +335,8 @@ mv – Move and rename files and folders
 
 .. note:: You cannot overwrite an existing directory by another one with mv
 
+.. _mkdir:
+
 mkdir – Create a new directory
 ------------------------------
 

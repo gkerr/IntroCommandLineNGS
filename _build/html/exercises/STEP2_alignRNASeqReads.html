@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="None" href="../index.html" />
     <link rel="next" title="Samtools" href="STEP3_viewManipulateAlignmentData_samtools.html" />
-    <link rel="prev" title="Before you start" href="STEP1_QualityControl.html" /> 
+    <link rel="prev" title="Quality Control" href="STEP1_QualityControl.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="STEP1_QualityControl.html" title="Before you start"
+          <a href="STEP1_QualityControl.html" title="Quality Control"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">None</a> &raquo;</li> 
       </ul>
@@ -53,68 +53,68 @@
 <h1>Aligning RNASeq Reads<a class="headerlink" href="#aligning-rnaseq-reads" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-1-arm-xsubset-fastq">
 <h2>Example 1 - arm.Xsubset.fastq<a class="headerlink" href="#example-1-arm-xsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the arm gene, in the drosophila Melanogaster cell line, S2. The arm gene is found on chromosome X of the drosophila Melanogaster genome. Here, to save time, we will restrict our analysis to this chromosome. You should for your own projects, you use all the genome information.</p>
-<p>Your task is to align the reads to the X chromosome</p>
-<p>To get information on tophat, open a terminal window and type</p>
+<p>This dataset <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> contains reads from an mRNA sample after RNAi knockdown of the arm gene, in the <em>Drosophila melanogaster</em> cell line, S2. The arm gene is found on chromosome X of the <em>Drosophila melanogaster</em> genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.</p>
+<p>Your task is to align the reads to the X chromosome. To align reads to the X chromosome, we can use a command line tool called <strong>Tophat</strong>.</p>
+<p>To get information on <strong>Tophat</strong>, open a terminal window and type:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat -h
 </pre></div>
 </div>
 </div></blockquote>
-<p>The raw data is called arm.Xsubset.fastq in your home directory, in course folder called rawData <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt></p>
-<p>The annotation Data is for chromosome X is <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.X.gtf</span></tt></p>
+<p>You will find a file called <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> in a folder called <tt class="docutils literal"><span class="pre">rawData</span></tt> in the course data folder. The data in the <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> file is the raw data that you need to align to chromosome X.</p>
+<p>The annotation data for chromosome X is in the file <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.X.gtf</span></tt></p>
 <p>The bowtie index is <tt class="docutils literal"><span class="pre">bowtieIndexes/drosophilaMelanogaster.X</span></tt></p>
-<p>Note: remember to specify the output directory in the tophat command. Create this output directory first with the following command.</p>
+<p>Create an output directory where we can store the results of the alignment. Remember that you can create a new directory with the following command (see section <a class="reference internal" href="../introduction.html#mkdir"><em>mkdir – Create a new directory</em></a>).</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; mkdir -p ~/arm_tohatOutput
 </pre></div>
 </div>
 </div></blockquote>
-<p>Run the following commandÖ</p>
+<p>We can use the following command to run <strong>Tophat</strong>, to perform an alignment of the NGS reads to the annotation data for chromosome X:</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
 </pre></div>
 </div>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Remember to specify the output directory in the tophat command.</p>
+</div>
 <div class="topic">
 <p class="topic-title first">Review questions</p>
 <ul class="simple">
-<li>What does tophat do?</li>
-<li>What kind of aligner is tophat?</li>
-<li>What is the &#8220;bowtie-index&#8221;?</li>
-<li>How can specifying more mismatches with the -n option change the output?</li>
-<li>Why supply a gtf file to tophat?</li>
-<li>option &#8211;no-coverage-search in the tophat command will speed things up. Why?</li>
-<li>What are the output files from the tophat aligner?</li>
+<li>What does <strong>Tophat</strong> do?</li>
+<li>What kind of aligner is <strong>Tophat</strong>?</li>
+<li>What is the <tt class="docutils literal"><span class="pre">bowtie-index</span></tt>?</li>
+<li>How can specifying more mismatches with the <tt class="docutils literal"><span class="pre">-n</span></tt> option change the output?</li>
+<li>Why supply a gtf file to <strong>Tophat</strong>?</li>
+<li>option <tt class="docutils literal"><span class="pre">--no-coverage-search</span></tt> in the <strong>Tophat</strong> command will speed things up. Why?</li>
+<li>What are the output files from the <strong>Tophat</strong> aligner?</li>
 <li>Why assemble transcripts with cufflinks?</li>
 <li>What is the gtf file and why do I need it?</li>
-<li>what data does the gtf file contain?</li>
-<li>what does the last column in the gtf file contain?</li>
+<li>What data does the gtf file contain?</li>
+<li>What does the last column in the gtf file contain?</li>
 </ul>
 </div>
 </div>
 <div class="section" id="example-2-smo-2lsubset-fastq">
 <h2>Example 2 - smo.2Lsubset.fastq<a class="headerlink" href="#example-2-smo-2lsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the drosophila Melanogaster cell line, S2.
-The arm gene is found on chromosome 2L of the drosophila Melanogaster genome.
-Here, to save time, we will restrict our analysis to this chromosome, 2L. You should for your own projects, you use all the genome information.</p>
-<p>Your task is to align the reads to the 2L chromosome</p>
-<p>To get information on tophat, terminal window and type:</p>
-<blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat -h
-</pre></div>
-</div>
-</div></blockquote>
-<p>The raw data is called smo.2Lsubset.fastq  <tt class="docutils literal"><span class="pre">rawData/smo.2Lsubset.fastq</span></tt></p>
-<p>The annotation Data is for chromosome 2L is: <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.2L.gtf</span></tt></p>
+<p>This dataset contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the <em>Drosophila melanogaster</em> cell line, S2. The smo gene is found on chromosome 2L of the <em>Drosophila melanogaster</em> genome. Once again we will restrict our analysis to a single chromosome.</p>
+<p>Your task is to align the reads from the to the 2L chromosome</p>
+<p>The raw data is called <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> and can be found in the <tt class="docutils literal"><span class="pre">rawData</span></tt> directory.</p>
+<p>The annotation data for chromosome 2L is: <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.2L.gtf</span></tt></p>
 <p>The bowtie index is <tt class="docutils literal"><span class="pre">bowtieIndex/drosophilaMelanogaster.2L</span></tt></p>
+<div class="section" id="task">
+<h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<p>Which commands need to be run to align the reads to the 2L chromosome?</p>
 <div class="topic">
 <p class="topic-title first">Review questions</p>
 <ul class="simple">
-<li>What does the -p option in tophat do?</li>
-<li>How does &#8211;no-coverage search save time?</li>
-<li>What does the -g option do?</li>
+<li>What does the <tt class="docutils literal"><span class="pre">-p</span></tt> option in tophat do?</li>
+<li>How does <tt class="docutils literal"><span class="pre">--no-coverage</span></tt> search save time?</li>
+<li>What does the <tt class="docutils literal"><span class="pre">-g</span></tt> option do?</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -132,14 +132,17 @@ Here, to save time, we will restrict our analysis to this chromosome, 2L. You sh
   <ul>
 <li><a class="reference internal" href="#">Aligning RNASeq Reads</a><ul>
 <li><a class="reference internal" href="#example-1-arm-xsubset-fastq">Example 1 - arm.Xsubset.fastq</a></li>
-<li><a class="reference internal" href="#example-2-smo-2lsubset-fastq">Example 2 - smo.2Lsubset.fastq</a></li>
+<li><a class="reference internal" href="#example-2-smo-2lsubset-fastq">Example 2 - smo.2Lsubset.fastq</a><ul>
+<li><a class="reference internal" href="#task">Task</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="STEP1_QualityControl.html"
-                        title="previous chapter">Before you start</a></p>
+                        title="previous chapter">Quality Control</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="STEP3_viewManipulateAlignmentData_samtools.html"
                         title="next chapter">Samtools</a></p>
@@ -175,7 +178,7 @@ Here, to save time, we will restrict our analysis to this chromosome, 2L. You sh
           <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
              >next</a> |</li>
         <li class="right" >
-          <a href="STEP1_QualityControl.html" title="Before you start"
+          <a href="STEP1_QualityControl.html" title="Quality Control"
              >previous</a> |</li>
         <li><a href="../index.html">None</a> &raquo;</li> 
       </ul>

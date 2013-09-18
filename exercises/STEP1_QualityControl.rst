@@ -23,9 +23,9 @@ Required files
 
 In this section you will need to use the following three files:
 
-- rawData/arm.fastq
-- rawData/arm.bam
-- rawData/FL1-1.sam
+- ``rawData/arm.fastq``
+- ``rawData/arm.bam``
+- ``rawData/FL1-1.sam``
 
 As a reminder, you can find out what each of these files is used for (see section :ref:`fileformats`).
 
@@ -93,5 +93,5 @@ The above command will not work as written. Can you figure out why, and fix it?
 Task
 '''''''
 
-Use samstat to create html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
+Use **SAMStat** to create an html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
 

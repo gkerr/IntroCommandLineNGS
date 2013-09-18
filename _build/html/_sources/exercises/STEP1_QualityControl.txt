@@ -93,5 +93,5 @@ The above command will not work as written. Can you figure out why, and fix it?
 Task
 '''''''
 
-Use samstat to create html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
+Use **SAMStat** to create an html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
 

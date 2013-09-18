@@ -8,6 +8,8 @@ Example 1 - arm.Xsubset.fastq
 
 The dataset ``arm.Xsubset.fastq`` contains reads from an mRNA sample after RNAi knockdown of the `arm <http://flybase.org/reports/FBgn0000117.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The *arm* gene is found on chromosome X of the *Drosophila melanogaster* genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.
 
+.. warning:: In your projects you need to align to the full genome of your organism of interest, since you don't know which chromosome the reads come from. It might be the case that the reads match better elsewhere on the genome.
+
 Your task is to align the reads to the X chromosome. To align reads to the X chromosome, we can use a command line tool called **Tophat**.
 
 To get information on **Tophat**, open a terminal window and type:
@@ -47,17 +49,16 @@ We can use the following command to run **Tophat**, to perform an alignment of t
  - Why supply a gtf file to **Tophat**?
  - option ``--no-coverage-search`` in the **Tophat** command will speed things up. Why?
  - What are the output files from the **Tophat** aligner?
- - Why assemble transcripts with cufflinks?
  - What is the gtf file and why do I need it?
  - What data does the gtf file contain?
  - What does the last column in the gtf file contain?
 
 
 
-Example 2 - smo.2Lsubset.fastq 
+Example 2 - *smo.2Lsubset.fastq 
 --------------------------------
 
-The dataset ``smo.2Lsubset.fastq`` contains reads from a mRNA sample after RNAi knockdown of the `smo <http://flybase.org/reports/FBgn0003444.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The smo gene is found on chromosome 2L of the *Drosophila melanogaster* genome. Once again we will restrict our analysis to a single chromosome.
+The dataset ``smo.2Lsubset.fastq`` contains reads from a mRNA sample after RNAi knockdown of the `smo <http://flybase.org/reports/FBgn0003444.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The *smo* gene is found on chromosome 2L of the *Drosophila melanogaster* genome. Once again we will restrict our analysis to a single chromosome.
 
 Your task is to align the reads from the to the 2L chromosome
 

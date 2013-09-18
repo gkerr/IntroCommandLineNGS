@@ -23,7 +23,7 @@ Note the output of them help command
   
 The type abd position of *required* arguments to the cufflinks programs and in angular brackets "< >", while *optional* arguments are in square "[]" brackets.
 
-The output of tophat in step 1 can be found in your home directory at ``ARM-1_tophatOutput/accepted_hits.bam``
+The output of tophat in step 1 can be found in the course dat folder at ``ARM-1_tophatOutput/accepted_hits.bam``
 	 
 The annotation Data is ``geneRef/dros_BD5.25.gff``
 
@@ -31,7 +31,7 @@ Run the command:
 
  ::
  
-  cufflinks -G geneRef/dros.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.bam
+  cufflinks -G geneRef/dros.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.bam
 	
 Review Questions:
 ---------------------
@@ -53,7 +53,7 @@ Task
 
 Assemble expressed genes and transcripts in the SMO knockdown with CUFFLINKS (similar to above)
 
-The output of tophat in step 1 can be found in your home directory at ``SMO-1_tophatOutput/accepted_hits.bam``
+The output of tophat in step 1 can be found in the course data folder at ``SMO-1_tophatOutput/accepted_hits.bam``
 
 
 
@@ -71,7 +71,7 @@ There is 1 replicate of the ARM sample: ARM-1
 There are 2 replicates of the CTRL sample: FL1-1, FL2-1
 
 
-Use the drosophila gtf file ``geneRef/dros_BD5.25.gff``
+Use the drosophila gtf file ``geneRef/dros_BDGP5.25.gtf``
 
 Use the ``accepted_hits.bam`` output from the tophat alignment 
 	  
@@ -84,7 +84,7 @@ And for ARM these are:``ARM-1_tophatOuput/accepted_hits.bam``
 
  ::
  
-  cuffdiff -o ARM_vs_CTRL_diffOut -b genomeRef/dros_BD5.25.fa -p 8 –L FL1_ctrl,arm -u geneRef/dros_BD5.25.gff  FL1-1_tophatOutput/accepted_hits.bam, FL2-1_tophatOutput/accepted_hits.bam ARM-1_tophatOuput/accepted_hits.bam
+  cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 –L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf  FL1-1_tophatOutput/accepted_hits.bam, FL2-1_tophatOutput/accepted_hits.bam ARM-1_tophatOuput/accepted_hits.bam
 
  
 .. topic:: Review Questions:

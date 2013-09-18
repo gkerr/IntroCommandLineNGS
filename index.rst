@@ -20,6 +20,7 @@ Introduction to the Linux Commandline for NGS analyses
   exercises/STEP4_CUFFLINKS_DE.rst
   ReadingList.rst
 
+  linux_links.rst
   acknowledgments.rst
 
 .. Indices and tables

@@ -140,7 +140,7 @@ whoami – Print your username
  :: 
 
   > whoami
-  fthommen
+  bg_36student
 
 hostname – Print the name of the computer
 -----------------------------------------
@@ -160,7 +160,7 @@ pwd – Print the current working directory
  :: 
 
   > pwd
-  /home/fthommen
+  /home/bg_36student
 
 date – Print current date and time
 ----------------------------------
@@ -172,7 +172,7 @@ date – Print current date and time
   > date
   Tue Sep 25 19:57:50 CEST 2012
 
-.. note:: The command time does something completely different than :index:`date` and is not used to show the current time.
+.. note:: The command *time* does something completely different than :index:`date` and is not used to show the current time.
 
 Moving Around
 =============
@@ -185,7 +185,7 @@ cd – Change the working directory
  :: 
 
   # pwd
-  /home/fthommen
+  /home/bg_36student
   # cd /usr/bin
   # pwd
   /usr/bin
@@ -228,9 +228,9 @@ ls - List directory contents
 :: 
 
   > ls
-  /home/fthommen
-  > ls –l aa.pdf
-  -rw-r--r-- 1 fthommen cmueller 0 Sep 24 10:59 aa.pdf
+  /home/bg_36student
+  > ls –l /bin/date
+  -rwxr-xr-x 1 root root 54920 Dec 18  2012 /bin/date
 
 
 Useful options:
@@ -285,11 +285,11 @@ touch – Create a file or change last modification date of an existing file
 
  :: 
 
-  > ls –l aa.pdf
-  -rw-r--r-- 1 fthommen cmueller 0 Sep 24 10:59 aa.pdf
-  > touch aa.pdf
-  > ls –l aa.pdf
-  -rw-r--r-- 1 fthommen cmueller 0 Sep 25 22:01 aa.pdf
+  > ls –l ~/exercises/P12931.txt
+  -rw-r--r-- 1 dinkel gibson  53K Aug 11 14:21 P12931.txt
+  > touch ~/exercises/P12931.txt
+  > ls –l ~/exercises/P12931.txt
+  -rw-r--r-- 1 dinkel gibson  53K Sep 18 19:16 P12931.txt
 
 rm – Remove files and directories
 ---------------------------------
@@ -695,8 +695,8 @@ When connecting to a machine for the first time, it might display a warning:
 
  :: 
 
-  > ssh sub-master
-  The authenticity of host 'sub-master (10.11.4.84)' can't be established. 
+  > ssh cln038
+  The authenticity of host 'cln038 (129.296.243.53)' can't be established. 
   RSA key fingerprint is 47:a4:0f:7b:c2:0f:ef:91:8e:65:fc:3c:f7:0c:53:8d. 
   Are you sure you want to continue connecting (yes/no)?
 
@@ -750,7 +750,7 @@ Inserting the current date into a new file:
 
  :: 
 
-  > cd /exercises/
+  > cd ~/exercises/
   > grep -i "src" *.fasta > lines_with_src.txt
 
 Append
@@ -770,7 +770,7 @@ Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``g
 
  :: 
 
-  > cd /exercises
+  > cd ~/exercises
   > ls | grep fasta
   EPSINS.fasta
   FYN_HUMAN.fasta

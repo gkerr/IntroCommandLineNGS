@@ -45,9 +45,6 @@ Recall, that when we don't know what a tool does, we can always get help (see se
 
 Report graphs allow us to gain a visual overview of the sequence data. To generate report graphs type the following:
 
-=======
-To generate an html report use the following:
-
  :: 
 
   > fastqc -o ~/fastqcTest -noextract -f fastq rawData/arm.fastq

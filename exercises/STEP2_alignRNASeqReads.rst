@@ -55,7 +55,7 @@ We can use the following command to run **Tophat**, to perform an alignment of t
 
 
 
-Example 2 - *smo.2Lsubset.fastq 
+Example 2 - smo.2Lsubset.fastq 
 --------------------------------
 
 The dataset ``smo.2Lsubset.fastq`` contains reads from a mRNA sample after RNAi knockdown of the `smo <http://flybase.org/reports/FBgn0003444.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The *smo* gene is found on chromosome 2L of the *Drosophila melanogaster* genome. Once again we will restrict our analysis to a single chromosome.

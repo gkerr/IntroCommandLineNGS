@@ -125,7 +125,6 @@ Note the usage and run the command
 
 - What does ``-h`` in the above command do?
 - Does this command work? If not, why not? What command can allow the files to be merged.
-- (TODO: The files are sorted wrongly). 
 
 
 Get summary statistics

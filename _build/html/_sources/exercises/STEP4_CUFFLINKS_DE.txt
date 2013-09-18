@@ -32,17 +32,16 @@ Run the command:
   cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm \
   -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
 	
-Review Questions:
----------------------
+.. topic:: Review Questions:
 
-- Why assemble transcripts with **Cufflinks**?
-- What do the options in the **Cufflinks** command do?
-- What is the gtf file and why do I need it?
-- what data does the gtf file contain?
-- what does the last column in the gtf file contain?
-- what is the ``tss_id`` tag in the gtf file and what is it used for?
-- why is both transcript and gene information in the gtf file?
-- Which files does **Cufflinks** output, and what do the columns in the files mean?
+ - Why assemble transcripts with **Cufflinks**?
+ - What do the options in the **Cufflinks** command do?
+ - What is the gtf file and why do I need it?
+ - what data does the gtf file contain?
+ - what does the last column in the gtf file contain?
+ - what is the ``tss_id`` tag in the gtf file and what is it used for?
+ - why is both transcript and gene information in the gtf file?
+ - Which files does **Cufflinks** output, and what do the columns in the files mean?
 
 
 Next, we must estimate the expression in the *smo* gene knockdown:
@@ -69,7 +68,7 @@ We have estimated gene expression in *arm* and *smo* gene knockdowns. We would n
 There is 1 replicate of the ARM sample: ``ARM-1``
 There are 2 replicates of the control sample: ``FL1-1``, ``FL2-1``
 
-Use the drosophila gtf file ``geneRef/dros_BDGP5.25.gtf``
+Use the *Drosophila* gtf file ``geneRef/dros_BDGP5.25.gtf``
 
 Use the ``accepted_hits.bam`` output from the **Tophat** alignment. For the *arm* samples this is ``ARM-1_tophatOuput/accepted_hits.q20.sam``
 

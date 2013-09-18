@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quality Control</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="None" href="../index.html" />
+    <link rel="next" title="Aligning RNASeq Reads" href="STEP2_alignRNASeqReads.html" />
+    <link rel="prev" title="Files" href="file.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="STEP2_alignRNASeqReads.html" title="Aligning RNASeq Reads"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="file.html" title="Files"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">None</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="quality-control">
+<h1>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-before-you-start admonition">
+<p class="first admonition-title">Before you start</p>
+<p>You need to tell your computer where to find the programs we will use (for more information see section <a class="reference internal" href="../introduction.html#path"><em>$PATH</em></a>):</p>
+<div class="highlight-bash"><div class="highlight"><pre>&gt; <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/net/netfile1/ds-russell/linuxForNGS/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<p>All the course data can be found in the following directory:</p>
+<div class="highlight-bash"><div class="highlight"><pre>/net/netfile1/ds-russell/linuxForNGS/data
+</pre></div>
+</div>
+<p class="last">Note that you do not have permission to write to this directory.</p>
+</div>
+</div>
+<div class="section" id="required-files">
+<h1>Required files<a class="headerlink" href="#required-files" title="Permalink to this headline">¶</a></h1>
+<p>In this section you will need to use the following three files:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">rawData/arm.fastq</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">rawData/arm.bam</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">rawData/FL1-1.sam</span></tt></li>
+</ul>
+<p>As a reminder, you can find out what each of these files is used for (see section <a class="reference internal" href="known_file_formats.html#fileformats"><em>Useful links about file formats</em></a>).</p>
+<div class="section" id="fastqc">
+<h2>Fastqc<a class="headerlink" href="#fastqc" title="Permalink to this headline">¶</a></h2>
+<p>One of the most important steps before spending lots of time on an analysis, is to check that the raw data from the sequencing run is of good enough quality. We will use a tool called <strong>fastqc</strong> to do some preliminary quality control of our raw data. The <strong>fastqc</strong> tool generates summary statistics of sequence and quality data and can be used to filter, reformat and trim next-generation sequence data.</p>
+<p>Use your linux know-how to make a directory in your home directory called <tt class="docutils literal"><span class="pre">fastqcTest</span></tt>.</p>
+<p>Recall, that when we don&#8217;t know what a tool does, we can always get help (see section <a class="reference internal" href="../introduction.html#help"><em>Getting Help</em></a>):</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; fastqc -h
+</pre></div>
+</div>
+</div></blockquote>
+<p>Report graphs allow us to gain a visual overview of the sequence data. To generate report graphs type the following:</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; fastqc -o ~/fastqcTest -noextract -f fastq rawData/arm.fastq
+</pre></div>
+</div>
+</div></blockquote>
+<div class="topic">
+<p class="topic-title first">Review Questions</p>
+<ul class="simple">
+<li>What does the option <tt class="docutils literal"><span class="pre">-o</span></tt> do in the above command?</li>
+<li>Does the <tt class="docutils literal"><span class="pre">-o</span></tt> option have a value associated with it?</li>
+<li>What does the <tt class="docutils literal"><span class="pre">-noextract</span></tt> option do? What is the difference between the <tt class="docutils literal"><span class="pre">-o</span></tt> option and the <tt class="docutils literal"><span class="pre">-noextract</span></tt> option?</li>
+</ul>
+</div>
+<div class="section" id="task">
+<h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
+<p>Use <strong>fastqc</strong> to generate a report of <tt class="docutils literal"><span class="pre">rawData/smo.fastq</span></tt>. Save the report in an output directory called <tt class="docutils literal"><span class="pre">fastqcSMO</span></tt></p>
+</div>
+</div>
+<div class="section" id="samstat">
+<h2>SAMstat<a class="headerlink" href="#samstat" title="Permalink to this headline">¶</a></h2>
+<p><strong>SAMStat</strong> is an efficient C program to quickly display statistics of large sequence files from next generation sequencing projects. When applied to SAM/BAM files all statistics are reported for unmapped, poorly and accurately mapped reads separately. This allows for identification of a variety of problems, such as remaining linker and adaptor sequences, causing poor mapping. Apart from this <strong>SAMStat</strong> can be used to verify individual processing steps in large analysis pipelines.</p>
+<p>Use <strong>SAMStat</strong> to get statistics on the mapped data file in <cite>arm.fastq</cite> and <cite>arm.bam</cite></p>
+<p><strong>Getting help</strong></p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; samstat -h
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note the usage line you are given after typing this:</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>Usage:   samstat &lt;file.sam&gt; &lt;file.bam&gt; &lt;file.fa&gt; &lt;file.fq&gt; ....
+</pre></div>
+</div>
+</div></blockquote>
+<p>To get the statistics of the <tt class="docutils literal"><span class="pre">arm.bam</span></tt> file using <strong>SAMStat</strong>. This will try to create a html report file in the same directory as the input file.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; samstat rawData/arm.bam
+</pre></div>
+</div>
+</div></blockquote>
+<p>The above command will not work as written. Can you figure out why, and fix it?</p>
+<div class="section" id="id1">
+<h3>Task<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Use <strong>SAMStat</strong> to create an html report for <tt class="docutils literal"><span class="pre">rawData/arm.fastq</span></tt> and <tt class="docutils literal"><span class="pre">rawData/FL1-1.sam</span></tt></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/HUBLogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quality Control</a></li>
+<li><a class="reference internal" href="#required-files">Required files</a><ul>
+<li><a class="reference internal" href="#fastqc">Fastqc</a><ul>
+<li><a class="reference internal" href="#task">Task</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#samstat">SAMstat</a><ul>
+<li><a class="reference internal" href="#id1">Task</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="file.html"
+                        title="previous chapter">Files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="STEP2_alignRNASeqReads.html"
+                        title="next chapter">Aligning RNASeq Reads</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/exercises/STEP1_QualityControl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="STEP2_alignRNASeqReads.html" title="Aligning RNASeq Reads"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="file.html" title="Files"
+             >previous</a> |</li>
+        <li><a href="../index.html">None</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Grainne Kerr, Holger Dinkel, Jon Fuller, Matt Betts.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

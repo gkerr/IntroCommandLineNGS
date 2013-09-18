@@ -22,11 +22,3 @@ Introduction to the Linux Commandline for NGS analyses
   ReadingList.rst
 
   acknowledgments.rst
-
-.. Indices and tables
-.. ==================
-.. 
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-.. * :ref:`search`
-.. 

@@ -182,6 +182,7 @@ latex_elements = {
 'pointsize': '11pt',
 
 # Additional stuff for the LaTeX preamble.
+'printindex': '',
 'preamble': '\setcounter{tocdepth}{2}',
 }
 

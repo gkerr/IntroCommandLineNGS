@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="None" href="../index.html" />
     <link rel="next" title="Appendix" href="../ReadingList.html" />
-    <link rel="prev" title="Samtools" href="STEP3_viewManipulateAlignmentData_samtools.html" /> 
+    <link rel="prev" title="SAMtools" href="STEP3_viewManipulateAlignmentData_samtools.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="../ReadingList.html" title="Appendix"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="SAMtools"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">None</a> &raquo;</li> 
       </ul>
@@ -52,9 +52,9 @@
   <div class="section" id="estimating-expression">
 <h1>Estimating Expression<a class="headerlink" href="#estimating-expression" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-expression-in-the-arm-gene-knockdown-sample">
-<h2>Example - Expression in the arm gene knockdown sample<a class="headerlink" href="#example-expression-in-the-arm-gene-knockdown-sample" title="Permalink to this headline">¶</a></h2>
-<p>We have used reads sequences obtained from a knockdown of the <em>arm</em> and <em>smo</em> gene in the drosophila S2 cell line to estimate gene expression. We used tophat to align the reads.  We will now use the output from the tophat step, to look at gene expression in these samples. We will use a program called <strong>Cufflinks</strong> to do this.</p>
-<p>Let&#8217;s first, take the arm gene knockdown sample and assemble expressed genes and transcripts in the ARM knockdown with CUFFLINKS</p>
+<h2>Example - Expression in the <em>arm</em> gene knockdown sample<a class="headerlink" href="#example-expression-in-the-arm-gene-knockdown-sample" title="Permalink to this headline">¶</a></h2>
+<p>We have used reads sequences obtained from a knockdown of the <em>arm</em> and <em>smo</em> gene in the <em>Drosophila</em> S2 cell line to estimate gene expression. Previously we used <strong>Tophat</strong> to align a subset of these reads. To perform a proper analysis of the data, it is necessary to align the reads to the complete genome, however, this is a time-consuming process, so in the following example we use pre-prepared <strong>Tophat</strong> output. To remind yourself about running <strong>Tophat</strong> you can review the information in step 2 (see <a class="reference internal" href="STEP2_alignRNASeqReads.html#tophat"><em>Aligning RNASeq Reads</em></a>). To look at gene expression in the pre-prepared samples, we will use a program called <strong>Cufflinks</strong>.</p>
+<p>Let&#8217;s first, take the <em>arm</em> gene knockdown sample and assemble expressed genes and transcripts in the <em>arm</em> knockdown with <strong>Cufflinks</strong></p>
 <p>To get help</p>
 <blockquote>
 <div><div class="highlight-bash"><div class="highlight"><pre>cufflinks -h
@@ -67,11 +67,12 @@
 </pre></div>
 </div>
 </div></blockquote>
-<p>The output of tophat in step 1 can be found in the course dat folder at <tt class="docutils literal"><span class="pre">ARM-1_tophatOutput/accepted_hits.q20.sam</span></tt></p>
-<p>The annotation Data is <tt class="docutils literal"><span class="pre">geneRef/dros_BDGP5.25.gtf</span></tt></p>
+<p>The pre-prepared output files from <strong>Tophat</strong> can be found in the course data folder <tt class="docutils literal"><span class="pre">ARM-1_tophatOutput/accepted_hits.q20.sam</span></tt>. If you had aligned the reads to a full genome in step 2, you would have found the file in <tt class="docutils literal"><span class="pre">arm_tophatOutput</span></tt>.</p>
+<p>Again, we&#8217;ll need the annotation data from the file <tt class="docutils literal"><span class="pre">geneRef/dros_BDGP5.25.gtf</span></tt></p>
 <p>Run the command:</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm -p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
+<div><div class="highlight-bash"><div class="highlight"><pre>cufflinks -G geneRef/dros_BDGP5.25.gtf --upper-quartile-norm --compatible-hits-norm <span class="se">\</span>
+-p 2 -o ~/ARM-1_CufflinksOutput ARM-1_tophatOutput/accepted_hits.q20.sam
 </pre></div>
 </div>
 </div></blockquote>
@@ -79,51 +80,52 @@
 <div class="section" id="review-questions">
 <h2>Review Questions:<a class="headerlink" href="#review-questions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Why assemble transcripts with cufflinks?</li>
-<li>What do the options in the cufflinks command do?</li>
+<li>Why assemble transcripts with <strong>Cufflinks</strong>?</li>
+<li>What do the options in the <strong>Cufflinks</strong> command do?</li>
 <li>What is the gtf file and why do I need it?</li>
 <li>what data does the gtf file contain?</li>
 <li>what does the last column in the gtf file contain?</li>
-<li>what is the &#8220;tss_id&#8221; tag in the gtf file and what is it used for?</li>
+<li>what is the <tt class="docutils literal"><span class="pre">tss_id</span></tt> tag in the gtf file and what is it used for?</li>
 <li>why is both transcript and gene information in the gtf file?</li>
-<li>What files does cufflinks output and what do the columns mean?</li>
+<li>Which files does <strong>Cufflinks</strong> output, and what do the columns in the files mean?</li>
 </ul>
-<p>Next, we must estimate the expression in the smo gene knockdown:</p>
+<p>Next, we must estimate the expression in the <em>smo</em> gene knockdown:</p>
 </div>
 <div class="section" id="task">
 <h2>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
-<p>Assemble expressed genes and transcripts in the SMO knockdown with CUFFLINKS (similar to above)</p>
-<p>The output of tophat in step 1 can be found in the course data folder at <tt class="docutils literal"><span class="pre">SMO-1_tophatOutput/accepted_hits.bam</span></tt></p>
+<p>Assemble expressed genes and transcripts in the <em>smo</em> knockdown with <strong>Cufflinks</strong> (similar to above)</p>
+<p>Pre-prepared output from <strong>Tophat</strong> for the <em>smo</em> knockdown experiments can be found in the course data folder at <tt class="docutils literal"><span class="pre">SMO-1_tophatOutput/accepted_hits.bam</span></tt></p>
 </div>
 </div>
 <div class="section" id="estimating-differential-expression">
 <h1>Estimating differential Expression<a class="headerlink" href="#estimating-differential-expression" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control">
-<h2>Example - Estimating significance of differential expression in the ARM gene knockdown compared to control.<a class="headerlink" href="#example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control" title="Permalink to this headline">¶</a></h2>
-<p>We have estimated gene expression in SMO and ARM gene knockdowns. We would now like to see if this is expressed differently as one would find in a control. We will now use the output from the cufflinks step, to look at differential gene expression by comparing it to a control. We will use a program called Cuffdiff to do this.</p>
-<p>(To save time we have aligned and pre-calculated gene expression in the control samples)</p>
-<p>There is 1 replicate of the ARM sample: ARM-1
-There are 2 replicates of the CTRL sample: FL1-1, FL2-1</p>
+<h2>Example - Estimating significance of differential expression in the <em>arm</em> gene knockdown compared to control<a class="headerlink" href="#example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control" title="Permalink to this headline">¶</a></h2>
+<p>We have estimated gene expression in <em>arm</em> and <em>smo</em> gene knockdowns. We would now like to see if this is expressed differently with respect to a control. We will now use the output from <strong>Cufflinks</strong>, to look at differential gene expression by comparing it to a control. We will use a program called <strong>Cuffdiff</strong> to do this.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">To save time we have aligned and pre-calculated gene expression in the control samples</p>
+</div>
+<p>There is 1 replicate of the ARM sample: <tt class="docutils literal"><span class="pre">ARM-1</span></tt>
+There are 2 replicates of the control sample: <tt class="docutils literal"><span class="pre">FL1-1</span></tt>, <tt class="docutils literal"><span class="pre">FL2-1</span></tt></p>
 <p>Use the drosophila gtf file <tt class="docutils literal"><span class="pre">geneRef/dros_BDGP5.25.gtf</span></tt></p>
-<p>Use the <tt class="docutils literal"><span class="pre">accepted_hits.bam</span></tt> output from the tophat alignment</p>
-<p>For ctrl these are:</p>
-<ul class="simple">
-<li><tt class="docutils literal"><span class="pre">FL1-1_tophatOutput/accepted_hits.bam</span></tt></li>
-<li><tt class="docutils literal"><span class="pre">FL2-1_tophatOutput/accepted_hits.bam</span></tt></li>
-</ul>
-<p>And for ARM these are:<tt class="docutils literal"><span class="pre">ARM-1_tophatOuput/accepted_hits.bam</span></tt></p>
+<p>Use the <tt class="docutils literal"><span class="pre">accepted_hits.bam</span></tt> output from the <strong>Tophat</strong> alignment. For the <em>arm</em> samples this is <tt class="docutils literal"><span class="pre">ARM-1_tophatOuput/accepted_hits.q20.sam</span></tt></p>
+<p>For the control sample these are <tt class="docutils literal"><span class="pre">FL1-1_tophatOutput/accepted_hits.q20.sam</span></tt>, and <tt class="docutils literal"><span class="pre">FL2-1_tophatOutput/accepted_hits.q20.sam</span></tt></p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 -L FL1_ctrl,arm -u geneRef/dros_BDGP5.25.gtf FL1-1_tophatOutput/accepted_hits.q20.sam,FL2-1_tophatOutput/accepted_hits.q20.sam ARM-1_tophatOutput/accepted_hits.q20.sam
+<div><div class="highlight-bash"><div class="highlight"><pre>cuffdiff -o ~/ARM_vs_CTRL_diffOut -b genome/dros_BDGP5.25.fa -p 8 -L FL1_ctrl,arm <span class="se">\</span>
+-u geneRef/dros_BDGP5.25.gtf FL1-1_tophatOutput/accepted_hits.q20.sam,FL2-1_tophatOutput/accepted_hits.q20.sam <span class="se">\</span>
+ARM-1_tophatOutput/accepted_hits.q20.sam
 </pre></div>
 </div>
 </div></blockquote>
 <div class="topic">
 <p class="topic-title first">Review Questions:</p>
 <ul class="simple">
-<li>What normalization strategies are available with cuffdiff?</li>
-<li>What is the -L option for?</li>
+<li>What is normalization?</li>
+<li>What normalization strategies are available with <strong>Cuffdiff</strong>?</li>
+<li>What is the <tt class="docutils literal"><span class="pre">-L</span></tt> option for?</li>
 <li>Why are replicates important here?</li>
-<li>What are the output files from cuff_diff?</li>
+<li>What are the output files from <strong>Cuffdiff</strong>?</li>
 </ul>
 </div>
 </div>
@@ -131,14 +133,14 @@ There are 2 replicates of the CTRL sample: FL1-1, FL2-1</p>
 <h2>Use your linux know how<a class="headerlink" href="#use-your-linux-know-how" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>How many significantly differentially expressed genes are there?</li>
-<li>Can you find the expression of gene &#8220;CG7224&#8221;?</li>
+<li>Can you find the expression of gene <tt class="docutils literal"><span class="pre">CG7224</span></tt>?</li>
 </ul>
 </div>
 <div class="section" id="id1">
 <h2>Task<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Use your know-how to estimate estimate differential expression in the smo knockdown compared to control.</p>
+<p>Use your know-how to estimate estimate differential expression in the <em>smo</em> knockdown compared to the control.</p>
 <p>The output can be found at: <tt class="docutils literal"><span class="pre">SMO-1_tophatOuput/accepted_hits.bam</span></tt></p>
-<p>The controls and other input files are as before.</p>
+<p>The controls and other input files are the same as before.</p>
 </div>
 </div>
 
@@ -154,13 +156,13 @@ There are 2 replicates of the CTRL sample: FL1-1, FL2-1</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Estimating Expression</a><ul>
-<li><a class="reference internal" href="#example-expression-in-the-arm-gene-knockdown-sample">Example - Expression in the arm gene knockdown sample</a></li>
+<li><a class="reference internal" href="#example-expression-in-the-arm-gene-knockdown-sample">Example - Expression in the <em>arm</em> gene knockdown sample</a></li>
 <li><a class="reference internal" href="#review-questions">Review Questions:</a></li>
 <li><a class="reference internal" href="#task">Task</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#estimating-differential-expression">Estimating differential Expression</a><ul>
-<li><a class="reference internal" href="#example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control">Example - Estimating significance of differential expression in the ARM gene knockdown compared to control.</a></li>
+<li><a class="reference internal" href="#example-estimating-significance-of-differential-expression-in-the-arm-gene-knockdown-compared-to-control">Example - Estimating significance of differential expression in the <em>arm</em> gene knockdown compared to control</a></li>
 <li><a class="reference internal" href="#use-your-linux-know-how">Use your linux know how</a></li>
 <li><a class="reference internal" href="#id1">Task</a></li>
 </ul>
@@ -169,7 +171,7 @@ There are 2 replicates of the CTRL sample: FL1-1, FL2-1</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="STEP3_viewManipulateAlignmentData_samtools.html"
-                        title="previous chapter">Samtools</a></p>
+                        title="previous chapter">SAMtools</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../ReadingList.html"
                         title="next chapter">Appendix</a></p>
@@ -205,7 +207,7 @@ There are 2 replicates of the CTRL sample: FL1-1, FL2-1</p>
           <a href="../ReadingList.html" title="Appendix"
              >next</a> |</li>
         <li class="right" >
-          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="SAMtools"
              >previous</a> |</li>
         <li><a href="../index.html">None</a> &raquo;</li> 
       </ul>

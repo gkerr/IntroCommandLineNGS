@@ -1,10 +1,12 @@
+.. _tophat:
+
 Aligning RNASeq Reads
 #####################################
 
 Example 1 - arm.Xsubset.fastq
 ------------------------------
 
-The dataset ``arm.Xsubset.fastq`` contains reads from an mRNA sample after RNAi knockdown of the arm gene, in the *Drosophila melanogaster* cell line, S2. The arm gene is found on chromosome X of the *Drosophila melanogaster* genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.
+The dataset ``arm.Xsubset.fastq`` contains reads from an mRNA sample after RNAi knockdown of the `arm <http://flybase.org/reports/FBgn0000117.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The *arm* gene is found on chromosome X of the *Drosophila melanogaster* genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.
 
 Your task is to align the reads to the X chromosome. To align reads to the X chromosome, we can use a command line tool called **Tophat**.
 
@@ -24,13 +26,13 @@ Create an output directory where we can store the results of the alignment. Reme
 
  :: 
 
-  > mkdir -p ~/arm_tohatOutput
+  > mkdir -p ~/arm_tophatOutput
 
 We can use the following command to run **Tophat**, to perform an alignment of the NGS reads to the annotation data for chromosome X:
 
  ::
 
-  > tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ \
+  > tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tophatOutput/ \
     bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
 
 .. note:: Remember to specify the output directory in the tophat command. 
@@ -55,7 +57,7 @@ We can use the following command to run **Tophat**, to perform an alignment of t
 Example 2 - smo.2Lsubset.fastq 
 --------------------------------
 
-The dataset ``smo.2Lsubset.fastq`` contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the *Drosophila melanogaster* cell line, S2. The smo gene is found on chromosome 2L of the *Drosophila melanogaster* genome. Once again we will restrict our analysis to a single chromosome.
+The dataset ``smo.2Lsubset.fastq`` contains reads from a mRNA sample after RNAi knockdown of the `smo <http://flybase.org/reports/FBgn0003444.html>`_ gene, in the *Drosophila melanogaster* cell line, S2. The smo gene is found on chromosome 2L of the *Drosophila melanogaster* genome. Once again we will restrict our analysis to a single chromosome.
 
 Your task is to align the reads from the to the 2L chromosome
 

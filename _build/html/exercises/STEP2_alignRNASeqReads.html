@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="None" href="../index.html" />
-    <link rel="next" title="Samtools" href="STEP3_viewManipulateAlignmentData_samtools.html" />
+    <link rel="next" title="SAMtools" href="STEP3_viewManipulateAlignmentData_samtools.html" />
     <link rel="prev" title="Quality Control" href="STEP1_QualityControl.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="SAMtools"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="STEP1_QualityControl.html" title="Quality Control"
@@ -50,10 +50,10 @@
           <div class="body">
             
   <div class="section" id="aligning-rnaseq-reads">
-<h1>Aligning RNASeq Reads<a class="headerlink" href="#aligning-rnaseq-reads" title="Permalink to this headline">¶</a></h1>
+<span id="tophat"></span><h1>Aligning RNASeq Reads<a class="headerlink" href="#aligning-rnaseq-reads" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-1-arm-xsubset-fastq">
 <h2>Example 1 - arm.Xsubset.fastq<a class="headerlink" href="#example-1-arm-xsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>The dataset <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> contains reads from an mRNA sample after RNAi knockdown of the arm gene, in the <em>Drosophila melanogaster</em> cell line, S2. The arm gene is found on chromosome X of the <em>Drosophila melanogaster</em> genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.</p>
+<p>The dataset <tt class="docutils literal"><span class="pre">arm.Xsubset.fastq</span></tt> contains reads from an mRNA sample after RNAi knockdown of the <a class="reference external" href="http://flybase.org/reports/FBgn0000117.html">arm</a> gene, in the <em>Drosophila melanogaster</em> cell line, S2. The <em>arm</em> gene is found on chromosome X of the <em>Drosophila melanogaster</em> genome. Here, to save time, we will restrict our analysis to this chromosome. For your own projects, you should use all of the genome information.</p>
 <p>Your task is to align the reads to the X chromosome. To align reads to the X chromosome, we can use a command line tool called <strong>Tophat</strong>.</p>
 <p>To get information on <strong>Tophat</strong>, open a terminal window and type:</p>
 <blockquote>
@@ -66,13 +66,13 @@
 <p>The bowtie index is <tt class="docutils literal"><span class="pre">bowtieIndexes/drosophilaMelanogaster.X</span></tt></p>
 <p>Create an output directory where we can store the results of the alignment. Remember that you can create a new directory with the following command (see section <a class="reference internal" href="../introduction.html#mkdir"><em>mkdir – Create a new directory</em></a>).</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>&gt; mkdir -p ~/arm_tohatOutput
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; mkdir -p ~/arm_tophatOutput
 </pre></div>
 </div>
 </div></blockquote>
 <p>We can use the following command to run <strong>Tophat</strong>, to perform an alignment of the NGS reads to the annotation data for chromosome X:</p>
 <blockquote>
-<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tohatOutput/ <span class="se">\</span>
+<div><div class="highlight-bash"><div class="highlight"><pre>&gt; tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf -o ~/arm_tophatOutput/ <span class="se">\</span>
   bowtieIndexes/drosophilaMelanogaster.X rawData/arm.Xsubset.fastq
 </pre></div>
 </div>
@@ -100,7 +100,7 @@
 </div>
 <div class="section" id="example-2-smo-2lsubset-fastq">
 <h2>Example 2 - smo.2Lsubset.fastq<a class="headerlink" href="#example-2-smo-2lsubset-fastq" title="Permalink to this headline">¶</a></h2>
-<p>The dataset <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> contains reads from a mRNA sample after RNAi knockdown of the smo gene, in the <em>Drosophila melanogaster</em> cell line, S2. The smo gene is found on chromosome 2L of the <em>Drosophila melanogaster</em> genome. Once again we will restrict our analysis to a single chromosome.</p>
+<p>The dataset <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> contains reads from a mRNA sample after RNAi knockdown of the <a class="reference external" href="http://flybase.org/reports/FBgn0003444.html">smo</a> gene, in the <em>Drosophila melanogaster</em> cell line, S2. The smo gene is found on chromosome 2L of the <em>Drosophila melanogaster</em> genome. Once again we will restrict our analysis to a single chromosome.</p>
 <p>Your task is to align the reads from the to the 2L chromosome</p>
 <p>The raw data is called <tt class="docutils literal"><span class="pre">smo.2Lsubset.fastq</span></tt> and can be found in the <tt class="docutils literal"><span class="pre">rawData</span></tt> directory.</p>
 <p>The annotation data for chromosome 2L is: <tt class="docutils literal"><span class="pre">geneRef/drosophilaMelanogaster.2L.gtf</span></tt></p>
@@ -146,7 +146,7 @@
                         title="previous chapter">Quality Control</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="STEP3_viewManipulateAlignmentData_samtools.html"
-                        title="next chapter">Samtools</a></p>
+                        title="next chapter">SAMtools</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/exercises/STEP2_alignRNASeqReads.txt"
@@ -176,7 +176,7 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="Samtools"
+          <a href="STEP3_viewManipulateAlignmentData_samtools.html" title="SAMtools"
              >next</a> |</li>
         <li class="right" >
           <a href="STEP1_QualityControl.html" title="Quality Control"

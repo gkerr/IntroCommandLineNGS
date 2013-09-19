@@ -19,7 +19,7 @@ Quality Control
    Note that you do not have permission to write to this directory.
 
 Required files
-#####################################
+**************
 
 In this section you will need to use the following three files:
 
@@ -30,7 +30,7 @@ In this section you will need to use the following three files:
 As a reminder, you can find out what each of these files is used for (see section :ref:`fileformats`).
 
 Fastqc
----------
+======
 
 One of the most important steps before spending lots of time on an analysis, is to check that the raw data from the sequencing run is of good enough quality. We will use a tool called **fastqc** to do some preliminary quality control of our raw data. The **fastqc** tool generates summary statistics of sequence and quality data and can be used to filter, reformat and trim next-generation sequence data.
 
@@ -56,11 +56,11 @@ Report graphs allow us to gain a visual overview of the sequence data. To genera
   - What does the ``-noextract`` option do? What is the difference between the ``-o`` option and the ``-noextract`` option?
   
 Task
-'''''
+----
 Use **fastqc** to generate a report of ``rawData/smo.fastq``. Save the report in an output directory called ``fastqcSMO``
 
 SAMstat
----------
+=======
 
 **SAMStat** is an efficient C program to quickly display statistics of large sequence files from next generation sequencing projects. When applied to SAM/BAM files all statistics are reported for unmapped, poorly and accurately mapped reads separately. This allows for identification of a variety of problems, such as remaining linker and adaptor sequences, causing poor mapping. Apart from this **SAMStat** can be used to verify individual processing steps in large analysis pipelines.
 
@@ -88,7 +88,7 @@ To get the statistics of the ``arm.bam`` file using **SAMStat**. This will try t
 The above command will not work as written. Can you figure out why, and fix it?
 
 Task
-'''''''
+----
 
 Use **SAMStat** to create an html report for ``rawData/arm.fastq`` and ``rawData/FL1-1.sam``
 

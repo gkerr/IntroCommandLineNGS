@@ -222,6 +222,12 @@ Special directories:
 See What’s Around
 =================
 
+----------
+
+.. figure:: _static/LongListingDeconstructed.png
+
+----------
+
 ls - List directory contents
 ----------------------------
 
@@ -246,11 +252,6 @@ Useful options:
 -d      Show directory information instead of  directory content
 -t      Sort listing by modification time (most recent on top)
 
-----------
-
-.. figure:: _static/LongListingDeconstructed.png
-
-----------
  
 Digression: Shell globs
 -----------------------

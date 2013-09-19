@@ -394,6 +394,19 @@ Please note the difference between absolute paths (starting with ``\code{/}'') a
 \subsection{See What’s Around}
 \label{introduction:see-whats-around}
 
+\bigskip\hrule{}\bigskip
+
+\begin{figure}[htbp]
+\centering
+
+\includegraphics{LongListingDeconstructed.png}
+\end{figure}
+
+
+\bigskip\hrule{}\bigskip
+
+
+
 \subsubsection{ls - List directory contents}
 \label{introduction:ls-list-directory-contents}\begin{description}
 \item[{\textbf{Usage}:}] \leavevmode
@@ -425,19 +438,6 @@ Show directory information instead of  directory content
 \item [-t]  
 Sort listing by modification time (most recent on top)
 \end{optionlist}
-
-
-\bigskip\hrule{}\bigskip
-
-\begin{figure}[htbp]
-\centering
-
-\includegraphics{LongListingDeconstructed.png}
-\end{figure}
-
-
-\bigskip\hrule{}\bigskip
-
 
 
 \subsubsection{Digression: Shell globs}
@@ -1596,7 +1596,7 @@ Note that you do not have permission to write to this directory.
 \end{notice}
 
 
-\chapter{Required files}
+\section{Required files}
 \label{exercises/STEP1_QualityControl:required-files}
 In this section you will need to use the following three files:
 \begin{itemize}
@@ -1614,7 +1614,7 @@ In this section you will need to use the following three files:
 As a reminder, you can find out what each of these files is used for (see section {\hyperref[exercises/known_file_formats:fileformats]{\emph{Useful links about file formats}}} (\autopageref*{exercises/known_file_formats:fileformats})).
 
 
-\section{Fastqc}
+\subsection{Fastqc}
 \label{exercises/STEP1_QualityControl:fastqc}
 One of the most important steps before spending lots of time on an analysis, is to check that the raw data from the sequencing run is of good enough quality. We will use a tool called \textbf{fastqc} to do some preliminary quality control of our raw data. The \textbf{fastqc} tool generates summary statistics of sequence and quality data and can be used to filter, reformat and trim next-generation sequence data.
 
@@ -1656,12 +1656,12 @@ What does the \code{-noextract} option do? What is the difference between the \c
 \begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
 
 
-\subsection{Task}
+\subsubsection{Task}
 \label{exercises/STEP1_QualityControl:task}
 Use \textbf{fastqc} to generate a report of \code{rawData/smo.fastq}. Save the report in an output directory called \code{fastqcSMO}
 
 
-\section{SAMstat}
+\subsection{SAMstat}
 \label{exercises/STEP1_QualityControl:samstat}
 \textbf{SAMStat} is an efficient C program to quickly display statistics of large sequence files from next generation sequencing projects. When applied to SAM/BAM files all statistics are reported for unmapped, poorly and accurately mapped reads separately. This allows for identification of a variety of problems, such as remaining linker and adaptor sequences, causing poor mapping. Apart from this \textbf{SAMStat} can be used to verify individual processing steps in large analysis pipelines.
 
@@ -1694,7 +1694,7 @@ To get the statistics of the \code{arm.bam} file using \textbf{SAMStat}. This wi
 The above command will not work as written. Can you figure out why, and fix it?
 
 
-\subsection{Task}
+\subsubsection{Task}
 \label{exercises/STEP1_QualityControl:id1}
 Use \textbf{SAMStat} to create an html report for \code{rawData/arm.fastq} and \code{rawData/FL1-1.sam}
 

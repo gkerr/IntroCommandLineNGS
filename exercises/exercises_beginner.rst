@@ -19,6 +19,7 @@ Extracting Information from Files
 #. Using the same tool, how can you display the first *20* lines?
 #. Read the manpage of that command to find out what you need to type to display the first 100 *bytes* of a textfile.
 #. How can you display the *last* 20 lines?
+
 Searching
 ---------
 #. Which tool can be used to search for files or directories?

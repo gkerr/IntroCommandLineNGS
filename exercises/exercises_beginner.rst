@@ -12,10 +12,17 @@ Misc. file tools
    B. ``~``
    C. ``~/exercises/SRC_HUMAN.fasta``
 
+Extracting Information from Files
+---------------------------------
+
+#. Which simple command can you use to display just the first 10 lines of a textfile (eg. ~/exercises/P12931.csv)?
+#. Using the same tool, how can you display the first *20* lines?
+#. Read the manpage of that command to find out what you need to type to display the first 100 *bytes* of a textfile.
+#. How can you display the *last* 20 lines?
 Searching
 ---------
 #. Which tool can be used to search for files or directories?
-#. Use it to find all directories in the ``~/exercises`` directory
+#. Use it to list all directories in the ``~/exercises`` directory
 #. Search for the file ``date`` in the ``/bin`` directory
 #. List those entries in the directory ``/bin`` that are bigger than 400kBytes
 

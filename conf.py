@@ -183,6 +183,8 @@ latex_elements = {
 
 # Additional stuff for the LaTeX preamble.
 'preamble': '\setcounter{tocdepth}{2}',
+'printindex': '',
+'fncychap':'\usepackage[Sonny]{fncychap}',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples

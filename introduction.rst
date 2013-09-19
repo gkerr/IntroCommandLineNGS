@@ -42,6 +42,7 @@ while arguments are usually free text input (such as a filename).
 
    General structure of Linux commands.
 
+For example, in the commandline ``ls -l /usr/bin``, ``ls`` is the command, ``-l`` is an option and ``/usr/bin`` qualifies as an argument.
 Commandline options (sometimes called comandline switches) commonly have one of the two following
 forms: The short form ``-s`` (just a single character) or the long form ``--string.`` E.g.
 
@@ -272,6 +273,29 @@ Examples:
 Organize Files and Folders
 ==========================
 
+cp – Copy files and folders
+---------------------------
+
+**Usage**:  ``cp [options] sourcefile destinationfile``
+
+
+ :: 
+
+  > cp /usr/bin/less /tmp/backup_of_less
+
+
+**Useful options**:
+
+-r      Copy recursively 
+-i      Interactive operation, ask before overwriting an existing file 
+-p      Preserve owner, permissions and timestamp 
+
+
+We copy a set of exercise files from the network share into our home directory:
+ :: 
+
+  > cp -r /net/netfile1/ds-russell/linuxForNGS/data/linux/exercises  ~/exercises
+
 touch – Create a file or change last modification date of an existing file
 --------------------------------------------------------------------------
 
@@ -368,23 +392,8 @@ rmdir – Remove an empty directory
 
   > rmdir adir/
 
-.. note:: If the directory is not empty, rmdir will complain and not remove it
+.. note:: If the directory is not empty, rmdir will complain and not remove it.
 
-cp – Copy files and folders
----------------------------
-
-**Usage**:  ``cp [options] sourcefile destinationfile``
-
-
- :: 
-
-  > cp P12931.fasta backup_of_P12931.fasta
-
-**Useful options**:
-
--r      Copy recursively 
--i      Interactive operation, ask before overwriting an existing file 
--p      Preserve owner, permissions and timestamp 
 
 View Files
 ==========
@@ -400,7 +409,7 @@ cat – Print files on terminal (concatenate)
   [...]
 
 
-.. note:: :index:`cat` only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later
+.. note:: The command :index:`cat` only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later.
 
 
 less – View and navigate files
@@ -430,7 +439,7 @@ quit:                                   q
 ===================================    =======
 
 
-Extracting Informations from Files
+Extracting Information from Files
 ==================================
 
 grep – Find lines matching a pattern in textfiles
@@ -535,7 +544,7 @@ which – find a (executable) command
 find – search/find files in any given directory
 -----------------------------------------------
 
-**Usage**:  ``find [starting path(es)] [search filter]``
+**Usage**:  ``find [starting path(s)] [search filter]``
 
  :: 
 
@@ -778,8 +787,6 @@ Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``g
 
   > cd ~/exercises
   > ls | grep fasta
-  EPSINS.fasta
-  FYN_HUMAN.fasta
   P12931.fasta
   SRC_HUMAN.fasta
 
@@ -803,6 +810,8 @@ $PATH
 
 :index:`$PATH` contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name 
 (commands with slashes are interpreted as file names to execute, and the shell attempts to execute the files directly).
+So if the directory */usr/bin/* is in `$PATH` (which it should), then the command ``/usr/bin/less`` can be accessed by simply typing ``less`` instead of
+``/usr/bin/less``. How convenient!
 
 $PAGER
 ------

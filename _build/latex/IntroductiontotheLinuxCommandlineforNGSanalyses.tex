@@ -14,7 +14,7 @@
 
 \title{Introduction to the Linux Commandline for NGS Analyses}
 \date{September 19, 2013}
-\release{1.1}
+\release{1.2}
 \author{Grainne Kerr, Holger Dinkel, Jon Fuller, Matt Betts}
 \newcommand{\sphinxlogo}{\includegraphics{HUBLogo.png}\par}
 \renewcommand{\releasename}{}
@@ -33,7 +33,7 @@
 
 \expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
 \expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
 \expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
@@ -44,7 +44,7 @@
 \expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
 \expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
 \expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.19,0.19,0.19}{##1}}}
 \expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
 \expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
@@ -103,9 +103,6 @@
 \def\PYGZsh{\char`\#}
 \def\PYGZpc{\char`\%}
 \def\PYGZdl{\char`\$}
-\def\PYGZhy{\char`\-}
-\def\PYGZsq{\char`\'}
-\def\PYGZdq{\char`\"}
 \def\PYGZti{\char`\~}
 % for compatibility with earlier versions
 \def\PYGZat{@}
@@ -183,13 +180,14 @@ while arguments are usually free text input (such as a filename).
 \includegraphics{LinuxCommandStructure.png}
 \caption{General structure of Linux commands.}\end{figure}
 
+For example, in the commandline \code{ls -l /usr/bin}, \code{ls} is the command, \code{-l} is an option and \code{/usr/bin} qualifies as an argument.
 Commandline options (sometimes called comandline switches) commonly have one of the two following
 forms: The short form \code{-s} (just a single character) or the long form \code{-{-}string.} E.g.
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} man \PYGZhy{}h
-\PYGZgt{} man \PYGZhy{}\PYGZhy{}help
+\PYGZgt{} man -h
+\PYGZgt{} man --help
 \end{Verbatim}
 \end{quote}
 
@@ -197,8 +195,8 @@ Short options are usually – though not always – concatenable:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} ls \PYGZhy{}l \PYGZhy{}A \PYGZhy{}h
-\PYGZgt{} ls \PYGZhy{}lAh
+\PYGZgt{} ls -l -A -h
+\PYGZgt{} ls -lAh
 \end{Verbatim}
 \end{quote}
 
@@ -206,8 +204,8 @@ Some options require an additional argument, which is added with a blank to the 
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} ls \PYGZhy{}I “*.pdf”
-\PYGZgt{} ls \PYGZhy{}\PYGZhy{}ignore\PYG{o}{=}”*.pdf”
+\PYGZgt{} ls -I “*.pdf”
+\PYGZgt{} ls --ignore\PYG{o}{=}”*.pdf”
 \end{Verbatim}
 \end{quote}
 
@@ -215,7 +213,7 @@ Since Linux incorporates commands from different sources, options can be availab
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} tar cf file.tar \PYGZhy{}C .. file/
+\PYGZgt{} tar cf file.tar -C .. file/
 \PYGZgt{} ps auxgww
 \end{Verbatim}
 \end{quote}
@@ -246,10 +244,10 @@ Other commands will show a help page or at least a short usage overview if you p
 man\PYG{o}{(}1\PYG{o}{)}
 
 NAME
- man \PYGZhy{} format and display the on\PYGZhy{}line manual pages
+ man - format and display the on-line manual pages
 
 SYNOPSIS
- man \PYG{o}{[}\PYGZhy{}acdfFhkKtwW\PYG{o}{]} \PYG{o}{[}\PYGZhy{}\PYGZhy{}path\PYG{o}{]} \PYG{o}{[}\PYGZhy{}m system\PYG{o}{]} \PYG{o}{[}\PYGZhy{}p string\PYG{o}{]} \PYG{o}{[}\PYGZhy{}C config\PYGZus{}file\PYG{o}{]}
+ man \PYG{o}{[}-acdfFhkKtwW\PYG{o}{]} \PYG{o}{[}--path\PYG{o}{]} \PYG{o}{[}-m system\PYG{o}{]} \PYG{o}{[}-p string\PYG{o}{]} \PYG{o}{[}-C config\PYGZus{}file\PYG{o}{]}
 \PYG{o}{[}...\PYG{o}{]}
 \end{Verbatim}
 \end{quote}
@@ -269,9 +267,9 @@ The behaviour of man is dependent of the \$PAGER environment variable
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} apropos who
 \PYG{o}{[}...\PYG{o}{]}
-\PYGZgt{} who                  \PYG{o}{(}1\PYG{o}{)}  \PYGZhy{} show who is logged on
-\PYGZgt{} who                  \PYG{o}{(}1\PYG{o}{)}  \PYGZhy{} display who is on the system
-\PYGZgt{} whoami               \PYG{o}{(}1\PYG{o}{)}  \PYGZhy{} print effective userid
+\PYGZgt{} who                  \PYG{o}{(}1\PYG{o}{)}  - show who is logged on
+\PYGZgt{} who                  \PYG{o}{(}1\PYG{o}{)}  - display who is on the system
+\PYGZgt{} whoami               \PYG{o}{(}1\PYG{o}{)}  - print effective userid
 \end{Verbatim}
 \end{quote}
 
@@ -305,7 +303,7 @@ bg\PYGZus{}36student
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} hostname
-pc\PYGZhy{}teach01
+pc-teach01
 \end{Verbatim}
 \end{quote}
 
@@ -407,7 +405,7 @@ Please note the difference between absolute paths (starting with ``\code{/}'') a
 \PYGZgt{} ls
 /home/bg\PYGZus{}36student
 \PYGZgt{} ls –l /bin/date
-\PYGZhy{}rwxr\PYGZhy{}xr\PYGZhy{}x 1 root root 54920 Dec 18  2012 /bin/date
+-rwxr-xr-x 1 root root 54920 Dec 18  2012 /bin/date
 \end{Verbatim}
 
 Useful options:
@@ -481,6 +479,34 @@ The special directory “\code{\textasciitilde{}}” mentioned above is a shell 
 \subsection{Organize Files and Folders}
 \label{introduction:organize-files-and-folders}
 
+\subsubsection{cp – Copy files and folders}
+\label{introduction:cp-copy-files-and-folders}
+\textbf{Usage}:  \code{cp {[}options{]} sourcefile destinationfile}
+\begin{quote}
+
+\begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
+\PYGZgt{} cp /usr/bin/less /tmp/backup\PYGZus{}of\PYGZus{}less
+\end{Verbatim}
+\end{quote}
+
+\textbf{Useful options}:
+\begin{optionlist}{3cm}
+\item [-r]  
+Copy recursively
+\item [-i]  
+Interactive operation, ask before overwriting an existing file
+\item [-p]  
+Preserve owner, permissions and timestamp
+\end{optionlist}
+\begin{description}
+\item[{We copy a set of exercise files from the network share into our home directory:}] \leavevmode
+\begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
+\PYGZgt{} cp -r /net/netfile1/ds-russell/linuxForNGS/data/linux/exercises  \PYGZti{}/exercises
+\end{Verbatim}
+
+\end{description}
+
+
 \subsubsection{touch – Create a file or change last modification date of an existing file}
 \label{introduction:touch-create-a-file-or-change-last-modification-date-of-an-existing-file}
 \textbf{Usage}:  \code{touch file(s) or directory/ies}
@@ -496,10 +522,10 @@ afile
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} ls –l \PYGZti{}/exercises/P12931.txt
-\PYGZhy{}rw\PYGZhy{}r\PYGZhy{}\PYGZhy{}r\PYGZhy{}\PYGZhy{} 1 dinkel gibson  53K Aug 11 14:21 P12931.txt
+-rw-r--r-- 1 dinkel gibson  53K Aug 11 14:21 P12931.txt
 \PYGZgt{} touch \PYGZti{}/exercises/P12931.txt
 \PYGZgt{} ls –l \PYGZti{}/exercises/P12931.txt
-\PYGZhy{}rw\PYGZhy{}r\PYGZhy{}\PYGZhy{}r\PYGZhy{}\PYGZhy{} 1 dinkel gibson  53K Sep 18 19:16 P12931.txt
+-rw-r--r-- 1 dinkel gibson  53K Sep 18 19:16 P12931.txt
 \end{Verbatim}
 \end{quote}
 
@@ -597,29 +623,8 @@ mkdir: cannot create directory {}`adir/bdir': No such file or directory
 \end{quote}
 
 \begin{notice}{note}{Note:}
-If the directory is not empty, rmdir will complain and not remove it
+If the directory is not empty, rmdir will complain and not remove it.
 \end{notice}
-
-
-\subsubsection{cp – Copy files and folders}
-\label{introduction:cp-copy-files-and-folders}
-\textbf{Usage}:  \code{cp {[}options{]} sourcefile destinationfile}
-\begin{quote}
-
-\begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} cp P12931.fasta backup\PYGZus{}of\PYGZus{}P12931.fasta
-\end{Verbatim}
-\end{quote}
-
-\textbf{Useful options}:
-\begin{optionlist}{3cm}
-\item [-r]  
-Copy recursively
-\item [-i]  
-Interactive operation, ask before overwriting an existing file
-\item [-p]  
-Preserve owner, permissions and timestamp
-\end{optionlist}
 
 
 \subsection{View Files}
@@ -637,7 +642,7 @@ Preserve owner, permissions and timestamp
 \end{quote}
 
 \begin{notice}{note}{Note:}
-\index{cat}cat only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later
+The command \index{cat}cat only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later.
 \end{notice}
 
 
@@ -704,8 +709,8 @@ q
 
 
 
-\subsection{Extracting Informations from Files}
-\label{introduction:extracting-informations-from-files}
+\subsection{Extracting Information from Files}
+\label{introduction:extracting-information-from-files}
 
 \subsubsection{grep – Find lines matching a pattern in textfiles}
 \label{introduction:grep-find-lines-matching-a-pattern-in-textfiles}
@@ -715,7 +720,7 @@ q
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} grep \PYGZhy{}i ensembl P04637.txt
+\PYGZgt{} grep -i ensembl P04637.txt
 DR   Ensembl; ENST00000269305; ENSP00000269305; ENSG00000141510.
 DR   Ensembl; ENST00000359597; ENSP00000352610; ENSG00000141510.
 DR   Ensembl; ENST00000419024; ENSP00000402130; ENSG00000141510.
@@ -801,7 +806,7 @@ Print num lines (default is 10)
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} file /bin/date
-/bin/date: ELF 32\PYGZhy{}bit LSB executable
+/bin/date: ELF 32-bit LSB executable
 \PYGZgt{} file /bin
 /bin: directory
 \PYGZgt{} file SRC\PYGZus{}HUMAN.fasta
@@ -831,7 +836,7 @@ The command \index{file}file uses certain tests and some magic to determine the 
 
 \subsubsection{find – search/find files in any given directory}
 \label{introduction:find-search-find-files-in-any-given-directory}
-\textbf{Usage}:  \code{find {[}starting path(es){]} {[}search filter{]}}
+\textbf{Usage}:  \code{find {[}starting path(s){]} {[}search filter{]}}
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
@@ -857,7 +862,7 @@ Find by name:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} find . \PYGZhy{}name SRC\PYGZus{}HUMAN.fasta
+\PYGZgt{} find . -name SRC\PYGZus{}HUMAN.fasta
 ./SRC\PYGZus{}HUMAN.fasta
 \end{Verbatim}
 \end{quote}
@@ -869,7 +874,7 @@ Find by size: (List those entries in the directory /usr/bin that are bigger than
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} find /usr/bin \PYGZhy{}size +500k
+\PYGZgt{} find /usr/bin -size +500k
 /usr/bin/oparchive
 /usr/bin/kiconedit
 /usr/bin/opjitconv
@@ -884,7 +889,7 @@ Find by type (d=directory, f=file, l=link)
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} find . \PYGZhy{}type d
+\PYGZgt{} find . -type d
 .
 ./adir
 \end{Verbatim}
@@ -927,9 +932,9 @@ using ls -l to view entries of current directory:
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} ls –l
-drwxr\PYGZhy{}xr\PYGZhy{}x 2 dinkel gibson 4096 Sep 17 10:46 adir
-lrwxrwxrwx 1 dinkel gibson   15 Sep 17 10:45 H1.fasta \PYGZhy{}\PYGZgt{} H2.fasta
-\PYGZhy{}rw\PYGZhy{}r\PYGZhy{}\PYGZhy{}r\PYGZhy{}\PYGZhy{} 1 dinkel gibson  643 Sep 17 10:45 H2.fasta
+drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
+lrwxrwxrwx 1 dinkel gibson   15 Sep 17 10:45 H1.fasta -\PYGZgt{} H2.fasta
+-rw-r--r-- 1 dinkel gibson  643 Sep 17 10:45 H2.fasta
 \end{Verbatim}
 \end{quote}
 \begin{figure}[htbp]
@@ -948,10 +953,10 @@ Permissions are set using the \code{chmod} (\index{chmod}change mode ) command.
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} ls –l adir
-drwxr\PYGZhy{}xr\PYGZhy{}x 2 dinkel gibson 4096 Sep 17 10:46 adir
-\PYGZgt{} chmod u\PYGZhy{}w,o\PYG{o}{=}w adir
+drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
+\PYGZgt{} chmod u-w,o\PYG{o}{=}w adir
 \PYGZgt{} ls –l adir
-dr\PYGZhy{}xr\PYGZhy{}x\PYGZhy{}w\PYGZhy{} 2 dinkel gibson 4096 Sep 17 10:46 adir
+dr-xr-x-w- 2 dinkel gibson 4096 Sep 17 10:46 adir
 \end{Verbatim}
 \end{quote}
 
@@ -1025,7 +1030,7 @@ Revoke this permission:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} chmod g\PYGZhy{}x file
+\PYGZgt{} chmod g-x file
 \end{Verbatim}
 \end{quote}
 
@@ -1060,7 +1065,7 @@ To use a different username, you can use either:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} ssh \PYGZhy{}l username remote\PYGZus{}server
+\PYGZgt{} ssh -l username remote\PYGZus{}server
 \end{Verbatim}
 \end{quote}
 
@@ -1098,7 +1103,7 @@ For this to work, you need to start the ssh session with the \code{-X} parameter
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} ssh \PYGZhy{}X remote\PYGZus{}server
+\PYGZgt{} ssh -X remote\PYGZus{}server
 \end{Verbatim}
 \end{quote}
 
@@ -1141,7 +1146,7 @@ Inserting the current date into a new file:
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} \PYG{n+nb}{cd} \PYGZti{}/exercises/
-\PYGZgt{} grep \PYGZhy{}i \PYG{l+s+s2}{\PYGZdq{}src\PYGZdq{}} *.fasta \PYGZgt{} lines\PYGZus{}with\PYGZus{}src.txt
+\PYGZgt{} grep -i \PYG{l+s+s2}{"src"} *.fasta \PYGZgt{} lines\PYGZus{}with\PYGZus{}src.txt
 \end{Verbatim}
 \end{quote}
 
@@ -1166,8 +1171,6 @@ Here: use \code{ls} to show the directory contents and then \index{grep}use \cod
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
 \PYGZgt{} \PYG{n+nb}{cd} \PYGZti{}/exercises
 \PYGZgt{} ls \textbar{} grep fasta
-EPSINS.fasta
-FYN\PYGZus{}HUMAN.fasta
 P12931.fasta
 SRC\PYGZus{}HUMAN.fasta
 \end{Verbatim}
@@ -1193,6 +1196,8 @@ Do not change this variable unless you have a good reason and you know what you 
 \label{introduction:path}\label{introduction:id2}
 \index{\$PATH}\$PATH contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name
 (commands with slashes are interpreted as file names to execute, and the shell attempts to execute the files directly).
+So if the directory \emph{/usr/bin/} is in \emph{\$PATH} (which it should), then the command \code{/usr/bin/less} can be accessed by simply typing \code{less} instead of
+\code{/usr/bin/less}. How convenient!
 
 
 \subsubsection{\$PAGER}
@@ -1578,13 +1583,13 @@ intervalFile.bed
 You need to tell your computer where to find the programs we will use (for more information see section {\hyperref[introduction:path]{\emph{\$PATH}}} (\autopageref*{introduction:path})):
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} \PYG{n+nb}{export }\PYG{n+nv}{PATH}\PYG{o}{=}/net/netfile1/ds\PYGZhy{}russell/linuxForNGS/bin:\PYG{n+nv}{\PYGZdl{}PATH}
+\PYGZgt{} \PYG{n+nb}{export }\PYG{n+nv}{PATH}\PYG{o}{=}/net/netfile1/ds-russell/linuxForNGS/bin:\PYG{n+nv}{\PYGZdl{}PATH}
 \end{Verbatim}
 
 All the course data can be found in the following directory:
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-/net/netfile1/ds\PYGZhy{}russell/linuxForNGS/data
+/net/netfile1/ds-russell/linuxForNGS/data
 \end{Verbatim}
 
 Note that you do not have permission to write to this directory.
@@ -1619,7 +1624,7 @@ Recall, that when we don't know what a tool does, we can always get help (see se
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} fastqc \PYGZhy{}h
+\PYGZgt{} fastqc -h
 \end{Verbatim}
 \end{quote}
 
@@ -1627,7 +1632,7 @@ Report graphs allow us to gain a visual overview of the sequence data. To genera
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} fastqc \PYGZhy{}o \PYGZti{}/fastqcTest \PYGZhy{}noextract \PYGZhy{}f fastq rawData/arm.fastq
+\PYGZgt{} fastqc -o \PYGZti{}/fastqcTest -noextract -f fastq rawData/arm.fastq
 \end{Verbatim}
 \end{quote}
 \setbox0\vbox{
@@ -1666,7 +1671,7 @@ Use \textbf{SAMStat} to get statistics on the mapped data file in \emph{arm.fast
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samstat \PYGZhy{}h
+\PYGZgt{} samstat -h
 \end{Verbatim}
 \end{quote}
 
@@ -1711,7 +1716,7 @@ To get information on \textbf{Tophat}, open a terminal window and type:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} tophat \PYGZhy{}h
+\PYGZgt{} tophat -h
 \end{Verbatim}
 \end{quote}
 
@@ -1725,7 +1730,7 @@ Create an output directory where we can store the results of the alignment. Reme
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} mkdir \PYGZhy{}p \PYGZti{}/arm\PYGZus{}tophatOutput
+\PYGZgt{} mkdir -p \PYGZti{}/arm\PYGZus{}tophatOutput
 \end{Verbatim}
 \end{quote}
 
@@ -1733,8 +1738,8 @@ We can use the following command to run \textbf{Tophat}, to perform an alignment
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} tophat \PYGZhy{}\PYGZhy{}no\PYGZhy{}coverage\PYGZhy{}search \PYGZhy{}G geneRef/drosophila.2Lsubset.gtf \PYG{l+s+se}{\PYGZbs{}}
-\PYGZhy{}o \PYGZti{}/arm\PYGZus{}tophatOutput/ bowtieIndexes/drosophilaMelanogaster.X \PYG{l+s+se}{\PYGZbs{}}
+\PYGZgt{} tophat --no-coverage-search -G geneRef/drosophila.2Lsubset.gtf \PYG{l+s+se}{\PYGZbs{}}
+-o \PYGZti{}/arm\PYGZus{}tophatOutput/ bowtieIndexes/drosophilaMelanogaster.X \PYG{l+s+se}{\PYGZbs{}}
 rawData/arm.Xsubset.fastq
 \end{Verbatim}
 \end{quote}
@@ -1863,7 +1868,7 @@ To print a list of the parameters required and options available for each tool i
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools view \PYGZhy{}h \PYGZhy{}o \PYGZti{}/smo.sam rawData/smo.bam
+\PYGZgt{} samtools view -h -o \PYGZti{}/smo.sam rawData/smo.bam
 \end{Verbatim}
 \end{quote}
 \begin{itemize}
@@ -1885,7 +1890,7 @@ In some cases you might only want to see or generate the header of a bam file.
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools view \PYGZhy{}H rawData/smo.bam
+\PYGZgt{} samtools view -H rawData/smo.bam
 \end{Verbatim}
 \end{quote}
 
@@ -1893,7 +1898,7 @@ Now try:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools view \PYGZhy{}H rawData/smo.bam \PYGZgt{} \PYGZti{}/smo.header.sam
+\PYGZgt{} samtools view -H rawData/smo.bam \PYGZgt{} \PYGZti{}/smo.header.sam
 \end{Verbatim}
 \end{quote}
 \begin{itemize}
@@ -1913,7 +1918,7 @@ From the header of the file, can you tell which alignment program was used to ge
 \label{exercises/STEP3_viewManipulateAlignmentData_samtools:count-the-number-of-alignments-in-a-bam-file}\begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools view \PYGZhy{}c rawData/smo.bam
+\PYGZgt{} samtools view -c rawData/smo.bam
 \end{Verbatim}
 \end{quote}
 \begin{itemize}
@@ -2000,8 +2005,8 @@ Note the usage and run the command
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools merge \PYGZhy{}h header.sam \PYGZti{}/FL1\PYGZhy{}merged.bam \PYG{l+s+se}{\PYGZbs{}}
-rawData/FL1\PYGZhy{}1.bam rawData/FL1\PYGZhy{}2.bam
+\PYGZgt{} samtools merge -h header.sam \PYGZti{}/FL1-merged.bam \PYG{l+s+se}{\PYGZbs{}}
+rawData/FL1-1.bam rawData/FL1-2.bam
 \end{Verbatim}
 \end{quote}
 \begin{itemize}
@@ -2046,8 +2051,8 @@ This command is slow.
 \end{notice}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools mpileup \PYGZhy{}g \PYGZhy{}l intervalFile.bed \PYGZhy{}I \PYGZhy{}D \PYGZhy{}q 20 \PYG{l+s+se}{\PYGZbs{}}
-\PYGZhy{}f genome/dros\PYGZus{}BDGP5.25.fa rawData/arm.bam
+\PYGZgt{} samtools mpileup -g -l intervalFile.bed -I -D -q 20 \PYG{l+s+se}{\PYGZbs{}}
+-f genome/dros\PYGZus{}BDGP5.25.fa rawData/arm.bam
 \end{Verbatim}
 \end{quote}
 
@@ -2063,7 +2068,7 @@ You can take the output of one command from the “standard stream” and pipe (
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{} samtools view \PYGZhy{}u arm.bam chrX \textbar{} samtools pileup \PYGZhy{}cf dros\PYGZus{}BD5.25.fa \PYGZhy{}
+\PYGZgt{} samtools view -u arm.bam chrX \textbar{} samtools pileup -cf dros\PYGZus{}BD5.25.fa -
 \end{Verbatim}
 \end{quote}
 
@@ -2073,7 +2078,7 @@ Use \code{samtools} and \code{awk} to count the number of mapped reads in your f
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-\PYGZgt{}  samtools idxstats rawData/smo.bam \textbar{} awk \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}s+=\PYGZdl{}3\PYGZcb{} END \PYGZob{}print s\PYGZcb{}\PYGZsq{}}
+\PYGZgt{}  samtools idxstats rawData/smo.bam \textbar{} awk \PYG{l+s+s1}{'\PYGZob{}s+=\PYGZdl{}3\PYGZcb{} END \PYGZob{}print s\PYGZcb{}'}
 \end{Verbatim}
 \end{quote}
 \begin{itemize}
@@ -2099,7 +2104,7 @@ To get help
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-cufflinks \PYGZhy{}h
+cufflinks -h
 \end{Verbatim}
 \end{quote}
 
@@ -2119,9 +2124,9 @@ Run the command:
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-cufflinks \PYGZhy{}G geneRef/dros\PYGZus{}BDGP5.25.gtf \PYGZhy{}\PYGZhy{}upper\PYGZhy{}quartile\PYGZhy{}norm \PYG{l+s+se}{\PYGZbs{}}
-\PYGZhy{}\PYGZhy{}compatible\PYGZhy{}hits\PYGZhy{}norm \PYGZhy{}p 2 \PYGZhy{}o \PYGZti{}/ARM\PYGZhy{}1\PYGZus{}CufflinksOutput \PYG{l+s+se}{\PYGZbs{}}
-ARM\PYGZhy{}1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam
+cufflinks -G geneRef/dros\PYGZus{}BDGP5.25.gtf --upper-quartile-norm \PYG{l+s+se}{\PYGZbs{}}
+--compatible-hits-norm -p 2 -o \PYGZti{}/ARM-1\PYGZus{}CufflinksOutput \PYG{l+s+se}{\PYGZbs{}}
+ARM-1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam
 \end{Verbatim}
 \end{quote}
 \setbox0\vbox{
@@ -2191,11 +2196,11 @@ For the control sample these are \code{FL1-1\_tophatOutput/accepted\_hits.q20.sa
 \begin{quote}
 
 \begin{Verbatim}[frame=single, rulecolor=\color{lightgray}, fontfamily=courier, commandchars=\\\{\}]
-cuffdiff \PYGZhy{}o \PYGZti{}/ARM\PYGZus{}vs\PYGZus{}CTRL\PYGZus{}diffOut \PYGZhy{}b genome/dros\PYGZus{}BDGP5.25.fa \PYGZhy{}p 8 \PYG{l+s+se}{\PYGZbs{}}
-\PYGZhy{}L FL1\PYGZus{}ctrl,arm  \PYGZhy{}u geneRef/dros\PYGZus{}BDGP5.25.gtf \PYG{l+s+se}{\PYGZbs{}}
-FL1\PYGZhy{}1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam,\PYG{l+s+se}{\PYGZbs{}}
-FL2\PYGZhy{}1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam \PYG{l+s+se}{\PYGZbs{}}
-ARM\PYGZhy{}1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam
+cuffdiff -o \PYGZti{}/ARM\PYGZus{}vs\PYGZus{}CTRL\PYGZus{}diffOut -b genome/dros\PYGZus{}BDGP5.25.fa -p 8 \PYG{l+s+se}{\PYGZbs{}}
+-L FL1\PYGZus{}ctrl,arm  -u geneRef/dros\PYGZus{}BDGP5.25.gtf \PYG{l+s+se}{\PYGZbs{}}
+FL1-1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam,\PYG{l+s+se}{\PYGZbs{}}
+FL2-1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam \PYG{l+s+se}{\PYGZbs{}}
+ARM-1\PYGZus{}tophatOutput/accepted\PYGZus{}hits.q20.sam
 \end{Verbatim}
 \end{quote}
 \setbox0\vbox{
@@ -2497,5 +2502,5 @@ NGS part:   Grainne Kerr
 
 
 \renewcommand{\indexname}{Index}
-\printindex
+
 \end{document}

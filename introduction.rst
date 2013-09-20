@@ -6,18 +6,42 @@ Introduction to the Linux Commandline
 Why Use the Commandline
 ***********************
 
--   It's **fast**. Productivity is a word that gets tossed around a lot by so-called power users, but the command line can really streamline your computer use, assuming you learn to use it right.
--   It's **easier to get help**. The command line may not be the easiest thing to use, but it makes life a whole lot easier for people trying to help you and for yourself when looking for help, especially over the internet. Many times it's as simple as the helper posting a few commands and some instructions and the recipient copying and pasting those commands. Anyone who has spent hours listening to someone from tech support say something like, “OK, now click this, then this, then select this menu command” knows how frustrating the GUI alternative can be. 
--   It's nearly **universal**. There are hundreds of Linux distros out there, each with a slightly different graphical environment. Thankfully, the various distros do have one common element: the command line. There are distro-specific commands, but the bulk of commands will work on any Linux system.
--   It's **powerful**. The companies behind those other operating systems try their best to stop a user from accidentally screwing up their computer. Doing this involves hiding a lot of the components and tools that could harm a computer away from novices. Linux is more of an open book, which is due in part to its prominent use of the command line.
+- It's **fast**. Once you've learned it right, you can use the commandline tools much faster than
+  any gui pendant.
+
+- It's **easier to get help**. The command line makes life a whole lot easier for people trying to seek help and for people trying to give help, 
+  especially over the internet. Many times it's as simple as pasting the output of a command or an
+  error message into a search engine to find a solution. Trying to describe a workflow of a GUI
+  program can be tedious at best...
+
+- It's **flexible**. The multitude of command line tools which all have multiple options allow to
+  use 
+
+- It's nearly **universal**. There are many different Linux distributions out there, each with a slightly
+  different graphical environment. Thankfully, each of them has one common element: the
+  command line. There are distro-specific commands, but the bulk of commands (all of which you'll
+  learn here) should work on any Linux system.
 
 **************************************************
 General Remarks Regarding Using UNIX/Linux Systems
 **************************************************
--   **Test before run**. Anything written here has to be taken with a grain of salt. On another system – be it a different Linux distribution or another UNIXoid operating system – you might find the same command but without the support of some of the options tought here. It is even possible, that the same option has a different meaning on another system. With this in mind always make sure to test your commands (especially the “dangerous” ones which remove or modify files) when switching from one system to the other.
--   **The Linux/UNIX environment**. The behaviour of many commands is influenced or controlled by the so-called “environment”. This environment is the sum of all your environment variables. Some of these environment variables will be shown towards the end of this course.
+
+-   **Test before run**. Anything written here has to be taken with a grain of salt. On another
+    system – be it a different Linux distribution or another UNIXoid operating system – you might
+    find the same command but without the support of some of the options tought here. It is even
+    possible, that the same option has a different meaning on another system. With this in mind
+    always make sure to test your commands (especially the “dangerous” ones which remove or modify
+    files) when switching from one system to the other.
+
+-   **The Linux/UNIX environment**. The behaviour of many commands is influenced or controlled by
+    the so-called “environment”. This environment is the sum of all your environment variables. Some
+    of these environment variables will be shown towards the end of this course.
+
 -   **UPPERCASE, lowercase**. Don’t forget that everything is case-sensitive.
--   **The Filesystem**. Linux filesystems start on top at the root directory (sic!) “/” which hierarchically broadens towards the ground.  The separator between directories or directories and files in Linux is the slash (“/”).
+
+-   **The Filesystem**. Linux filesystems start on top at the root directory (sic!) “/” which
+    hierarchically broadens towards the ground.  The separator between directories or directories
+    and files in Linux is the slash (“/”).
 
 
 .. _figure-filesystem:

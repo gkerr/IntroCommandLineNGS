@@ -72,6 +72,50 @@ Since Linux incorporates commands from different sources, options can be availab
   > tar cf file.tar -C .. file/
   > ps auxgww
 
+
+
+
+******************************************
+Useful Terminal Tools & Keyboard Shortcuts
+******************************************
+
+Navigationg previous commands
+=============================
+
+.. TODO: use unicode character of up/down
+
+You can use the "up" and "down" arrow keys to navigate previously entered command and the "left" and
+"right" keys to modify it before re-executing it.
+
+Interupting commands
+====================
+
+Whenever a program gets stuck or takes too long to finish, you can *interrupt* it with the shortcut
+``CTRL-C``.
+
+clear – Clear the “screen”
+==========================
+
+**Usage**:  ``clear``
+
+ :: 
+
+  > clear
+
+In case the output of the terminal/screen gets cluttered, you can use ``clear`` to :index:`redraw <clear>` the screen... 
+
+If this doesn't work, you can use ``reset`` to perform a re-initialization of the terminal:
+
+reset – Reset your terminal
+===========================
+
+**Usage**:  ``reset [options]``
+
+ :: 
+
+  > reset
+
+
 ******************************
 A Journey Through the Commands
 ******************************
@@ -527,7 +571,7 @@ file – determine the filetype
   > file SRC_HUMAN.fasta
   SRC_HUMAN.fasta: ASCII text
 
-.. note:: The command :index:`file` uses certain tests and some magic to determine the type of a file
+.. note:: The command ``file`` uses certain tests and some magic to determine the type of a :index:`file`
 
 which – find a (executable) command
 -----------------------------------
@@ -570,7 +614,7 @@ find – search/find files in any given directory
   ./SRC_HUMAN.fasta
 
 
-- Find by size: (List those entries in the directory /usr/bin that are bigger than 500kBytes)
+- Find by size: (List those entries in the directory ``/usr/bin`` that are bigger than 500kBytes)
 
  :: 
 
@@ -589,30 +633,6 @@ find – search/find files in any given directory
   .
   ./adir
 
-Useful Terminal Tools
-=====================
-
-clear – Clear the “screen”
---------------------------
-
-**Usage**:  ``clear``
-
- :: 
-
-  > clear
-
-In case the output of the terminal/screen gets cluttered, you can use ``clear`` to :index:`clear` the screen... 
-
-If this doesn't work, you can use ``reset`` to perform a re-initialization of the terminal:
-
-reset – Reset your terminal
----------------------------
-
-**Usage**:  ``reset [options]``
-
- :: 
-
-  > reset
 
 Permissions
 ===========
@@ -753,12 +773,16 @@ IO and Redirections
 Redirect
 --------
 
-:index:`Redirect <redirect>` the output of one program into e.g. a file: (Caution: you can easily overwrite files by this!) 
+:index:`Redirect <redirect>` the output of one program into e.g. a file: 
+
+
 Inserting the current date into a new file: 
 
  :: 
 
   > date > file_containing_date
+
+.. Warning:: You can easily overwrite files by this! 
 
 :index:`Filtering <grep>` lines containing the term “src” from FASTA files and inserting them into the file lines_with_src.txt: 
 
@@ -781,8 +805,9 @@ Append
 Pipe
 ----
 
-Use the :index:`| <|, pipe>` pipe symbol (``|``) to feed the output of one program into the next program. 
-Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``grep`` to only show those that contain fasta in their name: 
+Use the :index:`pipe <|, pipe>` symbol (``|``) to feed the output of one program into the next program. 
+Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``grep`` to only show those 
+that contain 'fasta' in their name: 
 
  :: 
 
@@ -809,10 +834,17 @@ C functions ``getpwuid`` and ``getuid,`` :index:`$HOME` is often used for conven
 $PATH
 -----
 
-:index:`$PATH` contains a colon-separated list of directories that the shell searches for commands that do not contain a slash in their name 
+:index:`$PATH` contains a colon-separated (':') list of directories that the shell searches for commands that do not contain a slash in their name 
 (commands with slashes are interpreted as file names to execute, and the shell attempts to execute the files directly).
 So if the directory */usr/bin/* is in `$PATH` (which it should), then the command ``/usr/bin/less`` can be accessed by simply typing ``less`` instead of
 ``/usr/bin/less``. How convenient!
+
+.. Warning:: If you ever need to change this variable, you should always **append** to it, rather
+   than overwriting it: 
+
+   Overwriting (bad): ``export PATH=/my/new/path``; 
+
+   Appending (good): ``export PATH=$PATH:/my/new/path``
 
 $PAGER
 ------

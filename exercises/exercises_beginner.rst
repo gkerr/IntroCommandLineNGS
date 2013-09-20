@@ -39,7 +39,7 @@ Permissions
 #. Use the command ``which date`` to find out where the date program is located.
 #. Copy this date program into the directory adir.
 #. Check the permissions of the copied program date
-#. Change the permissions on date to remove the executable permissions.
+#. Change your permissions on date to remove the executable permissions.
 #. Check the permissions of the program date
 #. Try running it as ``./date`` or ``adir/date`` (depending on your current working directory)
 #. Change the permissions back so that the file is executable.

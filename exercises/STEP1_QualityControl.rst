@@ -47,7 +47,7 @@ Report graphs allow us to gain a visual overview of the sequence data. To genera
 
  :: 
 
-  > fastqc -o ~/fastqcTest -noextract -f fastq rawData/arm.fastq
+  > fastqc -o ~/fastqcTest --noextract -f fastq rawData/arm.fastq
 
 .. topic:: Review Questions
   

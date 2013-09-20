@@ -87,6 +87,13 @@ Navigationg previous commands
 You can use the "up" and "down" arrow keys to navigate previously entered command and the "left" and
 "right" keys to modify it before re-executing it.
 
+Copying / Pasting using the mouse
+=================================
+
+On most Linux systems you can use the mouse to select text and then press the middle mouse button to
+paste that text at the position where your cursor is. This is especially useful for long directory
+or filenames.
+
 Interupting commands
 ====================
 

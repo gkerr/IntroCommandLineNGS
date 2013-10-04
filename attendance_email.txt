@@ -1,10 +1,10 @@
 Dear XXX,
 
 This email is to confirm that you attended the course 'Introduction to
-the command line for NGS analysis' organised by scientists from
-Heidelberg Unseminars in Bioinformatics. The course was held on Friday
-September 20, 2013, at BioQuant, Im Neuenheimer Feld 267, 69120
-Heidelberg Germany.
+the command line for NGS analysis' (courses.hub-hub.de/ngs) organised by
+scientists from Heidelberg Unseminars in Bioinformatics. The course was
+held on Friday September 20, 2013, at BioQuant, Im Neuenheimer Feld 267,
+69120 Heidelberg Germany.
 
 Best wishes,
 

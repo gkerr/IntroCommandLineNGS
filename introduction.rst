@@ -6,42 +6,29 @@ Introduction to the Linux Commandline
 Why Use the Commandline
 ***********************
 
-- It's **fast**. Once you've learned it right, you can use the commandline tools much faster than
-  any gui pendant.
-
-- It's **easier to get help**. The command line makes life a whole lot easier for people trying to seek help and for people trying to give help, 
-  especially over the internet. Many times it's as simple as pasting the output of a command or an
-  error message into a search engine to find a solution. Trying to describe a workflow of a GUI
-  program can be tedious at best...
-
-- It's **flexible**. The multitude of command line tools which all have multiple options allow to
-  use 
-
-- It's nearly **universal**. There are many different Linux distributions out there, each with a slightly
-  different graphical environment. Thankfully, each of them has one common element: the
-  command line. There are distro-specific commands, but the bulk of commands (all of which you'll
-  learn here) should work on any Linux system.
+- It's **fast**. Once you've learned it right, you can use the commandline tools much faster than any gui pendant.
+- It's **easier to get help**. The command line makes life a whole lot easier for people trying to seek help and for people trying to give help, especially over the internet. Many times it's as simple as pasting the output of a command or an error message into a search engine to find a solution. Trying to describe a workflow of a GUI program can be tedious at best...
+- It's **flexible**. The multitude of command line tools which all have multiple options allow to use 
+- It's nearly **universal**. There are many different Linux distributions out there, each with a slightly different graphical environment. Thankfully, each of them has one common element: the command line. There are distro-specific commands, but the bulk of commands (all of which you'll learn here) should work on any Linux system.
 
 **************************************************
 General Remarks Regarding Using UNIX/Linux Systems
 **************************************************
 
--   **Test before run**. Anything written here has to be taken with a grain of salt. On another
-    system – be it a different Linux distribution or another UNIXoid operating system – you might
-    find the same command but without the support of some of the options tought here. It is even
-    possible, that the same option has a different meaning on another system. With this in mind
-    always make sure to test your commands (especially the “dangerous” ones which remove or modify
-    files) when switching from one system to the other.
+- **Test before run**. Anything written here has to be taken with a grain of salt. On another system - be it a different
+  Linux distribution or another UNIXoid operating system - you might find the same command but without the support of
+  some of the options tought here. It is even possible, that the same option has a different meaning on another system.
+  With this in mind always make sure to test your commands (specially the "dangerous" ones which remove or modify files)
+  when switching from one system to the other.
 
--   **The Linux/UNIX environment**. The behaviour of many commands is influenced or controlled by
-    the so-called “environment”. This environment is the sum of all your environment variables. Some
-    of these environment variables will be shown towards the end of this course.
+- **The Linux/UNIX environment**. The behaviour of many commands is influenced or controlled by the so-called
+  "environment". This environment is the sum of all your environment variables. Some of these environment variables will
+  be shown towards the end of this course.
 
--   **UPPERCASE, lowercase**. Don’t forget that everything is case-sensitive.
+- **UPPERCASE, lowercase**. Don't forget that everything is case-sensitive.
 
--   **The Filesystem**. Linux filesystems start on top at the root directory (sic!) “/” which
-    hierarchically broadens towards the ground.  The separator between directories or directories
-    and files in Linux is the slash (“/”).
+- **The Filesystem**. Linux filesystems start on top at the root directory (sic!) "/" which hierarchically broadens
+  towards the ground.  The separator between directories or directories and files in Linux is the slash ("/").
 
 
 .. _figure-filesystem:
@@ -50,10 +37,10 @@ General Remarks Regarding Using UNIX/Linux Systems
   Depending on the Linux distribution you might or might not find all of above
   directories. Most important directories for you are ``/bin`` and ``/usr/bin``
   (sometimes also ``/usr/local/bin``) which contain the user software, ``/home`` which
-  usually contains the users’ homedirectories and ``/tmp`` which can be used to store
+  usually contains the users' homedirectories and ``/tmp`` which can be used to store
   temporary data (beware: Its content is regularly removed!).
 
-.. note:: The terms “directory” and “folder” are used interchangeably in this document.
+.. note:: The terms "directory" and "folder" are used interchangeably in this document.
 
 ***********************************
 General Structure of Linux Commands
@@ -75,7 +62,7 @@ forms: The short form ``-s`` (just a single character) or the long form ``--stri
   > man -h
   > man --help
 
-Short options are usually – though not always – concatenable:
+Short options are usually - though not always - concatenable:
 
  ::
 
@@ -86,10 +73,10 @@ Some options require an additional argument, which is added with a blank to the 
 
  :: 
 
-  > ls -I “*.pdf”
-  > ls --ignore=”*.pdf”
+  > ls -I "*.pdf"
+  > ls --ignore="*.pdf"
 
-Since Linux incorporates commands from different sources, options can be available in one or both forms and you’ll also encounter options with no dash at all and all kinds of mixtures:
+Since Linux incorporates commands from different sources, options can be available in one or both forms and you'll also encounter options with no dash at all and all kinds of mixtures:
 
  :: 
 
@@ -151,7 +138,7 @@ reset – Reset your terminal
 A Journey Through the Commands
 ******************************
 
-Please note that all examples and usage instructions below are just a glimpse of what you can do and reflect our opinion on what’s important and what’s not. Most of these commands support many more options and different usages. Consult the manpages to find them.
+Please note that all examples and usage instructions below are just a glimpse of what you can do and reflect our opinion on what's important and what's not. Most of these commands support many more options and different usages. Consult the manpages to find them.
 Typographical conventions: Commands and examples are written in Courier.  User Input is written in Courier bold and placeholders are generally written in italic.
 
 .. _help:
@@ -161,7 +148,7 @@ Getting Help
 
 ``-h/--help`` option, no parameters
 
-Many commands support a “help” option, either through ``-h`` or through ``--help``. 
+Many commands support a "help" option, either through ``-h`` or through ``--help``. 
 Other commands will show a help page or at least a short usage overview if you provide incorrect commandline options
 
 man - show the manual page of a command
@@ -186,7 +173,7 @@ For the navigation within a :index:`man <man>`-page see the chapter regarding le
 
 .. note:: The behaviour of man is dependent of the $PAGER environment variable
 
-apropos – list manpages containing a keyword in their description
+apropos - list manpages containing a keyword in their description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Usage**: ``apropos keyword``
@@ -210,7 +197,7 @@ The ``/usr/share/doc`` directory in some Linux distributions contains additional
 Who am I, where am I
 ====================
 
-whoami – Print your username
+whoami - Print your username
 ----------------------------
 
 **Usage**: ``whoami``
@@ -220,7 +207,7 @@ whoami – Print your username
   > whoami
   bg_36student
 
-hostname – Print the name of the computer
+hostname - Print the name of the computer
 -----------------------------------------
 
 **Usage**: ``hostname``
@@ -230,7 +217,7 @@ hostname – Print the name of the computer
   > hostname
   pc-teach01
 
-pwd – Print the current working directory
+pwd - Print the current working directory
 -----------------------------------------
 
 **Usage**: ``pwd`` 
@@ -240,7 +227,7 @@ pwd – Print the current working directory
   > pwd
   /home/bg_36student
 
-date – Print current date and time
+date - Print current date and time
 ----------------------------------
 
 **Usage**: ``date``
@@ -255,7 +242,7 @@ date – Print current date and time
 Moving Around
 =============
 
-cd – Change the working directory
+cd - Change the working directory
 ---------------------------------
 
 **Usage**: ``cd [new_directory]``
@@ -270,12 +257,12 @@ cd – Change the working directory
 
 Special directories:
 
-- “``.``”:  The current working directory
-- “``..``”: The parent directory of the current working directory
-- “``~``”:  Your homedirectory
+- "``.``":  The current working directory
+- "``..``": The parent directory of the current working directory
+- "``~``":  Your homedirectory
 
-.. note:: Using :index:`cd` without a directory is equivalent to “``cd ~``” and changes into the users’s homedirectory
-.. note:: Please note the difference between absolute paths (starting with "``/``") and relative paths (starting with a directory name)
+.. note:: Using :index:`cd` without a directory is equivalent to "``cd ~``" and changes into the users's homedirectory
+.. note:: Please note the difference between absolute pathes (starting with "``/``") and relative pathes (starting with a directory name)
 
 ::
 
@@ -294,7 +281,7 @@ Special directories:
   /usr/bin
 
 
-See What’s Around
+See What's Around
 =================
 
 ----------
@@ -313,7 +300,7 @@ ls - List directory contents
 
   > ls
   /home/bg_36student
-  > ls –l /bin/date
+  > ls -l /bin/date
   -rwxr-xr-x 1 root root 54920 Dec 18  2012 /bin/date
 
 
@@ -321,9 +308,9 @@ Useful options:
 
 -l      Long listing with permissions, user, group and last modification date
 -1      Print listing in one column only 
--a      Show all files (hidden, “.” and “..”)
--A      Show almost all files (hidden, but not “.” and “..”) 
--F      Show filetypes (nothing = regular file, “/” = directory, “*” = executable file, “@” = symbolic link)
+-a      Show all files (hidden, "." and "..")
+-A      Show almost all files (hidden, but not "." and "..") 
+-F      Show filetypes (nothing = regular file, "/" = directory, "*" = executable file, "@" = symbolic link)
 -d      Show directory information instead of  directory content
 -t      Sort listing by modification time (most recent on top)
 
@@ -331,20 +318,20 @@ Useful options:
 Digression: Shell globs
 -----------------------
 
-Files and folders can’t only be referred to with their full name, but also with so-called “Shell Globs”, which are a kind of simple pattern to address groups of files and folders.  Instead of explicit names you can use the following placeholders:
+Files and folders can't only be referred to with their full name, but also with so-called "Shell Globs", which are a kind of simple pattern to address groups of files and folders.  Instead of explicit names you can use the following placeholders:
 
 - ``?:``  Any single character
 - ``*:``  Any number of any character (including no character at all)
-- ``[...]:``    One of the characters included in the brackets.  Use “-“ to define ranges  of characters
+- ``[...]:``    One of the characters included in the brackets.  Use "-" to define ranges  of characters
 
 Examples:
 
-- ``*.pdf:``  All files having the extension “.pdf”
+- ``*.pdf:``  All files having the extension ".pdf"
 - ``?.jpg:``  Jpeg file consisting of only one character
-- ``[0-9]*.txt:`` All files starting with a number and having the extension “.txt”
+- ``[0-9]*.txt:`` All files starting with a number and having the extension ".txt"
 - ``*.???:``  All files having a three-character extension
 
-.. note:: The special directory “``~``” mentioned above is a shell glob, too.
+.. note:: The special directory "``~``" mentioned above is a shell glob, too.
 
 Organize Files and Folders
 ==========================
@@ -387,20 +374,20 @@ touch – Create a file or change last modification date of an existing file
 
  :: 
 
-  > ls –l ~/exercises/P12931.txt
+  > ls -l ~/exercises/P12931.txt
   -rw-r--r-- 1 dinkel gibson  53K Aug 11 14:21 P12931.txt
   > touch ~/exercises/P12931.txt
-  > ls –l ~/exercises/P12931.txt
+  > ls -l ~/exercises/P12931.txt
   -rw-r--r-- 1 dinkel gibson  53K Sep 18 19:16 P12931.txt
 
-rm – Remove files and directories
+rm - Remove files and directories
 ---------------------------------
 
 **Usage**:  ``rm [options] file(s)``
 
  :: 
 
-  rm –r [options] directory/ies
+  rm -r [options] directory/ies
   > ls afile
   afile
   > rm afile
@@ -413,9 +400,9 @@ rm – Remove files and directories
 -r  Remove recursively
 -f  Force the removal (no questions, no errors if a file doesn't exist)
 
-.. note:: rm without the –i option will usually not ask you if you really want to remove the file or directory
+.. note:: rm without the -i option will usually not ask you if you really want to remove the file or directory
 
-mv – Move and rename files and folders
+mv - Move and rename files and folders
 --------------------------------------
 
 **Usage**:  ``mv [options] sourcefile destinationfile``
@@ -456,10 +443,10 @@ mkdir – Create a new directory
 :: 
 
   > mkdir adir/bdir
-  mkdir: cannot create directory `adir/bdir': No such file or directory
+  mkdir: cannot create directory 'adir/bdir': No such file or directory
   > mkdir –p adir/bdir
 
-rmdir – Remove an empty directory
+rmdir - Remove an empty directory
 ---------------------------------
 
 **Usage**:  ``rmdir directory``
@@ -474,7 +461,7 @@ rmdir – Remove an empty directory
 View Files
 ==========
 
-cat – Print files on terminal (concatenate)
+cat - Print files on terminal (concatenate)
 -------------------------------------------
 
 **Usage**:  ``cat [options] file(s)``
@@ -488,7 +475,7 @@ cat – Print files on terminal (concatenate)
 .. note:: The command :index:`cat` only makes sense for short files or for e.g. combining several files into one.  See the redirection examples later.
 
 
-less – View and navigate files
+less - View and navigate files
 ------------------------------
 
 **Usage**:  ``less [options] file(s)``
@@ -498,7 +485,7 @@ less – View and navigate files
   > less  P12931.fasta backup_of_P12931.fasta
   [...]
 
-.. note:: This is the default “pager” for manpages under Linux unless you redefine your $PAGER environment variable
+.. note:: This is the default "pager" for manpages under Linux unless you redefine your $PAGER environment variable
 
 **Navigation within less**:
 
@@ -508,17 +495,17 @@ Key(s):                                 Effect:
 up, down, right, left:                  use cursor keys
 top of document:                        g
 bottom of document:                     G
-search:                                 “/” + search-term
+search:                                 "/" + search-term
 find next match:                        n
 find previous match:                    N 
 quit:                                   q
 ===================================    =======
 
 
-Extracting Information from Files
+Extracting Informations from Files
 ==================================
 
-grep – Find lines matching a pattern in textfiles
+grep - Find lines matching a pattern in textfiles
 -------------------------------------------------
 
 :index:`Grep <grep>` is a command-line utility for searching plain-text data sets for lines matching a regular expression. 
@@ -543,7 +530,7 @@ grep – Find lines matching a pattern in textfiles
 -L      List files without matches
 -c      Print count of matching lines for each file
 
-head – Print first lines of a textfile
+head - Print first lines of a textfile
 --------------------------------------
 
 :index:`Head <head>` is a program on Unix and Unix-like systems used to display the beginning of a text file or piped data.
@@ -568,14 +555,16 @@ head – Print first lines of a textfile
 
 -n num  Print num lines (default is 10)
 
-tail – Print last lines of a textfile
+tail - Print last lines of a textfile
 -------------------------------------
+
+The :index:`tail` utility displays the contents of file or, by default, its standard input, to the standard output.
 
 **Usage**:  ``tail [options] file(s)``
 
  :: 
 
-  > tail –n 3 /etc/passwd
+  > tail -n 3 /etc/passwd
   xfs:x:43:43:X Font Server:/etc/X11/fs:/sbin/nologin
   gdm:x:42:42::/var/gdm:/sbin/nologin
   sabayon:x:86:86:Sabayon user:/home/sabayon:/sbin/nologin
@@ -588,7 +577,7 @@ tail – Print last lines of a textfile
 Useful Filetools
 ================
 
-file – determine the filetype
+file - determine the filetype
 -----------------------------
 
 **Usage**:  ``file [options] file(s)``
@@ -602,9 +591,9 @@ file – determine the filetype
   > file SRC_HUMAN.fasta
   SRC_HUMAN.fasta: ASCII text
 
-.. note:: The command ``file`` uses certain tests and some magic to determine the type of a :index:`file`
+.. note:: The command :index:`file` uses certain tests and some magic to determine the type of a file
 
-which – find a (executable) command
+which - find a (executable) command
 -----------------------------------
 
 **Usage**:  ``which [options] command(s)``
@@ -617,7 +606,7 @@ which – find a (executable) command
   /usr/bin/eclipse
   >
 
-find – search/find files in any given directory
+find - search/find files in any given directory
 -----------------------------------------------
 
 **Usage**:  ``find [starting path(s)] [search filter]``
@@ -672,7 +661,7 @@ using ls -l to view entries of current directory:
 
  :: 
 
-  > ls –l
+  > ls -l
   drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
   lrwxrwxrwx 1 dinkel gibson   15 Sep 17 10:45 H1.fasta -> H2.fasta
   -rw-r--r-- 1 dinkel gibson  643 Sep 17 10:45 H2.fasta
@@ -688,10 +677,10 @@ Permissions are set using the ``chmod`` (:index:`change mode<chmod>` ) command.
 
  :: 
 
-  > ls –l adir
+  > ls -l adir
   drwxr-xr-x 2 dinkel gibson 4096 Sep 17 10:46 adir
   > chmod u-w,o=w adir
-  > ls –l adir
+  > ls -l adir
   dr-xr-x-w- 2 dinkel gibson 4096 Sep 17 10:46 adir
 
 The mode is composed of
@@ -815,7 +804,7 @@ Inserting the current date into a new file:
 
 .. Warning:: You can easily overwrite files by this! 
 
-:index:`Filtering <grep>` lines containing the term “src” from FASTA files and inserting them into the file lines_with_src.txt: 
+:index:`Filtering <grep>` lines containing the term "src" from FASTA files and inserting them into the file lines_with_src.txt: 
 
  :: 
 
@@ -836,9 +825,8 @@ Append
 Pipe
 ----
 
-Use the :index:`pipe <|, pipe>` symbol (``|``) to feed the output of one program into the next program. 
-Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``grep`` to only show those 
-that contain 'fasta' in their name: 
+Use the :index:`| <|, pipe>` pipe symbol (``|``) to feed the output of one program into the next program. 
+Here: use ``ls`` to show the directory contents and then :index:`use <grep>` ``grep`` to only show those that contain fasta in their name: 
 
  :: 
 

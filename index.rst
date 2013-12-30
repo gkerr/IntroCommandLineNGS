@@ -7,18 +7,19 @@ Introduction to the Linux Commandline for NGS analyses
 ======================================================
 
 .. toctree::
+   :maxdepth: 2
 
 
-  introduction
-  exercises/exercises_beginner.rst
-
-  exercises/known_file_formats.rst
-  exercises/file.rst
-  exercises/STEP1_QualityControl.rst
-  exercises/STEP2_alignRNASeqReads.rst
-  exercises/STEP3_viewManipulateAlignmentData_samtools.rst
-  exercises/STEP4_CUFFLINKS_DE.rst
-
-  ReadingList.rst
-
-  acknowledgments.rst
+   introduction
+   exercises/exercises_beginner.rst
+ 
+   exercises/known_file_formats.rst
+   exercises/file.rst
+   exercises/STEP1_QualityControl.rst
+   exercises/STEP2_alignRNASeqReads.rst
+   exercises/STEP3_viewManipulateAlignmentData_samtools.rst
+   exercises/STEP4_CUFFLINKS_DE.rst
+ 
+   ReadingList.rst
+ 
+   acknowledgments.rst

@@ -3,7 +3,7 @@ Introduction to the Linux Commandline
 #####################################
 
 The following introduction to the Linux commandline
-is taken from course material tought at the European Molecular Biology Laboratory (EMBL) in Heidelberg
+is taken from course material taught at the European Molecular Biology Laboratory (EMBL) in Heidelberg,
 compiled by Frank Thommen \& Holger Dinkel.
 
 ***********************
